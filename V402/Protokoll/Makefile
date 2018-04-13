@@ -23,6 +23,7 @@ build/plot2.pdf: plot2.py data1.txt data2.txt data3.txt matplotlibrc header-matp
 # hier weitere Abhängigkeiten für build/main.pdf deklarieren:
 build/main.pdf: build/plot.pdf
 								build/fig1.png
+								build/fig2.png
 
 build/main.pdf: FORCE | build
 	  TEXINPUTS="$(call translate,build:)" \
