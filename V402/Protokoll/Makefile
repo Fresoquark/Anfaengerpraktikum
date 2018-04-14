@@ -20,10 +20,14 @@ build/plot1.pdf: plot1.py data/data1.txt data/data2.txt data/data3.txt matplotli
 build/plot2.pdf: plot2.py data/data1.txt data/data2.txt data/data3.txt matplotlibrc header-matplotlib.tex | build
 	TEXINPUTS="$(call translate,$(pwd):)" python plot2.py
 
+build/plot3.pdf: plot3.py matplotlibrc header-matplotlib.tex | build
+	TEXINPUTS="$(call translate,$(pwd):)" python plot3.py
+
 # hier weitere Abhängigkeiten für build/main.pdf deklarieren:
 build/main.pdf: build/plot.pdf
 build/main.pdf: build/plot1.pdf
 build/main.pdf: build/plot2.pdf
+build/main.pdf: build/plot3.pdf
 build/main.pdf: build/fig1.png
 build/main.pdf: build/fig2.png
 

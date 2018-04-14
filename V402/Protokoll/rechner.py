@@ -22,9 +22,51 @@ phiu = unp.uarray(phimr, phimfr)
 
 n = unp.sin((np.deg2rad(eta) + phiu)/2)/(unp.sin(phiu/2))
 
+n2 = np.array([3.08, 3.10, 3.12, 3.15, 3.18, 3.20, 3.24, 3.29])
+lamda = np.array([643.85, 576.96, 546.07, 508.58, 479.99, 467.82, 404.65, 365.02])
+
+def f(lamda, a, b):
+    return a - b * lamda**2
+
+params, covariance_matrix = curve_fit(f, lamda, n2, p0=(0.5,0.5))
+
+errors = np.sqrt(np.diag(covariance_matrix))
+
+As0 = params[0]
+As2 = params[1]
+
+print('As0 =', params[0], '+-', errors[0])
+print('As2 =', params[1], '+-', errors[1])
+
+sn2ssum = (n2 - As0 + As2 * lamda**2)**2
+sn2s = 1/6 * np.sum(sn2ssum)
+
+print('sn2ssum= ', sn2ssum)
+print('sn2s= ', sn2s)
+
+def g(lamda, a, b):
+    return a + b / lamda**2
+
+params, covariance_matrix = curve_fit(g, lamda, n2, p0=(0.5,0.5))
+
+errors = np.sqrt(np.diag(covariance_matrix))
+
+A0 = params[0]
+A2 = params[1]
+
+print('A0 =', params[0], '+-', errors[0])
+print('A2 =', params[1], '+-', errors[1])
+
+sn2sum = (n2 - A0 - A2 * lamda**2)**2
+sn2 = 1/6 * np.sum(sn2sum)
+
+print('sn2sum= ', sn2sum)
+print('sn2= ', sn2)
+
 print('phi= ', phi)
 print('phim= ', phim)
 print('phimf= ', phimf)
 print('eta= ', eta)
 print('phiu= ', phiu)
 print('n= ', n)
+print('n= ', n**2)

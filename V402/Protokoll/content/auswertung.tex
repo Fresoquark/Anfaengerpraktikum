@@ -165,4 +165,33 @@ Nun muss den bestimmten Brechungsindices eine entsprechende Dispersionskurve zug
 Dafür muss zwischen zwei Arten unterschieden werden.
 Der normalen Dispersion, wie in Gleichung \ref{eqn:4} dargestellt und der anomalen Dispersion, dargestellt in Gleichung \ref{eqn:5}.
 Die entsprechenden Verläufe sind in Abbildung \ref{fig:2} aufgetragen.
-Dafür werden die Wertepaare in einem Diagramm aufgetragen und mitteld der Methode der kleinsten Quadrate mit den Dispersionsgleichungen verglichen.
+Die Quadrate der Brechungsindices wurde in Abbildung \ref{fig:Brechungsplot} gegen die Wellenlänge aufgetragen.
+Hier kann man sehen, dass mit hoher Wahrscheinlichkeit eine normale Dispersionsrelation vorliegt.
+
+\begin{figure}
+  \centering
+  \includegraphics[scale=0.6]{build/plot3.pdf}
+  \caption{Die Quadrate der Brechungsindices in Abhängigkeit der Wellenlänge}
+  \label{fig:Brechungsplot}
+\end{figure}
+
+Nun werden für die Gleichungen \ref{eqn:4} und \ref{eqn:5} die entsprechenden A$_i$, bzw A'$_i$ -Werte gefittet.
+Dies erfolgt mit numpy und es ergeben sich folgende Werte:
+
+\begin{align*}
+  A_0 &= 2.99 \pm 0.01 \\
+  A_2 &= 42087.30 \pm 2904.23 \\
+  A'_0 &= 3.36 \pm 0.02 \\
+  A'_2 &= (7.59 \pm 0.84) * 10^{-7} \\
+\end{align*}
+
+Mit diesen wird jetzt die Summe der Abstandsquadrate nach folgenden Formel berechnet:
+
+\begin{align}
+  s^2_n &= \frac{1}{z - 2} \sum_{i=1}^z \left\{n^2(\lambda_i) - A_0 - \frac{A_2}{\lambda_i^2} \right\}^2
+  \shortintertext{bzw.} \\
+  s^2_{n'} &= \frac{1}{z - 2} \sum_{i=1}^z \left\{n^2(\lambda_i) - A'_0 - A'_2\lambda_i^2 \right\}^2
+\end{align}
+
+Mit z = Anzahl der Messwerte.
+Mit entsprechend eingesetzten Werten ergibt sich:
