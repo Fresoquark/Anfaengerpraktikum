@@ -4,11 +4,11 @@ from scipy.stats import sem
 import matplotlib.pyplot as plt
 from scipy.optimize import curve_fit
 
-l,r = np.genfromtxt("data2.txt")
+l,r = np.genfromtxt("data/data2.txt")
 
 eta = 180-l+r
 
-ll,rr = np.genfromtxt("data1.txt")
+ll,rr = np.genfromtxt("data/data1.txt")
 
 Phi=(rr-ll)*0.5
 phi0 = ufloat(np.mean(Phi),sem(Phi))
@@ -20,7 +20,7 @@ phi = (np.pi)/180*phi
 n=(np.sin((eta+phi)/2))/(np.sin(phi/2))
 
 n=n**2
-lamda = np.genfromtxt("data3.txt")
+lamda = np.genfromtxt("data/data3.txt")
 
 
 def f(lamda, a, b):
