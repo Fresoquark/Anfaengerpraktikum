@@ -229,3 +229,40 @@ Für die Abbesche Zahl ergibt sich dann:
 \begin{align*}
   \nu = 33.52
 \end{align*}
+
+\subsection{Auflösungsvermögen}
+
+Das Auflösungsvermögen eines Prismen-Spektralapparates ist die Fähigkeit dessen zwei benachbarte Wellenlängen mit dem Wellenlängenunterschied $\delta\lambda$ gerade noch auflösen, bzw. trennen zu können.
+Das Auflösungsvermögen A wird damit folgendermaßen definiert:
+
+\begin{align}
+  A &:= \frac{\lambda}{\delta\lambda}
+  \intertext{Es kann gezeigt werden, dass das Auflösungsvermögen durch folgende Gleichung gegeben ist:}
+  A &=  b \frac{d}{d\lambda} n(\lambda)
+\end{align}
+
+Hierbei ist b die Basislänge des Prismas.
+Diese wurde nicht explizit gemessen und wird der Anleitung \cite[28]{1} mit $b = 3cm$ entnommen.
+Die Ableitung von $n(\lambda)$ nach $\lambda$  ergibt:
+
+\begin{equation}
+  \frac{d}{d\lambda} n(\lambda) = \frac{d}{d\lambda} \sqrt{A_0 + \frac{A_2}{\lambda^2}} = - \frac{A_2}{\lambda^3 \sqrt{A_0 + \frac{A_2}{\lambda^2}}}
+\end{equation}
+
+Die Ergebnisse können der Tabelle \ref{tab:Auflösungsvermögen} entnommen werden.
+
+\begin{table}
+  \centering
+  \caption{Die berechneten Auflösungsvermögen für die Fraunhoferschen Linien}
+  \label{tab:Auflösungsvermögen}
+  \sisetup{table-format=4.2}
+  \begin{tabular}{S S [table-format=3.0] S [table-format=4.2]}
+    \toprule
+    {$\text{Linie}$} & {$\lambda \:/\: \si{\nano\metre}$} & {$\text{Auflösungsvermögen}$} \\
+    \midrule
+    \lambda_C & 656 &  2547.33\\
+    \lambda_D & 589 &  3505.91\\
+    \lambda_F & 486 &  6184.41\\
+    \bottomrule
+  \end{tabular}
+\end{table}

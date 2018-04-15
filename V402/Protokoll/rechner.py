@@ -75,6 +75,11 @@ print('nD= ', nD)
 print('nF= ', nF)
 print('nu= ', nu)
 
+fraunhofer = np.array([656, 589, 486])
+auflosung = 3e+7 * A2 / (fraunhofer**3 * np.sqrt(A0 + A2 / (fraunhofer**2) ))
+
+print('Auflösungsvermögen= ', auflosung)
+
 print('phi= ', phi)
 print('phim= ', phim)
 print('phimf= ', phimf)
