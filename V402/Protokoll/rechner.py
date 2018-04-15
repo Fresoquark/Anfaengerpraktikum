@@ -63,6 +63,18 @@ sn2 = 1/6 * np.sum(sn2sum)
 print('sn2sum= ', sn2sum)
 print('sn2= ', sn2)
 
+#Abbesche Anzahl
+
+nD = np.sqrt(A0 + A2 / 589**2)
+nF = np.sqrt(A0 + A2 / 486**2)
+nC = np.sqrt(A0 + A2 / 656**2)
+nu = (nD - 1) / (nF - nC)
+
+print('nC= ', nC)
+print('nD= ', nD)
+print('nF= ', nF)
+print('nu= ', nu)
+
 print('phi= ', phi)
 print('phim= ', phim)
 print('phimf= ', phimf)
