@@ -66,8 +66,11 @@ Für $\upvarphi$ ergibt sich dann folgender Wert:
 Der Änderungswinkel $\eta$ des einfallenden Lichtstrahles ist in Abbildung \ref{fig:Eta2} dargestellt.
 Auch dieser Winkel ist für die Bestimmung des Brechungsindex entscheidend.
 Die Größen $\Omega_{\text{r}}$ und $\Omega_{\text{l}}$ der Tabelle \ref{tab:Eta} in denen die Messwerte aufgetragen sind, können der Abbildung \ref{fig:Drehung} entnommen werden.
-Die entsprechenden Wellenlängen der Spektrallinien wurden der am Versuch beiliegenden Tabelle entnommen.
-Diese sind in Abbildung \ref{fig:Etatabelle} enthalten. ACHTUNG!: ANDERE WERTE GENUTZT!
+Die entsprechenden Wellenlängen der Spektrallinien wurden der Quelle \cite{2} entnommen.
+Das zugehörige im Experiment beobachtete Spektrum ist in Abbildung \ref{fig:spektrum} zu sehen.
+Durch Vergleich der Wellenlängen aus \cite{2} mit denen aus Abbildung \ref{fig:Etatabelle} lassen sich
+die gelbe, hellgrüne, hellviolette und violette Linie dem Quecksilber zuordnen.
+Die rote, grüne, hellblaue  und blaue Linie stammen somit vom Cadmium.
 Der Winkel $\eta$ berechnet sich nach der folgenden Formel:
 
 \begin{equation}
@@ -85,22 +88,29 @@ Die Ergebnisse für die entsprechenden Wellenlängen $\lambda_i$ sind ebenfalls 
     \toprule
     {$\text{Farbe}$} & {$\lambda_i \:/\: \si{\nano\metre}$} & {$\Omega_{\text{r}} \:/\: \si{\degree}$} & {$\Omega_{\text{l}} \:/\: \si{\degree}$} & {$\eta_i \:/\: \si{\degree}$} \\
     \midrule
-    \text{rot}         & 579.1 & 237.1 & 119.8 & 62.7 \\
-    \text{gelb}        & 577.0 & 236.7 & 120.2 & 63.5 \\
-    \text{hellgrün}    & 546.1 & 236.4 & 120.6 & 64.2 \\
-    \text{grün}        & 491.6 & 235.8 & 121.1 & 65.3 \\
-    \text{hellblau}    & 435.8 & 235.3 & 121.6 & 66.3 \\
-    \text{blau}        & 434.7 & 235.1 & 121.9 & 66.8 \\
-    \text{hellviolett} & 407.8 & 234.3 & 122.7 & 68.4 \\
-    \text{violett}     & 404.7 & 233.3 & 123.7 & 70.4 \\
+    \text{rot}         & 643.85 & 237.1 & 119.8 & 62.7 \\
+    \text{gelb}        & 576.96 & 236.7 & 120.2 & 63.5 \\
+    \text{hellgrün}    & 546.07 & 236.4 & 120.6 & 64.2 \\
+    \text{grün}        & 508.58 & 235.8 & 121.1 & 65.3 \\
+    \text{hellblau}    & 479.99 & 235.3 & 121.6 & 66.3 \\
+    \text{blau}        & 467.82 & 235.1 & 121.9 & 66.8 \\
+    \text{hellviolett} & 404.65 & 234.3 & 122.7 & 68.4 \\
+    \text{violett}     & 365.02 & 233.3 & 123.7 & 70.4 \\
     \bottomrule
   \end{tabular}
 \end{table}
 
 \begin{figure}
   \centering
+  \includegraphics[scale=0.4]{images/spektrum.jpg}
+  \caption{Emissionsspektrum einer Quecksilber-Cadmium-Dampflampe. \cite{2}}
+  \label{fig:spektrum}
+\end{figure}
+
+\begin{figure}
+  \centering
   \includegraphics[scale=0.1]{images/Tabelle.png}
-  \caption{Die Wellenlängen der Spektrallinien: Fotografie der dem Versuch beiliegenden Tabelle}
+  \caption{Die Wellenlängen der Spektrallinien von Quecksilber: Fotografie der dem Versuch beiliegenden Tabelle}
   \label{fig:Etatabelle}
 \end{figure}
 
@@ -109,7 +119,7 @@ Die Ergebnisse für die entsprechenden Wellenlängen $\lambda_i$ sind ebenfalls 
 \begin{figure}
   \centering
   \includegraphics[scale=0.6]{images/Brechungsindex.png}
-  \caption{Veranschaulichung der Winkelbeziehungen für die Berechnung der Brechungsindices $n_i$: Aus der Anleitung des Versuches \cite[23]{1}}
+  \caption{Veranschaulichung der Winkelbeziehungen für die Berechnung der Brechungsindices $n_i$: Aus der Anleitung des Versuches \cite[23]{1}.}
   \label{fig:Brechungsindex}
 \end{figure}
 
@@ -144,14 +154,14 @@ Die Ergebnisse sind in Tabelle \ref{tab:Brechungsindex} zusammengefasst.
     \toprule
     {$\lambda_i \:/\: \si{\nano\metre}$} & \multicolumn{2}{c}{$n_i$} \\
     \midrule
-    579.1 & 1.75 & 0.00 \\
-    577.0 & 1.76 & 0.00 \\
-    546.1 & 1.77 & 0.00 \\
-    491.6 & 1.78 & 0.00 \\
-    435.8 & 1.78 & 0.00 \\
-    434.7 & 1.79 & 0.00 \\
-    407.8 & 1.80 & 0.00 \\
-    404.7 & 1.81 & 0.00 \\
+    643.85 & 1.75 & 0.00 \\
+    576.96 & 1.76 & 0.00 \\
+    546.07 & 1.77 & 0.00 \\
+    508.58 & 1.78 & 0.00 \\
+    479.99 & 1.78 & 0.00 \\
+    467.82 & 1.79 & 0.00 \\
+    404.65 & 1.80 & 0.00 \\
+    365.02 & 1.81 & 0.00 \\
     \bottomrule
   \end{tabular}
 \end{table}
@@ -162,16 +172,13 @@ Es handelt sich also um eine normale Dispersion.
 \subsection{Bestimmung der Dispersionskurve}
 
 Nun muss den bestimmten Brechungsindices eine entsprechende Dispersionskurve zugewiesen werden.
-Dafür muss zwischen zwei Arten unterschieden werden.
-Der normalen Dispersion, wie in Gleichung \ref{eqn:4} dargestellt und der anomalen Dispersion, dargestellt in Gleichung \ref{eqn:5}.
-Die entsprechenden Verläufe sind in Abbildung \ref{fig:2} aufgetragen.
-Die Quadrate der Brechungsindices wurde in Abbildung \ref{fig:Brechungsplot} gegen die Wellenlänge aufgetragen.
-Es liegt eine normale Dispersionsrelation vor.
+Die Quadrate der Brechungsindices wurden dafür in Abbildung \ref{fig:Brechungsplot} gegen die Wellenlänge aufgetragen.
+
 
 \begin{figure}
   \centering
   \includegraphics[scale=0.6]{build/plot3.pdf}
-  \caption{Die Quadrate der Brechungsindices in Abhängigkeit der Wellenlänge}
+  \caption{Die Quadrate der Brechungsindices in Abhängigkeit der Wellenlänge.}
   \label{fig:Brechungsplot}
 \end{figure}
 
@@ -185,24 +192,44 @@ Dies erfolgt mit numpy und es ergeben sich folgende Werte:
   A'_2 &= (7.59 \pm 0.84) \times 10^{-7} \\
 \end{align*}
 
+Die gefitteten Kurven sind in den Abbildungen \ref{fig:fit1} und \ref{fig:fit2} zu sehen.
+
+\begin{figure}
+  \centering
+  \includegraphics[scale=0.6]{build/plot1.pdf}
+  \caption{Mit Gleichung \ref{eqn:4} gefittete Dispersionskurve.}
+  \label{fig:fit1}
+\end{figure}
+\begin{figure}
+  \centering
+  \includegraphics[scale=0.6]{build/plot2.pdf}
+  \caption{Mit Gleichung \ref{eqn:5} gefittete Dispersionskurve.}
+  \label{fig:fit2}
+\end{figure}
+
 Mit diesen wird jetzt die Summe der Abstandsquadrate nach folgenden Formel berechnet:
 
-\begin{align}
+\begin{align*}
   s^2_n &= \frac{1}{z - 2} \sum_{i=1}^z \left\{n^2(\lambda_i) - A_0 - \frac{A_2}{\lambda_i^2} \right\}^2
   \shortintertext{bzw.} \\
   s^2_{n'} &= \frac{1}{z - 2} \sum_{i=1}^z \left\{n^2(\lambda_i) - A'_0 - A'_2\lambda_i^2 \right\}^2
-\end{align}
+\end{align*}
 
 Mit z = Anzahl der Messwerte.
 Mit entsprechend eingesetzten Werten ergibt sich:
 
-\begin{align}
-  s^2_n &= foo \\
-  s^2_{n'} &= bar
-\end{align}
+\begin{align*}
+  s^2_n &= 1.57 \times 10^{-4} \\
+  s^2_{n'} &= 0.22
+\end{align*}
 
-Wie man sieht ist ... kleiner.
-Die Ergebnisse der Messungen werden mit dem entsprechenden Fit für die Dispersionskurve in Abbildung ... dargestellt.
+Da die Summe der Abweichungsquadrate für die Dipersionskurve, welche durch Gleichung \ref{eqn:4} beschrieben wird, deutlich kleiner ist,
+beschreibt diese das Dispersionsverhalten des Prismas genauer.
+Somit ergibt sich für die Dispersionskurve
+\begin{equation*}
+  n(\lambda) = \sqrt{2.99 + \frac{42087}{{\lambda}^2}} .
+\end{equation*}
+
 
 \subsection{Abbesche Zahl}
 
