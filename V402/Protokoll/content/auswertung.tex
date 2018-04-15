@@ -67,7 +67,7 @@ Der Änderungswinkel $\eta$ des einfallenden Lichtstrahles ist in Abbildung \ref
 Auch dieser Winkel ist für die Bestimmung des Brechungsindex entscheidend.
 Die Größen $\Omega_{\text{r}}$ und $\Omega_{\text{l}}$ der Tabelle \ref{tab:Eta} in denen die Messwerte aufgetragen sind, können der Abbildung \ref{fig:Drehung} entnommen werden.
 Die entsprechenden Wellenlängen der Spektrallinien wurden der am Versuch beiliegenden Tabelle entnommen.
-Diese ist in Abbildung \ref{fig:Etatabelle}
+Diese sind in Abbildung \ref{fig:Etatabelle} enthalten. ACHTUNG!: ANDERE WERTE GENUTZT!
 Der Winkel $\eta$ berechnet sich nach der folgenden Formel:
 
 \begin{equation}
@@ -166,7 +166,7 @@ Dafür muss zwischen zwei Arten unterschieden werden.
 Der normalen Dispersion, wie in Gleichung \ref{eqn:4} dargestellt und der anomalen Dispersion, dargestellt in Gleichung \ref{eqn:5}.
 Die entsprechenden Verläufe sind in Abbildung \ref{fig:2} aufgetragen.
 Die Quadrate der Brechungsindices wurde in Abbildung \ref{fig:Brechungsplot} gegen die Wellenlänge aufgetragen.
-Hier kann man sehen, dass mit hoher Wahrscheinlichkeit eine normale Dispersionsrelation vorliegt.
+Es liegt eine normale Dispersionsrelation vor.
 
 \begin{figure}
   \centering
@@ -175,14 +175,14 @@ Hier kann man sehen, dass mit hoher Wahrscheinlichkeit eine normale Dispersionsr
   \label{fig:Brechungsplot}
 \end{figure}
 
-Nun werden für die Gleichungen \ref{eqn:4} und \ref{eqn:5} die entsprechenden A$_i$, bzw A'$_i$ -Werte gefittet.
+Nun werden für die Gleichungen \ref{eqn:4} und \ref{eqn:5} die entsprechenden $A_i$, bzw $A'_i$ -Werte gefittet.
 Dies erfolgt mit numpy und es ergeben sich folgende Werte:
 
 \begin{align*}
   A_0 &= 2.99 \pm 0.01 \\
   A_2 &= 42087.30 \pm 2904.23 \\
   A'_0 &= 3.36 \pm 0.02 \\
-  A'_2 &= (7.59 \pm 0.84) * 10^{-7} \\
+  A'_2 &= (7.59 \pm 0.84) \times 10^{-7} \\
 \end{align*}
 
 Mit diesen wird jetzt die Summe der Abstandsquadrate nach folgenden Formel berechnet:
@@ -202,7 +202,6 @@ Mit entsprechend eingesetzten Werten ergibt sich:
 \end{align}
 
 Wie man sieht ist ... kleiner.
-Es handelt sich somit bei der Dispersionskurve um eine ... Dispersion.
 Die Ergebnisse der Messungen werden mit dem entsprechenden Fit für die Dispersionskurve in Abbildung ... dargestellt.
 
 \subsection{Abbesche Zahl}
@@ -216,7 +215,7 @@ Durch die zuvor berechnete Dispersionsgleichung kann nun mit der folgenden Forme
 \end{equation}
 
 die Abbesche Zahl $\nu$ berechnet werden.
-Dabei stellen die Konstanten $n_D$, $n_F$ und $n_C$ die entsprechenden Brechungsindices zu sogenannten Fraunhoferschen Linien mit folgenden Werten dar:
+Dabei stellen die Konstanten $n_D$, $n_F$ und $n_C$ die entsprechenden Brechungsindices zu den sogenannten Fraunhoferschen Linien mit folgenden Werten dar:
 
 \begin{align*}
   \lambda_C &= \SI{656}{\nano\metre} & n_C &= 1.76\\
@@ -236,7 +235,7 @@ Das Auflösungsvermögen eines Prismen-Spektralapparates ist die Fähigkeit dess
 Das Auflösungsvermögen A wird damit folgendermaßen definiert:
 
 \begin{align}
-  A &:= \frac{\lambda}{\delta\lambda}
+  A &:= \frac{\lambda}{\Delta\lambda}
   \intertext{Es kann gezeigt werden, dass das Auflösungsvermögen durch folgende Gleichung gegeben ist:}
   A &=  b \frac{d}{d\lambda} n(\lambda)
 \end{align}
@@ -256,13 +255,13 @@ Die Ergebnisse können der Tabelle \ref{tab:Auflösungsvermögen} entnommen werd
   \caption{Die berechneten Auflösungsvermögen für die Fraunhoferschen Linien}
   \label{tab:Auflösungsvermögen}
   \sisetup{table-format=4.2}
-  \begin{tabular}{S S [table-format=3.0] S [table-format=4.2]}
+  \begin{tabular}{c c c}
     \toprule
     {$\text{Linie}$} & {$\lambda \:/\: \si{\nano\metre}$} & {$\text{Auflösungsvermögen}$} \\
     \midrule
-    \lambda_C & 656 &  2547.33\\
-    \lambda_D & 589 &  3505.91\\
-    \lambda_F & 486 &  6184.41\\
+    $\lambda_C$ & 656 &  2547.33 \\
+    $\lambda_D$ & 589 &  3505.91 \\
+    $\lambda_F$ & 486 &  6184.41 \\
     \bottomrule
   \end{tabular}
 \end{table}
