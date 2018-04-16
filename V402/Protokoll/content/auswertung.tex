@@ -12,7 +12,7 @@ Die Messwerte sind in Tabelle \ref{tab:Phi} zu finden.
   \caption{Gemessene Werte für $\upvarphi_{\text{r}}$ und $\upvarphi_{\text{l}}$, sowie die berechneten $\upvarphi$-Werte}
   \label{tab:Phi}
   \sisetup{table-format=3.1}
-  \begin{tabular}{S S [table-format=3.1] S [table-format=3.2]}
+  \begin{tabular}{S S [table-format=3.1] S [table-format=2.2]}
     \toprule
     {$\upvarphi_{\text{r}} \:/\: \si{\degree}$} & {$\upvarphi_{\text{l}} \:/\: \si{\degree}$} & {$\upvarphi \:/\: \si{\degree}$} \\
     \midrule
@@ -71,7 +71,7 @@ Das zugehörige im Experiment beobachtete Spektrum ist in Abbildung \ref{fig:spe
 Durch Vergleich der Wellenlängen aus \cite{2} mit denen aus Abbildung \ref{fig:Etatabelle} lassen sich
 die gelbe, hellgrüne, hellviolette und violette Linie dem Quecksilber zuordnen.
 Die rote, grüne, hellblaue  und blaue Linie stammen somit vom Cadmium.
-Der Winkel $\eta$ berechnet sich nach der folgenden Formel:
+Der Winkel $\eta$ berechnet sich dann nach der folgenden Formel:
 
 \begin{equation}
   \eta = 180 - \left(\Omega_r - \Omega_l\right)
@@ -234,7 +234,7 @@ Somit ergibt sich für die in Abbildung \ref{fig:plot4} zu sehende Dispersionsku
 \begin{figure}
   \centering
   \includegraphics[scale=0.8]{build/plot4.pdf}
-  \caption{Mit GLeichung \ref{eqn:disp} berechnete Dispersionskurve.}
+  \caption{Mit Gleichung \ref{eqn:disp} berechnete Dispersionskurve.}
   \label{fig:plot4}
 \end{figure}
 
@@ -265,24 +265,25 @@ Für die Abbesche Zahl ergibt sich dann:
 
 \subsection{Auflösungsvermögen}
 
-Das Auflösungsvermögen eines Prismen-Spektralapparates ist die Fähigkeit dessen zwei benachbarte Wellenlängen mit dem Wellenlängenunterschied $\delta\lambda$ gerade noch auflösen, bzw. trennen zu können.
+Das Auflösungsvermögen eines Prismen-Spektralapparates ist die Fähigkeit dessen zwei benachbarte Wellenlängen mit dem Wellenlängenunterschied $\Delta\lambda$ gerade noch auflösen, bzw. trennen zu können.
 Das Auflösungsvermögen A wird damit folgendermaßen definiert:
 
 \begin{align}
   A &:= \frac{\lambda}{\Delta\lambda}
   \intertext{Es kann gezeigt werden, dass das Auflösungsvermögen durch folgende Gleichung gegeben ist:}
   A &=  b \frac{d}{d\lambda} n(\lambda)
+  \label{eqn:auflosung}
 \end{align}
 
 Hierbei ist b die Basislänge des Prismas.
-Diese wurde nicht explizit gemessen und wird der Anleitung \cite[28]{1} mit $b = 3cm$ entnommen.
+Diese wurde nicht explizit gemessen und wird der Anleitung \cite[28]{1} mit $b = \SI{3}{\centi\metre}$ entnommen.
 Die Ableitung von $n(\lambda)$ nach $\lambda$  ergibt:
 
 \begin{equation}
   \frac{d}{d\lambda} n(\lambda) = \frac{d}{d\lambda} \sqrt{A_0 + \frac{A_2}{\lambda^2}} = - \frac{A_2}{\lambda^3 \sqrt{A_0 + \frac{A_2}{\lambda^2}}}
 \end{equation}
 
-Die Ergebnisse können der Tabelle \ref{tab:Auflösungsvermögen} entnommen werden.
+Setzt man dies in die Gleichung \ref{eqn:auflosung} so ergeben sich folgende Werte, die in Tabelle \ref{tab:Auflösungsvermögen} dargestellt sind.
 
 \begin{table}
   \centering
