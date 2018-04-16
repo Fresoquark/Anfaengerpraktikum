@@ -225,11 +225,18 @@ Mit entsprechend eingesetzten Werten ergibt sich:
 
 Da die Summe der Abweichungsquadrate für die Dipersionskurve, welche durch Gleichung \ref{eqn:4} beschrieben wird, deutlich kleiner ist,
 beschreibt diese das Dispersionsverhalten des Prismas genauer.
-Somit ergibt sich für die Dispersionskurve
-\begin{equation*}
+Somit ergibt sich für die in Abbildung \ref{fig:plot4} zu sehende Dispersionskurve
+\begin{equation}
   n(\lambda) = \sqrt{2.99 + \frac{42087}{{\lambda}^2}} .
-\end{equation*}
+  \label{eqn:disp}
+\end{equation}
 
+\begin{figure}
+  \centering
+  \includegraphics[scale=0.8]{build/plot4.pdf}
+  \caption{Mit GLeichung \ref{eqn:disp} berechnete Dispersionskurve.}
+  \label{fig:plot4}
+\end{figure}
 
 \subsection{Abbesche Zahl}
 
@@ -292,3 +299,22 @@ Die Ergebnisse können der Tabelle \ref{tab:Auflösungsvermögen} entnommen werd
     \bottomrule
   \end{tabular}
 \end{table}
+
+\subsection{Nächstgelegene Absorptionsstelle}
+Zur Bestimmung der nächstgelegenen Absorptionsstelle ${\lambda}_1$ wird zunächst \ref{eqn:3} mit \ref{eqn:4} verglichen.
+So ergibt sich für die Koeffizienten :
+\begin{align*}
+  A_0 &= 1+ \frac{N_1 {q_1}^2 {{\lambda}_1}^2}{4 {\pi}^2 c^2 {\epsilon}_0 m_1}
+  \intertext{und}
+  A_2 &= \frac{N_1 {q_1}^2 {{\lambda}_1}^4}{4 {\pi}^2 c^2 {\epsilon}_0 m_1}
+\end{align*}
+Nun werden diese Koeffizienten verglichen und nach ${\lambda}_1$ aufgelöst, wodurch sich folgende Formel für die nächstgelegene Absorptionsstelle ergibt:
+\begin{equation}
+  {\lambda}_1 = \sqrt{\frac{A_2}{A_0 - 1}}.
+  \label{eqn:lambda1}
+\end{equation}
+Durch einsetzen der entsprechenden Werte in \ref{eqn:lambda1} und Fehlerrrechnung mit \ref{eqn:gauß} wird die Absorptionsstelle zu
+\begin{equation*}
+    {\lambda}_1 = 145 \pm 5 \: \si{\nano\metre}
+\end{equation*}
+berechnet. Dies entspricht einer Wellenlänge im ultravioletten Bereich. 
