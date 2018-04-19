@@ -10,8 +10,8 @@ energie = kanal / 1150 * 4
 
 plt.plot(druck,energie)
 
-plt.xlabel(r'Druck/ $\si{\milli\bar}$')
-plt.ylabel(r'Energie/ $\mega\electronvolt$')
+plt.xlabel(r'Druck/ mBar')
+plt.ylabel(r'Energie/ MeV')
 plt.legend(loc='best')
 # in matplotlibrc leider (noch) nicht möglich
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
