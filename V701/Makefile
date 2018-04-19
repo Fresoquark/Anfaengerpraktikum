@@ -19,11 +19,17 @@ build/5mmenergie.pdf: 5mmenergie.py data/5mm.txt matplotlibrc header-matplotlib.
 	TEXINPUTS="$(call translate,$(pwd):)" python 5mmenergie.py
 build/25mmenergie.pdf: 25mmenergie.py data/25mm.txt matplotlibrc header-matplotlib.tex | build
 	TEXINPUTS="$(call translate,$(pwd):)" python 25mmenergie.py
+build/5mmcounts.pdf: 5mmcounts.py data/5mm.txt matplotlibrc header-matplotlib.tex | build
+		TEXINPUTS="$(call translate,$(pwd):)" python 5mmcounts.py
+build/25mmcounts.pdf: 25mmcounts.py data/25mm.txt matplotlibrc header-matplotlib.tex | build
+		TEXINPUTS="$(call translate,$(pwd):)" python 25mmcounts.py
 # hier weitere Abhängigkeiten für build/main.pdf deklarieren:
 build/main.pdf: build/plot.pdf
-								build/histo.pdf
-								build/5mmenergie.pdf
-								build/25mmenergie.pdf
+build/main.pdf: build/histo.pdf
+build/main.pdf: build/5mmenergie.pdf
+build/main.pdf: build/25mmenergie.pdf
+build/main.pdf: build/55mmcounts.pdf
+build/main.pdf: build/25mmcounts.pdf
 
 build/main.pdf: FORCE | build
 	  TEXINPUTS="$(call translate,build:)" \

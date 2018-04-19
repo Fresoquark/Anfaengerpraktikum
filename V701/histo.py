@@ -6,7 +6,8 @@ from scipy.optimize import curve_fit
 
 x=np.genfromtxt("data/histo.txt")
 plt.hist(x,bins=10)
-plt.xlabel(r'Counts pro $10 \si{\seconds}$')
+plt.grid()
+plt.xlabel(r'Counts pro 10 Sekunden')
 plt.ylabel(r'Absolute Häufigkeit')
 plt.legend(loc='best')
 # in matplotlibrc leider (noch) nicht möglich
