@@ -28,7 +28,7 @@ build/main.pdf: build/plot.pdf
 build/main.pdf: build/histo.pdf
 build/main.pdf: build/5mmenergie.pdf
 build/main.pdf: build/25mmenergie.pdf
-build/main.pdf: build/55mmcounts.pdf
+build/main.pdf: build/5mmcounts.pdf
 build/main.pdf: build/25mmcounts.pdf
 
 build/main.pdf: FORCE | build
