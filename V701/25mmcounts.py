@@ -8,7 +8,8 @@ druck,kanal,counts= np.genfromtxt("data/25mm.txt")
 
 xeff = 25 * druck / 1013
 
-plt.plot(xeff ,counts)
+plt.plot(xeff, counts , 'k--' , linewidth = 0.5)
+plt.plot(xeff ,counts, 'k.', label="Daten", ms=2.5)
 
 plt.xlabel(r'Effektive Länge / mm')
 plt.ylabel(r'Counts pro 120 Sekunden ')

@@ -9,7 +9,19 @@ druck,kanal,counts= np.genfromtxt("data/25mm.txt")
 energie = kanal / 1199 * 4
 xeff = 25 * druck / 1013
 
-plt.plot(xeff ,energie)
+def f(x, a, b):
+    return a*x +b
+
+params, covariance_matrix = curve_fit(f, xeff, energie)
+
+errors = np.sqrt(np.diag(covariance_matrix))
+
+print('a=', params[0], '+-', errors[0])
+print('b=', params[1], '+-', errors[1])
+
+
+plt.plot(xeff, energie, 'k.', label="Daten", ms=2.5)
+plt.plot(xeff, f(xeff, *params), 'r-', label='Fit')
 
 plt.xlabel(r'Effektive Länge / mm')
 plt.ylabel(r'Energie / MeV ')
