@@ -61,7 +61,10 @@ Die Ergebnisse der Messungen für $\SI{25}{\milli\metre}$ können Tabelle \ref{t
   \end{tabular}
 \end{table}
 
-Nun wird die Zählrate als Funktion der effektiven Länge aufgetragen.
+Nun wird die Zählrate graphisch als Funktion der effektiven Länge aufgetragen.
+Dies ist in den Abbildungen \ref{fig:25mmcounts} und \ref{fig:5mmcounts} dargestellt.
+Daraus lässt sich dann die mittlere Reichweite der $\alpha$-Teilchen bestimmen.
+
 \begin{figure}
     \centering
     \includegraphics{build/25mmcounts.pdf}
@@ -77,12 +80,37 @@ Nun wird die Zählrate als Funktion der effektiven Länge aufgetragen.
   \caption{Die graphische Darstellung der Zählrate gegen die effektive Länge aufgetragen für $\SI{5}{\milli\metre}$}
 \end{figure}
 
+Um den Energieverlust bestimmen zu können, wird die Energie gegen die effektive Länge aufgetragen.
+Die gemessenen Daten werden anschließend mit sciPy gefittet.
+Der Energieverlust berechnet sich dann durch differenzieren der Kurve $\frac{\symup{d}E}{\symup{d}x}$.
+Diese Kurven sind in den Abbildungen \ref{fig:25mmenergie} und \ref{fig:5mmenergie} zu finden.
+Die linearen Funktionen ergeben sich dann zu:
 
+\begin{align*}
+  \intertext{Für $\SI{25}{\milli\metre}$:}
+  a_{25} &= -0.13 \pm 0.00 \\
+  b_{25} &= 3.99  \pm 0.12 \\
+  \shortintertext{für: } E_{25} &= a * x + b \\
+  \intertext{Für $\SI{5}{\milli\metre}$:}
+  a_{5} &= -0.16 \pm 0.01 \\
+  b_{5} &= 3.87  \pm 0.04 \\
+  \shortintertext{für: } E_{5} &= a * x + b \\
+\end{align*}
 
+Es ergibt sich somit eine Energieverlust von $\SI{0.13}{\mega\electronvolt\per\milli\per\metre}$ für $\SI{25}{\milli\metre}$ und $\SI{0.16}{\mega\electronvolt\per\milli\per\metre}$ für $\SI{5}{\milli\metre}$.
+Der Energieverlust ist somit für den geringeren Abstand höher.
 
 \begin{figure}
-  \centering
-  \includegraphics{plot.pdf}
-  \caption{Plot.}
-  \label{fig:plot}
+    \centering
+    \includegraphics{build/25mmenergie.pdf}
+    \caption{Die graphische Darstellung der Energie in Abhängigkeit der effektive Länge aufgetragen für $\SI{25}{\milli\metre}$}
+    \label{fig:25mmenergie}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics{build/5mmenergie.pdf}
+    \caption{$\SI{5}{\milli\metre}$}
+    \label{fig:5mmenergie}
+  \caption{Die graphische Darstellung der Energie in Abhängigkeit der effektive Länge aufgetragen für $\SI{5}{\milli\metre}$}
 \end{figure}
