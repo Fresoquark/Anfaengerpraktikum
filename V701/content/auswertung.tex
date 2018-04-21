@@ -1,6 +1,6 @@
 \section{Auswertung}
 \label{sec:Auswertung}
-\subsection{Bestimmung der Reichweite von \texorpdfstring{$\alpha$}{alpha}-Strahlung}
+\subsection{Bestimmung der  mittleren Reichweite von \texorpdfstring{$\alpha$}{alpha}-Strahlung}
 
 Um die Reichweite der $\alpha$-Strahlung bestimmen zu können wird zunächst die Energie der $\alpha$-Teilchen benötigt.
 Diese können aus der Position der Kanäle des Energiemaximums bestimmt werden.
@@ -11,14 +11,14 @@ Die Energie ist bei $\SI{0}{\milli\bar}$ mit $\SI{4.0}{\mega\electronvolt}$ maxi
 Damit wird die Energie der $\alpha$-Teilchen bestimmt.
 Die effektive Länge wird mit Gleichung \ref{eqn:xeff} bestimmt.
 Die Ergebnisse der Messungen für $\SI{25}{\milli\metre}$ können Tabelle \ref{tab:25mm}, die für $\SI{5}{\milli\metre}$ Tabelle \ref{tab:5mm} entnommen werden.
-
+\FloatBarrier
 \begin{table}
   \centering
   \caption{Messwerte für 25 Millimeter Abstand}
   \label{tab:25mm}
   \begin{tabular}{c c c c c}
     \toprule
-     Druck \,/\, \si{\milli\bar} & Effektive Länge \,/\, \si{\milli\metre} & Counts pro 120 \si{\second} & Kanalnummer & Energie \,/\, \si{\mega\electronvolt}\\
+     Druck / \si{\milli\bar} & Effektive Länge / \si{\milli\metre} & Counts pro 120 \si{\second} & Kanalnummer & Energie / \si{\mega\electronvolt}\\
     \midrule
     0   &  0,00 & 75000 & 1199 & 4,00 \\
     50  &  1,23 & 74024 & 1127 & 3,76 \\
@@ -42,7 +42,7 @@ Die Ergebnisse der Messungen für $\SI{25}{\milli\metre}$ können Tabelle \ref{t
   \label{tab:5mm}
   \begin{tabular}{c c c c c}
     \toprule
-     Druck \,/\, \si{\milli\bar} & Effektive Länge \,/\, \si{\milli\metre} & Counts pro 120 \si{\second} & Kanalnummer & Energie \,/\, \si{\mega\electronvolt}\\
+     Druck / \si{\milli\bar} & Effektive Länge / \si{\milli\metre} & Counts pro 120 \si{\second} & Kanalnummer & Energie / \si{\mega\electronvolt}\\
     \midrule
     0   & 0,00 & 284417 & 1150 & 4,00 \\
     50  & 0,25 & 280453 & 1101 & 3,83 \\
@@ -60,8 +60,24 @@ Die Ergebnisse der Messungen für $\SI{25}{\milli\metre}$ können Tabelle \ref{t
     \bottomrule
   \end{tabular}
 \end{table}
+\FloatBarrier
 Nun wird die Zählrate graphisch als Funktion der effektiven Länge aufgetragen.
 Dies ist in den Abbildungen \ref{fig:25mmcounts} und \ref{fig:5mmcounts} dargestellt.
+\FloatBarrier
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.8]{build/25mmcounts.pdf}
+    \caption{Die graphische Darstellung der Zählrate gegen die effektive Länge aufgetragen für $\SI{25}{\milli\metre}$}
+    \label{fig:25mmcounts}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.8]{build/5mmcounts.pdf}
+  \caption{Die graphische Darstellung der Zählrate gegen die effektive Länge aufgetragen für $\SI{5}{\milli\metre}$}
+  \label{fig:5mmcounts}
+\end{figure}
+\FloatBarrier
 Als mittlere Reichweite wird nun die effektive Länge gewählt, bei welcher die Counts auf die Hälfte des konstanten Niveaus gesunken sind.
 Dies entspricht bei Abbildung \ref{fig:25mmcounts} einer mittleren Reichweite von
 \begin{equation*}
@@ -74,19 +90,9 @@ Energie von
 \end{equation*}
 Bei Abbildung \ref{fig:5mmcounts} kann so keine mittlere Reichweite bestimmt werden, da die Counts nicht auf das halbe Niveau absinken.
 
-\begin{figure}
-    \centering
-    \includegraphics{build/25mmcounts.pdf}
-    \caption{Die graphische Darstellung der Zählrate gegen die effektive Länge aufgetragen für $\SI{25}{\milli\metre}$}
-    \label{fig:25mmcounts}
-\end{figure}
+\subsection{Bestimmung des Energieverlustes von \texorpdfstring{$\alpha$}{alpha}-Strahlung}
 
-\begin{figure}
-    \centering
-    \includegraphics{build/5mmcounts.pdf}
-    \label{fig:5mmcounts}
-  \caption{Die graphische Darstellung der Zählrate gegen die effektive Länge aufgetragen für $\SI{5}{\milli\metre}$}
-\end{figure}
+
 
 Um den Energieverlust bestimmen zu können, wird die Energie gegen die effektive Länge aufgetragen und mit der Funktion
 \begin{equation*}
@@ -94,6 +100,21 @@ Um den Energieverlust bestimmen zu können, wird die Energie gegen die effektive
 \end{equation*}
  mit Python \cite{numpy} \cite{scipy} linear gefittet.
  Diese Kurven sind in den Abbildungen \ref{fig:25mmenergie} und \ref{fig:5mmenergie} zu finden.
+\FloatBarrier
+ \begin{figure}
+     \centering
+     \includegraphics[scale=0.8]{build/25mmenergie.pdf}
+     \caption{Die graphische Darstellung der Energie in Abhängigkeit der effektive Länge aufgetragen für $\SI{25}{\milli\metre}$}
+     \label{fig:25mmenergie}
+ \end{figure}
+
+ \begin{figure}
+     \centering
+     \includegraphics[scale=0.8]{build/5mmenergie.pdf}
+    \caption{Die graphische Darstellung der Energie in Abhängigkeit der effektive Länge aufgetragen für $\SI{5}{\milli\metre}$}
+     \label{fig:5mmenergie}
+ \end{figure}
+ \FloatBarrier
  Da ein linearer Zusammenhang zwischen Energie und effektiver Länge besteht, gilt folgender Zusammenhang:
  \begin{equation}
    - \frac{\symup{d} E}{\symup{d}x} = a .
@@ -103,21 +124,5 @@ Um den Energieverlust bestimmen zu können, wird die Energie gegen die effektive
    - \frac{\symup{d} E}{\symup{d}x} = (125,9 \pm 9,1) \cdot \si{\kilo\electronvolt\per\milli\metre}
   \intertext{für $\SI{25}{\milli\metre}$ und}\\
    - \frac{\symup{d} E}{\symup{d}x} = (168,9 \pm 13,1) \cdot \si{\kilo\electronvolt\per\milli\metre}
-     \intertext{für $\SI{5}{\milli\metre}$}
+  \intertext{für $\SI{5}{\milli\metre}$ bestimmt.}
 \end{align*}
-bestimmt.
-
-
-\begin{figure}
-    \centering
-    \includegraphics{build/25mmenergie.pdf}
-    \caption{Die graphische Darstellung der Energie in Abhängigkeit der effektive Länge aufgetragen für $\SI{25}{\milli\metre}$}
-    \label{fig:25mmenergie}
-\end{figure}
-
-\begin{figure}
-    \centering
-    \includegraphics{build/5mmenergie.pdf}
-    \label{fig:5mmenergie}
-  \caption{Die graphische Darstellung der Energie in Abhängigkeit der effektive Länge aufgetragen für $\SI{5}{\milli\metre}$}
-\end{figure}
