@@ -9,6 +9,7 @@ druck,kanal,counts= np.genfromtxt("data/25mm.txt")
 energie = kanal / 1199 * 4
 xeff = 25 * druck / 1013
 
+
 def f(x, a, b):
     return a*x +b
 
