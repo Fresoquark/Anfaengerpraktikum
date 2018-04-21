@@ -4,9 +4,9 @@ from scipy.stats import sem
 import matplotlib.pyplot as plt
 from scipy.optimize import curve_fit
 
+
 x=np.genfromtxt("data/histo.txt")
 plt.hist(x,bins=10)
-plt.grid()
 plt.xlabel(r'Counts pro 10 Sekunden')
 plt.ylabel(r'Absolute Häufigkeit')
 plt.legend(loc='best')
