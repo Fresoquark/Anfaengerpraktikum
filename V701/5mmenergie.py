@@ -18,7 +18,7 @@ errors = np.sqrt(np.diag(covariance_matrix))
 
 print('a=', params[0], '+-', errors[0])
 print('b=', params[1], '+-', errors[1])
-
+print('energie= ', energie)
 
 plt.plot(xeff, energie, 'k.', label="Daten", ms=2.5)
 plt.plot(xeff, f(xeff, *params), 'r-', label='Fit')

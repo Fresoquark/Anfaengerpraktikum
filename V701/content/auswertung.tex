@@ -1,6 +1,85 @@
 \section{Auswertung}
 \label{sec:Auswertung}
 
+\subsection{Bestimmung der Reichweite von \texorpdfstring{$\alpha$}{alpha}-Strahlung}
+
+Um die Reichweite der \alpha-Strahlung bestimmen zu können wird zunächst die Energie der $\alpha$-Teilchen benötigt.
+Diese können aus der Position des Channels in Relation zur Position des Channels des Ursprungsmaximum im Vakuum bestimmt werden.
+Es ergibt sich ein linearer Zusammenhang zwischen dem Druck und den Energiemaxima.
+Die diskreten Energie der $\alpha$-Teilchen für bestimmte Drücke kann durch die folgende Überlegung ermittelt werden.
+Die Energie ist bei $\SI{0}{\milli\bar}$ mit $\SI{4.0}{\mega\electronvolt}$ maximal.
+Mithilfe des Dreisatzes kann aus der Position des Energiemaximums im Vakuum der lineare Zusammenhang zwischen Druck und Energie hergestellt werden.
+Die Ergebnisse der Messungen für $\SI{25}{\milli\metre}$ können Tabelle \ref{tab:25mm}, die für $\SI{5}{\milli\metre}$ Tabelle \ref{tab:5mm} entnommen werden.
+
+\begin{table}
+  \centering
+  \caption{Messergebnisse für einen Abstand von $\SI{25}{\milli\metre}$}
+  \label{tab:25mm}
+  \sisetup{table-format=5.0}
+  \begin{tabular}{S S [table-format=4.0]  S [table-format=5.0] S [table-format=1.2]}
+    \toprule
+    {$p \:/\: \si{\milli\bar}$} & {Position des Energiemaximums} & {$\text{Counts} \:/\: \SI{120}{\second}$} & {$E \:/\: \si{\mega\electronvolt}$} \\
+    \midrule
+    0    & 1199 & 75000 & 4.00 \\
+    50   & 1127 & 74024 & 3.76 \\
+    120  & 1078 & 72906 & 3.60 \\
+    160  & 1035 & 72697 & 3.45 \\
+    220  & 985  & 71795 & 3.29 \\
+    300  & 925  & 70766 & 3.09 \\
+    400  & 846  & 69496 & 2.82 \\
+    500  & 770  & 67839 & 2.57 \\
+    600  & 703  & 67532 & 2.35 \\
+    700  & 594  & 64271 & 1.98 \\
+    800  & 224  & 55844 & 0.75 \\
+    900  & 352  & 34068 & 1.17 \\
+    1000 & 347  & 8969  & 1.16 \\
+  \end{tabular}
+\end{table}
+
+\begin{table}
+  \centering
+  \caption{Messergebnisse für einen Abstand von $\SI{5}{\milli\metre}$}
+  \label{tab:5mm}
+  \sisetup{table-format=6.0}
+  \begin{tabular}{S S [table-format=4.0]  S [table-format=6.0] S [table-format=1.2]}
+    \toprule
+    {$p \:/\: \si{\milli\bar}$} & {Position des Energiemaximums} & {$\text{Counts} \:/\: \SI{120}{\second}$} & {$E \:/\: \si{\mega\electronvolt}$} \\
+    \midrule
+    0    & 1150 & 284417 & 4.00 \\
+    50   & 1101 & 280453 & 3.83 \\
+    120  & 1090 & 281443 & 3.79 \\
+    160  & 1057 & 278470 & 3.68 \\
+    220  & 1070 & 280453 & 3.72 \\
+    300  & 1038 & 277480 & 3.61 \\
+    400  & 1009 & 275508 & 3.51 \\
+    500  & 990  & 273516 & 3.44 \\
+    600  & 945  & 271534 & 3.29 \\
+    700  & 930  & 269552 & 3.23 \\
+    800  & 921  & 270550 & 3.20 \\
+    900  & 881  & 268561 & 3.06 \\
+    1000 & 921  & 276772 & 3.20 \\
+  \end{tabular}
+\end{table}
+
+Nun wird die Zählrate als Funktion der effektiven Länge aufgetragen.
+\begin{figure}
+    \centering
+    \includegraphics{build/25mmcounts.pdf}
+    \caption{Die graphische Darstellung der Zählrate gegen die effektive Länge aufgetragen für $\SI{25}{\milli\metre}$}
+    \label{fig:25mmcounts}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics{build/5mmcounts.pdf}
+    \caption{$\SI{5}{\milli\metre}$}
+    \label{fig:5mmcounts}
+  \caption{Die graphische Darstellung der Zählrate gegen die effektive Länge aufgetragen für $\SI{5}{\milli\metre}$}
+\end{figure}
+
+
+
+
 \begin{figure}
   \centering
   \includegraphics{plot.pdf}
