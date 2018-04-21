@@ -1,15 +1,20 @@
 \section{Auswertung}
 \label{sec:Auswertung}
-\subsection{25 Millimeter Abstand}
-Die für einen Abstand von 25 Millimetern zwischen Detektor und Präparat gemessenen Werte befinden sich in Tabelle \ref{tab:25mm}.
-Die effektive Länge wird dabei mit Gleichung \ref{eqn:xeff} und die Energie mit
+\subsection{Bestimmung der Reichweite von \texorpdfstring{$\alpha$}{alpha}-Strahlung}
+
+Um die Reichweite der $\alpha$-Strahlung bestimmen zu können wird zunächst die Energie der $\alpha$-Teilchen benötigt.
+Diese können aus der Position der Kanäle des Energiemaximums bestimmt werden.
+Die Energie ist bei $\SI{0}{\milli\bar}$ mit $\SI{4.0}{\mega\electronvolt}$ maximal. Durch Anwendung des Dreisatzes lässt sich folgende Gleichung herleiten:
 \begin{equation*}
-  E = 4 \cdot \frac{k}{1199} \cdot \si{\mega\electronvolt} \: \: \: \text{mit} \: k \equiv \text{Kanalnummer}
+  E = 4 \cdot \frac{k_p}{k_0} \cdot \si{\mega\electronvolt} \: \: \: \text{mit} \: k \equiv \text{Kanalnummer}
 \end{equation*}
-bestimmt.
+Damit wird die Energie der $\alpha$-Teilchen bestimmt.
+Die effektive Länge wird mit Gleichung \ref{eqn:xeff} bestimmt.
+Die Ergebnisse der Messungen für $\SI{25}{\milli\metre}$ können Tabelle \ref{tab:25mm}, die für $\SI{5}{\milli\metre}$ Tabelle \ref{tab:5mm} entnommen werden.
+
 \begin{table}
   \centering
-  \caption{25 Millimeter Abstand}
+  \caption{Messwerte für 25 Millimeter Abstand}
   \label{tab:25mm}
   \begin{tabular}{c c c c c}
     \toprule
@@ -31,53 +36,6 @@ bestimmt.
     \bottomrule
   \end{tabular}
 \end{table}
-\subsubsection{Bestimmung der mittleren Reichweite}
-Zur Bestimmung der mittleren Reichweite der $\alpha$-Strahlung werden zunächst die Counts pro 120 Sekunden gegen die effektive Länge in einem Diagramm abgetragen (Abbildung \ref{fig:25counts}).
-\begin{figure}
-  \centering
-  \includegraphics{25mmcounts.pdf}
-  \caption{Plot der Counts in Abhängigkeit von der effektiven Länge.}
-  \label{fig:25counts}
-\end{figure}
-In dem Plot ist zu sehen, dass die Counts bis circa $17 \si{\milli\metre}$ relativ konstant sind und dann stark abfallen. Als mittlere Reichweite wird nun die effektive Länge
-gewählt, bei welcher die Counts auf die Hälfte des konstanten Niveaus gesunken sind. Durch Ablesen aus Abbildung \ref{fig25counts} wird die mittlere Reichweite so zu
-\begin{equation*}
-  R_m = 22 \: \si{\milli\metre}
- \end{equation*}
-bestimmt. Durch Umstellen von Gleichung \ref{eqn:rm} nach der Energie $E_{\alpha}$ und Einsetzen der zuvor ermittelten mittleren Reichweite ergibt sich eine
-Energie von
-\begin{equation*}
-  E_{\alpha} = 3,69 \, \si{\mega\electronvolt}.
-\end{equation*}
-\subsubsection{Bestimmung des Energieverlustes}
-Zur Bestimmung des Energieverlustes wird die Energie gegen die effektive Länge in einem Diagramm abgetragen und mit der Funktion
-\begin{equation*}
-  y= ax+b
-\end{equation*}
- mit Python \cite{numpy} \cite{scipy} linear gefittet (Abbildung \ref{25energie}).
- \begin{figure}
-   \centering
-   \includegraphics{25mmenergie.pdf}
-   \caption{Linearer Fit der Energie in Abhängigkeit der effektiven Länge.\cite{matplotlib}}
-   \label{fig:25energie}
- \end{figure}
- Da ein linearer Zusammenhang zwischen Energie und effektiver Länge besteht, gilt folgender Zusammenhang:
- \begin{equation}
-   - \frac{\symup{d} E}{\symup{d}x} = a .
-   \ref{eqn:dedx}
- \end{equation}
- So wurde der Energieverlust zu
- \begin{equation*}
-   - \frac{\symup{d} E}{\symup{d}x} = (125,9 \pm 9,1) \cdot \si{\kilo\electronvolt\per\milli\metre}
- \end{equation*}
- bestimmt.
-\subsection{5 Millimeter Abstand}
-Die für einen Abstand von 5 Millimetern zwischen Detektor und Präparat gemessenen Werte befinden sich in Tabelle \ref{tab:5mm}.
-Die effektive Länge wird dabei wieder mit Gleichung \ref{eqn:xeff} und die Energie mit
-\begin{equation*}
-  E = 4 \cdot \frac{k}{1150} \cdot \si{\mega\electronvolt} \: \: \: \text{mit} \: k \equiv \text{Kanalnummer}
-\end{equation*}
-bestimmt.
 \begin{table}
   \centering
   \caption{5 Millimeter Abstand}
@@ -102,4 +60,64 @@ bestimmt.
     \bottomrule
   \end{tabular}
 \end{table}
-\subsubsection{Bestimmung der mittleren Reichweite}
+Nun wird die Zählrate graphisch als Funktion der effektiven Länge aufgetragen.
+Dies ist in den Abbildungen \ref{fig:25mmcounts} und \ref{fig:5mmcounts} dargestellt.
+Als mittlere Reichweite wird nun die effektive Länge gewählt, bei welcher die Counts auf die Hälfte des konstanten Niveaus gesunken sind.
+Dies entspricht bei Abbildung \ref{fig:25mmcounts} einer mittleren Reichweite von
+\begin{equation*}
+  R_m = 22 \: \si{\milli\metre}.
+ \end{equation*}
+Durch Umstellen von Gleichung \ref{eqn:rm} nach der Energie $E_{\alpha}$ und Einsetzen der zuvor ermittelten mittleren Reichweite ergibt sich eine
+Energie von
+\begin{equation*}
+  E_{\alpha} = 3,69 \, \si{\mega\electronvolt}.
+\end{equation*}
+Bei Abbildung \ref{fig:5mmcounts} kann so keine mittlere Reichweite bestimmt werden, da die Counts nicht auf das halbe Niveau absinken.
+
+\begin{figure}
+    \centering
+    \includegraphics{build/25mmcounts.pdf}
+    \caption{Die graphische Darstellung der Zählrate gegen die effektive Länge aufgetragen für $\SI{25}{\milli\metre}$}
+    \label{fig:25mmcounts}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics{build/5mmcounts.pdf}
+    \label{fig:5mmcounts}
+  \caption{Die graphische Darstellung der Zählrate gegen die effektive Länge aufgetragen für $\SI{5}{\milli\metre}$}
+\end{figure}
+
+Um den Energieverlust bestimmen zu können, wird die Energie gegen die effektive Länge aufgetragen und mit der Funktion
+\begin{equation*}
+  y= ax+b
+\end{equation*}
+ mit Python \cite{numpy} \cite{scipy} linear gefittet.
+ Diese Kurven sind in den Abbildungen \ref{fig:25mmenergie} und \ref{fig:5mmenergie} zu finden.
+ Da ein linearer Zusammenhang zwischen Energie und effektiver Länge besteht, gilt folgender Zusammenhang:
+ \begin{equation}
+   - \frac{\symup{d} E}{\symup{d}x} = a .
+ \end{equation}
+ So wird der jeweilige Energieverlust zu
+\begin{align*}
+   - \frac{\symup{d} E}{\symup{d}x} = (125,9 \pm 9,1) \cdot \si{\kilo\electronvolt\per\milli\metre}
+  \intertextfFür $\SI{25}{\milli\metre}$ und}\\
+   - \frac{\symup{d} E}{\symup{d}x} = (168,9 \pm 13,1) \cdot \si{\kilo\electronvolt\per\milli\metre}
+     \intertext{für $\SI{5}{\milli\metre}$}
+\end{align*}
+bestimmt.
+
+
+\begin{figure}
+    \centering
+    \includegraphics{build/25mmenergie.pdf}
+    \caption{Die graphische Darstellung der Energie in Abhängigkeit der effektive Länge aufgetragen für $\SI{25}{\milli\metre}$}
+    \label{fig:25mmenergie}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics{build/5mmenergie.pdf}
+    \label{fig:5mmenergie}
+  \caption{Die graphische Darstellung der Energie in Abhängigkeit der effektive Länge aufgetragen für $\SI{5}{\milli\metre}$}
+\end{figure}
