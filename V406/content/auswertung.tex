@@ -7,3 +7,79 @@
   \caption{Plot.}
   \label{fig:plot}
 \end{figure}
+
+\begin{table}
+  \centering
+  \caption{Doppelspalt 1}
+  \label{tab:ds1}
+  \begin{tabular}[t]{c|c}
+   \toprule
+     $x \, / \, \si{\milli\metre}$ & $I \, / \, \si{\micro\ampere}$ \\
+     \midrule
+     \csvreader[no head,
+     late after line=\\,
+     late after last line=\\\bottomrule,
+     filter test={\ifnumless{\thecsvinputline}{31}}]%
+     {data/ds1.csv}{}%
+     {\csvcoli & \csvcolii }%
+   \end{tabular}
+  \begin{tabular}[t]{c|c}
+   \toprule
+    $x \, / \, \si{\milli\metre}$ & $I \, / \, \si{\micro\ampere}$ \\\midrule
+    \csvreader[filter test={\ifnumgreater{\thecsvinputline}{30}},
+    late after line=\\,
+    late after last line=\\\bottomrule]%
+    {data/ds1.csv}{}%
+    {\csvcoli & \csvcolii}%
+  \end{tabular}
+\end{table}
+\begin{table}
+  \centering
+  \caption{Doppelspalt 2}
+  \label{tab:ds2}
+  \begin{tabular}[t]{c|c}
+   \toprule
+     $x \, / \, \si{\milli\metre}$ & $I \, / \, \si{\micro\ampere}$ \\
+     \midrule
+     \csvreader[no head,
+     late after line=\\,
+     late after last line=\\\bottomrule,
+     filter test={\ifnumless{\thecsvinputline}{27}}]%
+     {data/ds2.csv}{}%
+     {\csvcoli & \csvcolii }%
+   \end{tabular}
+  \begin{tabular}[t]{c|c}
+   \toprule
+    $x \, / \, \si{\milli\metre}$ & $I \, / \, \si{\micro\ampere}$ \\\midrule
+    \csvreader[filter test={\ifnumgreater{\thecsvinputline}{26}},
+    late after line=\\,
+    late after last line=\\\bottomrule]%
+    {data/ds2.csv}{}%
+    {\csvcoli & \csvcolii}%
+  \end{tabular}
+\end{table}
+\begin{table}
+  \centering
+  \caption{Einzelspalt}
+  \label{tab:es}
+  \begin{tabular}[t]{c|c}
+   \toprule
+     $x \, / \, \si{\milli\metre}$ & $I \, / \, \si{\micro\ampere}$ \\
+     \midrule
+     \csvreader[no head,
+     late after line=\\,
+     late after last line=\\\bottomrule,
+     filter test={\ifnumless{\thecsvinputline}{32}}]%
+     {data/es.csv}{}%
+     {\csvcoli & \csvcolii }%
+   \end{tabular}
+  \begin{tabular}[t]{c|c}
+   \toprule
+    $x \, / \, \si{\milli\metre}$ & $I \, / \, \si{\micro\ampere}$ \\\midrule
+    \csvreader[filter test={\ifnumgreater{\thecsvinputline}{31}},
+    late after line=\\,
+    late after last line=\\\bottomrule]%
+    {data/es.csv}{}%
+    {\csvcoli & \csvcolii}%
+  \end{tabular}
+\end{table}

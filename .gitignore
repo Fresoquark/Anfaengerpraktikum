@@ -272,6 +272,8 @@ luac.out
 *.x86_64
 *.hex
 
+# Csvsimple Files
+*.csv#
+
 
 # End of https://www.gitignore.io/api/lua,latex
-
