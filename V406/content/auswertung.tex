@@ -1,6 +1,56 @@
 \section{Auswertung}
 \label{sec:Auswertung}
 
+In der nachfolgenden Auflistung sind die gemessenen Werte für den Abstand zwischen den Spalten und dem verwendeten Photoelement $L$,
+der Wellenlänge des verwendeten He-Ne-Lasers $\lambda$,
+sowie des Dunkelstromes $I_D$ zusammengetragen:
+
+\begin{align*}
+  L &= \SI{99.5}{\centi\metre} \\
+  \lambda &= \SI{635}{\nano\metre} \\
+  I_D &= \SI{21}{\nano\ampere}
+\end{align*}
+
+\subsection{Einzelspalt}
+
+Um die Spaltbreite des Einzelspaltes berechnen zu können, wird eine Ausgleichsrechnung nach Formel \ref{eqn:Einzelspalt} vorgenommen.
+Die der Messung zu Grunde liegenden Daten können Tabelle \ref{tab:es} entnommen werden.
+
+\begin{table}
+  \centering
+  \caption{Einzelspalt}
+  \label{tab:es}
+  \begin{tabular}[t]{c|c}
+   \toprule
+     $x \, / \, \si{\milli\metre}$ & $I \, / \, \si{\micro\ampere}$ \\
+     \midrule
+     \csvreader[no head,
+     late after line=\\,
+     late after last line=\\\bottomrule,
+     filter test={\ifnumless{\thecsvinputline}{32}}]%
+     {data/es.csv}{}%
+     {\csvcoli & \csvcolii }%
+   \end{tabular}
+  \begin{tabular}[t]{c|c}
+   \toprule
+    $x \, / \, \si{\milli\metre}$ & $I \, / \, \si{\micro\ampere}$ \\\midrule
+    \csvreader[filter test={\ifnumgreater{\thecsvinputline}{31}},
+    late after line=\\,
+    late after last line=\\\bottomrule]%
+    {data/es.csv}{}%
+    {\csvcoli & \csvcolii}%
+  \end{tabular}
+\end{table}
+
+Der Winkel $\phi$ kann nicht direkt gemessen werden.
+Er wird durch
+
+\begin{equation}
+  \phi \approx \frac{x}{L}
+\end{equation}
+
+angenähert.
+
 \begin{figure}
   \centering
   \includegraphics{plot.pdf}
@@ -55,31 +105,6 @@
     late after line=\\,
     late after last line=\\\bottomrule]%
     {data/ds2.csv}{}%
-    {\csvcoli & \csvcolii}%
-  \end{tabular}
-\end{table}
-\begin{table}
-  \centering
-  \caption{Einzelspalt}
-  \label{tab:es}
-  \begin{tabular}[t]{c|c}
-   \toprule
-     $x \, / \, \si{\milli\metre}$ & $I \, / \, \si{\micro\ampere}$ \\
-     \midrule
-     \csvreader[no head,
-     late after line=\\,
-     late after last line=\\\bottomrule,
-     filter test={\ifnumless{\thecsvinputline}{32}}]%
-     {data/es.csv}{}%
-     {\csvcoli & \csvcolii }%
-   \end{tabular}
-  \begin{tabular}[t]{c|c}
-   \toprule
-    $x \, / \, \si{\milli\metre}$ & $I \, / \, \si{\micro\ampere}$ \\\midrule
-    \csvreader[filter test={\ifnumgreater{\thecsvinputline}{31}},
-    late after line=\\,
-    late after last line=\\\bottomrule]%
-    {data/es.csv}{}%
     {\csvcoli & \csvcolii}%
   \end{tabular}
 \end{table}
