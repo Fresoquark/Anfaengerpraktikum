@@ -1,0 +1,5 @@
+Abstand Spalt-Photodetektor : 99.5cm
+Dunkelstrom: 21nA
+Doppelspalt 1 : Spaltbreite 0.15mm, Abstand 0.25mm
+Doppelspalt 2 : Spaltbreite 0.15mm, Abstand 0.50mm
+Einzelspalt : Spaltbreite 0.075mm
