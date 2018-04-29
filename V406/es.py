@@ -8,18 +8,18 @@ xbla= np.linspace(-15,15, 1000)
 lada = 635 * 10**(-6)
 L = 99.5 * 10
 
-def f(x, a, b, c):
+def f(x, a, b, c, d):
     #return a**2 * b**2 * (lada /( np.pi * b * np.sin(x/(L) + c )))**2 * np.sin(np.pi * b * np.sin(x /(L) + c ) / (lada))
-    return a ** 2 * b**2 * np.sinc(np.pi * b * np.sin(x/L+c)/(lada))**2
+    return a ** 2 * b**2 * np.sinc(np.pi * b * np.sin(x/L+c)/(lada))**2 +d
 
-params, covariance_matrix = curve_fit(f, x, I, p0=(1.4, 0.075, 0))
+params, covariance_matrix = curve_fit(f, x, I, p0=(1.4, 0.075, 0, 0.3))
 
 errors = np.sqrt(np.diag(covariance_matrix))
 
 print('a=', params[0], '+-', errors[0])
 print('b=', params[1], '+-', errors[1])
 print('c=', params[2], '+-', errors[2])
-
+print('d=', params[3], '+-', errors[3])
 
 plt.plot(x, I, 'k.', label="Daten", ms=2.5)
 plt.plot(xbla, f(xbla, *params), 'r-', label='Fit')
