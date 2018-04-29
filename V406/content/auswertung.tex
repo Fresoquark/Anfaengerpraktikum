@@ -46,17 +46,30 @@ Der Winkel $\phi$ kann nicht direkt gemessen werden.
 Er wird durch
 
 \begin{equation}
-  \phi \approx \frac{x}{L}
+  \phi \approx \frac{x - x_{\text{max}}}{L}
 \end{equation}
 
 angenähert.
+Der Fit wird mittels SciPy durchgeführt und ist in Abbildung \ref{fig:Einzelspalt} dargestellt.
+Der Dunkelstrom $I_D = \SI{21}{\nano\ampere}$ wird von den Daten der Tabelle abgezogen.
+Für die so gefundenen Parameter ergeben sich folgende Werte:
+
+\begin{align*}
+  \Delta \phi &= \SI{3.35 \pm 0.64e-4}{\radian} \\
+  b_{\text{Einzelspalt}} &= \SI{0.022 \pm 0.001}{\milli\metre} \\
+  b_{\text{Einzelspalt, Hersteller}} &= \SI{0.075}{\milli\metre}
+\end{align*}
+
+Es ergibt sich eine Abweichung von $\SI{-70.67}{\percent}$ für die gemessene Breite b des Einzelspaltes und den Herstellerangaben.
 
 \begin{figure}
   \centering
-  \includegraphics{plot.pdf}
-  \caption{Plot.}
-  \label{fig:plot}
+  \includegraphics{es.pdf}
+  \caption{Die Messwerte des Einzelspaltes, sowie der entsprechende Fit}
+  \label{fig:Einzelspalt}
 \end{figure}
+
+\subsection{Die Doppelspalte}
 
 \begin{table}
   \centering
