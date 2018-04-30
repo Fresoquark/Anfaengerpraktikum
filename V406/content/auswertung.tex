@@ -12,8 +12,9 @@ sowie des Dunkelstromes $I_D$ zusammengetragen:
 \end{align*}
 
 \subsection{Einzelspalt}
+\FloatBarrier
 
-Um die Spaltbreite des Einzelspaltes berechnen zu können, wird eine Ausgleichsrechnung nach Gleichung \ref{eqn:Einzelspalt} vorgenommen.
+Um die Spaltbreite des Einzelspaltes berechnen zu können, wird eine Ausgleichsrechnung nach Gleichung \eqref{eqn:Einzelspalt} vorgenommen.
 Die der Messung zu Grunde liegenden Daten können Tabelle \ref{tab:es} entnommen werden.
 
 \begin{table}
@@ -47,10 +48,11 @@ Er wird durch
 
 \begin{equation}
   \phi \approx \frac{x - x_{\text{max}}}{L}
+  \label{eqn:phi}
 \end{equation}
 
 angenähert.
-Der Fit wird mittels SciPy durchgeführt und ist in Abbildung \ref{fig:Einzelspalt} dargestellt.
+Der Fit wird mittels SciPy \cite{scipy} durchgeführt und ist in Abbildung \ref{fig:Einzelspalt} dargestellt.
 Der Dunkelstrom $I_D = \SI{21}{\nano\ampere}$ wird von den Daten der Tabelle abgezogen.
 Für die so gefundenen Parameter ergeben sich folgende Werte:
 
@@ -60,16 +62,36 @@ Für die so gefundenen Parameter ergeben sich folgende Werte:
   b_{\text{Einzelspalt, Hersteller}} &= \SI{0.075}{\milli\metre}
 \end{align*}
 
-Es ergibt sich eine Abweichung von $\SI{-70.67}{\percent}$ für die gemessene Breite b des Einzelspaltes und den Herstellerangaben.
+Es ergibt sich eine Abweichung von $\SI{70.67}{\percent}$ für die gemessene Breite b des Einzelspaltes und den Herstellerangaben.
 
 \begin{figure}
   \centering
   \includegraphics{es.pdf}
-  \caption{Die Messwerte des Einzelspaltes, sowie der entsprechende Fit}
+  \caption{Die Messwerte des Einzelspaltes, sowie der entsprechende Fit.}
   \label{fig:Einzelspalt}
 \end{figure}
+\FloatBarrier
+\subsection{Doppelspalt 1}
+\FloatBarrier
+\label{sec:ds1}
+Zur Ermittlung der Spaltbreite und des Spaltabstandes des Doppelspalts werden die in Tabelle \ref{tab:ds1} befindlichen Daten mit Gleichung \eqref{eqn:Doppelspalt} gefittet.
+Dabei wird wieder der Dunkelstrom von den gemessenen Stromstärken abgezogen und der Winkel $\phi$ wieder mit \eqref{eqn:phi} angenähert.
+Scipy \cite{scipy} liefert für den in Abbildung \ref{fig:ds1} zu sehenden Fit folgende Werte:
+\begin{align*}
+  \Delta \phi &= \SI{1.15 \pm 2.68e-5}{\radian} \\
+  b_{\text{Doppelspalt 1}, } &= \SI{0.049 \pm 0.003}{\milli\metre} \\
+  b_{\text{Doppelspalt 1, Hersteller}} &= \SI{0.15}{\milli\metre} \\
+  s_{\text{Doppelspalt 1}} &= \SI{0.220 \pm 0.008}{\milli\metre} \\
+  s_{\text{Doppelspalt 1, Hersteller}} &= \SI{0.25}{\milli\metre}
+\end{align*}
+So ergibt sich eine Abweichung von $\SI{67.3}{\percent}$, für die Breite b, und $\SI{12}{\percent}$, für den gemessenen Spaltabstand s.
 
-\subsection{Die Doppelspalte}
+\begin{figure}
+  \centering
+  \includegraphics{ds1.pdf}
+  \caption{Die Messwerte des ersten Doppelspaltes, sowie der entsprechende Fit.}
+  \label{fig:ds1}
+\end{figure}
 
 \begin{table}
   \centering
@@ -96,6 +118,27 @@ Es ergibt sich eine Abweichung von $\SI{-70.67}{\percent}$ für die gemessene Br
     {\csvcoli & \csvcolii}%
   \end{tabular}
 \end{table}
+\FloatBarrier
+\subsection{Doppelspalt 2}
+\FloatBarrier
+Es wird analog zu \ref{sec:ds1} vorgegangen. Die genutzten Messwerte befinden sich in Tabelle \ref{tab:ds2}.
+Der Fit ist in Abbildung \ref{fig:ds2} zu sehen und die bestimmten Werte sind:
+\begin{align*}
+  \Delta \phi &= \SI{3.05 \pm 2.81e-5}{\radian} \\
+  b_{\text{Doppelspalt 2}} &= \SI{0.054 \pm 0.006}{\milli\metre} \\
+  b_{\text{Doppelspalt 2, Hersteller}} &= \SI{0.15}{\milli\metre} \\
+  s_{\text{Doppelspalt 2}} &= \SI{0.505 \pm 0.014}{\milli\metre} \\
+  s_{\text{Doppelspalt 2, Hersteller}} &= \SI{0.50}{\milli\metre}
+\end{align*}
+Dies entspricht einer Abweichung von $\SI{64}{\percent}$, für die Breite b, und $\SI{0.01}{\percent}$ für den Abstand s.
+
+\begin{figure}
+  \centering
+  \includegraphics{ds2.pdf}
+  \caption{Die Messwerte des zweiten Doppelspaltes, sowie der entsprechende Fit.}
+  \label{fig:ds2}
+\end{figure}
+
 \begin{table}
   \centering
   \caption{Doppelspalt 2}
@@ -121,3 +164,4 @@ Es ergibt sich eine Abweichung von $\SI{-70.67}{\percent}$ für die gemessene Br
     {\csvcoli & \csvcolii}%
   \end{tabular}
 \end{table}
+\FloatBarrier
