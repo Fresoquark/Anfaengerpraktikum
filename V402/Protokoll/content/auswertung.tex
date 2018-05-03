@@ -190,9 +190,9 @@ Dies erfolgt mit numpy und es ergeben sich folgende Werte:
 
 \begin{align*}
   A_0 &= 2.99 \pm 0.01 \\
-  A_2 &= 42087.30 \pm 2904.23 \si{\square\metre}\\
+  A_2 &= (42087.30 \pm 2904.23) \, \si{\square\nano\metre}\\
   A'_0 &= 3.36 \pm 0.02 \\
-  A'_2 &= (7.59 \pm 0.84) \times 10^{-7} \si{\per\square\metre}\\
+  A'_2 &= (7.59 \pm 0.84) \times 10^{-7} \, \si{\per\square\nano\metre}
 \end{align*}
 
 Die gefitteten Kurven sind in den Abbildungen \ref{fig:fit1} und \ref{fig:fit2} zu sehen.
@@ -230,8 +230,14 @@ Da die Summe der Abweichungsquadrate für die Dipersionskurve, welche durch Glei
 beschreibt diese das Dispersionsverhalten des Prismas genauer.
 Somit ergibt sich für die in Abbildung \ref{fig:plot4} zu sehende Dispersionskurve
 \begin{equation}
-  n(\lambda) = \sqrt{2.99 + \frac{42087 \si{\square\metre}}{{\lambda}^2}} .
+  n(\lambda) = \sqrt{ A_0 + \frac{A_2}{{\lambda}^2}}
   \label{eqn:disp}
+\end{equation}
+mit $A_0 = 2.99 \pm 0.01 $ und $A_2 = (42087.30 \pm 2904.23) \, \si{\square\nano\metre}$.
+Der Fehler der Brechungsindices welche durch \eqref{eqn:disp} berechnet wird, wird mit folgender durch \eqref{eqn:gauß} hergeleiteten Formel berechnet:
+\begin{equation}
+\Delta n = \sqrt{\frac{A_{2}^{2} \Delta_{\lambda}^{2}}{4 \lambda^{4} \left(A_{0} + \frac{A_{2}}{\lambda}\right)} + \frac{\Delta_{A_{0}}^{2}}{4 \left(A_{0} + \frac{A_{2}}{\lambda}\right)} + \frac{\Delta_{A_{2}}^{2}}{4 \lambda^{2} \left(A_{0} + \frac{A_{2}}{\lambda}\right)}}
+\label{eqn:nerr}
 \end{equation}
 
 \begin{figure}
@@ -252,18 +258,22 @@ Durch die zuvor berechnete Dispersionsgleichung kann nun mit der folgenden Forme
 \end{equation}
 
 die Abbesche Zahl $\nu$ berechnet werden.
-Dabei stellen die Konstanten $n_D$, $n_F$ und $n_C$ die entsprechenden Brechungsindices zu den sogenannten Fraunhoferschen Linien mit folgenden Werten dar:
+Dabei stellen die Konstanten $n_D$, $n_F$ und $n_C$ die entsprechenden Brechungsindices zu den sogenannten Fraunhoferschen Linien dar.
+Diese werden mit \eqref{eqn:disp} und \eqref{eqn:nerr} berechnet:
 
 \begin{align*}
-  \lambda_C &= \SI{656}{\nano\metre} & n_C &= 1.76\\
-  \lambda_d &= \SI{589}{\nano\metre} & n_D &= 1.76\\
-  \lambda_F &= \SI{486}{\nano\metre} & n_F &= 1.78
+  \lambda_C &= \SI{656}{\nano\metre} & n_C &= 1.757 \pm 0.003\\
+  \lambda_d &= \SI{589}{\nano\metre} & n_D &= 1.764 \pm 0.004\\
+  \lambda_F &= \SI{486}{\nano\metre} & n_F &= 1.780 \pm 0.004
 \end{align*}
 
-Für die Abbesche Zahl ergibt sich dann:
-
+Für die Abbesche Zahl ergibt sich dann mit dem durch
+\begin{equation*}
+  \Delta \nu = \sqrt{\frac{\Delta_{n_{C}}^{2} \left(n_{d} - 1\right)^{2}}{\left(- n_{C} + n_{F}\right)^{4}} + \frac{\Delta_{n_{F}}^{2} \left(n_{d} - 1\right)^{2}}{\left(- n_{C} + n_{F}\right)^{4}} + \frac{\Delta_{n_{d}}^{2}}{\left(- n_{C} + n_{F}\right)^{2}}}
+\end{equation*}
+berechneten Fehler
 \begin{align*}
-  \nu = 33.52
+  \nu = 33.6 \pm 2.2
 \end{align*}
 
 \subsection{Auflösungsvermögen}
@@ -285,8 +295,16 @@ Die Ableitung von $n(\lambda)$ nach $\lambda$  ergibt:
 \begin{equation}
   \frac{d}{d\lambda} n(\lambda) = \frac{d}{d\lambda} \sqrt{A_0 + \frac{A_2}{\lambda^2}} = - \frac{A_2}{\lambda^3 \sqrt{A_0 + \frac{A_2}{\lambda^2}}}
 \end{equation}
+Dies wird in Gleichung \eqref{eqn:auflosung} eingesetzt.
+Der zugehörige Fehler wird mit
+\tiny
+\begin{equation*}
+\Delta A = \sqrt{\frac{A_{2}^{2} b^{2} \Delta_{A_{0}}^{2}}{4 \lambda^{6} \left(A_{0} + \frac{A_{2}}{\lambda^{2}}\right)^{3}} + \frac{A_{2}^{2} \Delta_{b}^{2}}{\lambda^{6} \left(A_{0} + \frac{A_{2}}{\lambda^{2}}\right)} + \Delta_{A_{2}}^{2} \left(- \frac{A_{2} b}{2 \lambda^{5} \left(A_{0} + \frac{A_{2}}{\lambda^{2}}\right)^{\frac{3}{2}}} + \frac{b}{\lambda^{3} \sqrt{A_{0} + \frac{A_{2}}{\lambda^{2}}}}\right)^{2} + \Delta_{\lambda}^{2} \left(\frac{A_{2}^{2} b}{\lambda^{6} \left(A_{0} + \frac{A_{2}}{\lambda^{2}}\right)^{\frac{3}{2}}} - \frac{3 A_{2} b}{\lambda^{4} \sqrt{A_{0} + \frac{A_{2}}{\lambda^{2}}}}\right)^{2}}
+\end{equation*}
+\normalsize
+berechnet.
 
-Setzt man dies in die Gleichung \ref{eqn:auflosung} so ergeben sich folgende Werte, die in Tabelle \ref{tab:Auflösungsvermögen} dargestellt sind.
+Für die Fraunhoferschen Linien ergeben sich so folgende Werte, welche in Tabelle \ref{tab:Auflösungsvermögen} dargestellt sind.
 
 \begin{table}
   \centering
@@ -297,9 +315,9 @@ Setzt man dies in die Gleichung \ref{eqn:auflosung} so ergeben sich folgende Wer
     \toprule
     {$\text{Linie}$} & {$\lambda \:/\: \si{\nano\metre}$} & {$\text{Auflösungsvermögen}$} \\
     \midrule
-    $\lambda_C$ & 656 &  2547.33 \\
-    $\lambda_D$ & 589 &  3505.91 \\
-    $\lambda_F$ & 486 &  6184.41 \\
+    $\lambda_C$ & 656 &  $7859.3 \pm 551.1$ \\
+    $\lambda_D$ & 589 &  $10899.3 \pm 767.0$ \\
+    $\lambda_F$ & 486 &  $19578.0 \pm 1389.3$ \\
     \bottomrule
   \end{tabular}
 \end{table}
