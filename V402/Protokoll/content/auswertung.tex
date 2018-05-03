@@ -94,8 +94,8 @@ Die Ergebnisse für die entsprechenden Wellenlängen $\lambda_i$ sind ebenfalls 
     \text{grün}        & 508.58 & 235.8 & 121.1 & 65.3 \\
     \text{hellblau}    & 479.99 & 235.3 & 121.6 & 66.3 \\
     \text{blau}        & 467.82 & 235.1 & 121.9 & 66.8 \\
-    \text{hellviolett} & 404.65 & 234.3 & 122.7 & 68.4 \\
-    \text{violett}     & 365.02 & 233.3 & 123.7 & 70.4 \\
+    \text{hellviolett} & 435.83 & 234.3 & 122.7 & 68.4 \\
+    \text{violett}     & 404.65 & 233.3 & 123.7 & 70.4 \\
     \bottomrule
   \end{tabular}
 \end{table}
@@ -132,11 +132,14 @@ Für n ergibt sich dann folgende Formel:
 \end{equation}
 
 Da es sich bei dem Winkel $\upvarphi$ um eine fehlerbehaftete Größe handelt, wird die Gauß'sche Fehlerfortpflanzung genutzt:
-
 \begin{equation}
   \label{eqn:gauß}
   \Delta f = \sqrt{ \sum_{i=1}^N \left(\frac{\partial}{\partial x_i}\right)^2 \cdot \left(\Delta x_i\right)^2}
 \end{equation}
+Damit ergibt sich für den Fehler der Brechungsindices folgende Formel:
+\begin{equation*}
+  \increment n = \increment \upvarphi \cdot \Biggl(\frac{sin(\frac{\upvarphi}{2}) cos(\frac{\eta + \upvarphi}{2}) - cos(\frac{\upvarphi}{2}) sin (\frac{\eta + \upvarphi}{2})}{2 {sin(\frac{\upvarphi}{2})}^2} \Biggr)
+\end{equation*}
 
 Diese werden mit uncertainties berechnet.
 Die Ergebnisse sind in Tabelle \ref{tab:Brechungsindex} zusammengefasst.
@@ -160,8 +163,8 @@ Die Ergebnisse sind in Tabelle \ref{tab:Brechungsindex} zusammengefasst.
     508.58 & 1.78 & 0.00 \\
     479.99 & 1.78 & 0.00 \\
     467.82 & 1.79 & 0.00 \\
-    404.65 & 1.80 & 0.00 \\
-    365.02 & 1.81 & 0.00 \\
+    435.83 & 1.80 & 0.00 \\
+    404.65 & 1.81 & 0.00 \\
     \bottomrule
   \end{tabular}
 \end{table}
@@ -187,9 +190,9 @@ Dies erfolgt mit numpy und es ergeben sich folgende Werte:
 
 \begin{align*}
   A_0 &= 2.99 \pm 0.01 \\
-  A_2 &= 42087.30 \pm 2904.23 \\
+  A_2 &= 42087.30 \pm 2904.23 \si{\square\metre}\\
   A'_0 &= 3.36 \pm 0.02 \\
-  A'_2 &= (7.59 \pm 0.84) \times 10^{-7} \\
+  A'_2 &= (7.59 \pm 0.84) \times 10^{-7} \si{\per\square\metre}\\
 \end{align*}
 
 Die gefitteten Kurven sind in den Abbildungen \ref{fig:fit1} und \ref{fig:fit2} zu sehen.
@@ -227,7 +230,7 @@ Da die Summe der Abweichungsquadrate für die Dipersionskurve, welche durch Glei
 beschreibt diese das Dispersionsverhalten des Prismas genauer.
 Somit ergibt sich für die in Abbildung \ref{fig:plot4} zu sehende Dispersionskurve
 \begin{equation}
-  n(\lambda) = \sqrt{2.99 + \frac{42087}{{\lambda}^2}} .
+  n(\lambda) = \sqrt{2.99 + \frac{42087 \si{\square\metre}}{{\lambda}^2}} .
   \label{eqn:disp}
 \end{equation}
 
