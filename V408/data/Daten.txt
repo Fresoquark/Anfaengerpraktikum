@@ -1,0 +1,5 @@
+Position Perl-L (alle Messungen): 20cm, Größe Perl-L: 3cm
+Linse 1: Brennweite +50mm
+Linse 2: Brennweite unbekannt
+Bessel 1,2: Brennweite +100mm
+Abbe-Methode: Position Schirm: 55cm, Brennweiten der Linsen: +-50mm
