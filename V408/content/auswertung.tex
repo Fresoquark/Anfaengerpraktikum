@@ -1,9 +1,61 @@
 \section{Auswertung}
 \label{sec:Auswertung}
 
+\subsection{Messung der Gegenstands- und Bild-weite}
+
+Die Messwerte für die Bestimmung der Brennweite mittels Messen der Gegenstands- und Bild-weite sind in Tabelle \ref{tab:Gegenstands} aufgetragen.
+Hierbei wurden nicht die Größen g und b direkt gemessen, sondern die Position der optischen Elemente und die Bildgröße B.
+Die Postion des Perl L ist für jeden Versuch mit $\SI{20}{\centi\metre}$ gemessen worden.
+
+\begin{table}
+  \centering
+  \caption{bekannte Brennweite}
+  \label{tab:Gegenstands}
+  \begin{tabular}[t]{c|c|c}
+   \toprule
+     $\text{Pos d. Linse} \, / \, \si{\centi\metre}$ & $\text{Pos d. Schrims} \, / \, \si{\centi\metre}$ & $B \, / \, \si{\centi\metre}$ \\
+     \midrule
+     \csvreader[no head,
+     late after line=\\,
+     late after last line=\\\bottomrule,
+     filter test={\ifnumless{\thecsvinputline}{32}}]%
+     {data/linse1.csv}{}%
+     {\csvcoli & \csvcolii }%
+   \end{tabular}
+ \end{table}
+
+Um die Brennweite der Linse berechnen zu können, wird die Linsengleichung \eqref{eqn:Linsengleichung} verwendet.
+Der Mittelwert wird mittels Numpy nach folgender Formel berechnet:
+
+\begin{equation}
+  \label{eqn:mittelwert}
+  \overline{x} = \frac{1}{N} \sum_{i=1}^N x_i
+\end{equation}
+
+Der Fehler des Mittelwertes nach dieser mittels uncertainties:
+
+\begin{equation}
+  \label{eqn:mittelwertfehler}
+  \Delta \overline{x} = \frac{1}{\sqrt{N}} \sqrt{\frac{1}{N-1} \sum_{i=1}^N (x_i - \overline{x})^2}
+\end{equation}
+
+Es ergibt sich folglich für die Brennweite:
+
+\begin{align*}
+  f = \SI{4.45\pm0.06}{\centi\metre}
+\end{align*}
+
+Dies wird mit der Herstellerangabe von $\SI{50}{\milli\metre}$ verglichen.
+Es ergibt sich ein Fehler von $\SI{10}{\percent}$.
+Die Messgenauigkeit wird durch den folgenden Plot überprüft.
+Hierbei werden die Wertepaare für $g_i, b_i$ aufgetragen.
+Bei hoher Genauigkeit sollten sich alle Geraden in einem Punkt treffen.
+Da die Graphen für $g = \SI{5}{\centi\metre}, \SI{13}{\centi\metre}, \SI{14}{\centi\metre}$ zu stark abweichen werden diese für diese Berechnung vernachlässigt.
+Damit lässt sich die Brennweite auf $f= $ berechnen.
+
 \begin{figure}
   \centering
-  \includegraphics{plot.pdf}
-  \caption{Plot.}
-  \label{fig:plot}
+  \includegraphics{linse1.pdf}
+  \caption{Überprüfen der Messgenauigkeit}
+  \label{fig:Messgenauigkeit}
 \end{figure}

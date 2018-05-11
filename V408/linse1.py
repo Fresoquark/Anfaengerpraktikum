@@ -12,6 +12,8 @@ V1= B/3
 V2= b/g
 print("Durch Bildgroesse berechneter Massstab V=", V1)
 print("Durch b und g berechneter Massstab V=", V2)
+print("b = ", b)
+print("g = ", g)
 
 f= 1 / (1/b + 1/g)
 print ("Berechnete Brennpunkte:",f)
@@ -27,8 +29,8 @@ m= b/(-g)
 
 plt.xlim(0,np.max(g)+2)
 plt.ylim(0,np.max(b)+2)
-plt.plot(x2, f(x2,m[0],b[0]), 'k-', linewidth=0.5)
-plt.plot(x2, f(x2,m[1],b[1]), 'k-', linewidth=0.5)
+plt.plot(x2, f(x2,m[0],b[0]), 'k--', linewidth=0.5)
+plt.plot(x2, f(x2,m[1],b[1]), 'k--', linewidth=0.5)
 plt.plot(x2, f(x2,m[2],b[2]), 'k-', linewidth=0.5)
 plt.plot(x2, f(x2,m[3],b[3]), 'k-', linewidth=0.5)
 plt.plot(x2, f(x2,m[4],b[4]), 'k-', linewidth=0.5)
@@ -36,7 +38,7 @@ plt.plot(x2, f(x2,m[5],b[5]), 'k-', linewidth=0.5)
 plt.plot(x2, f(x2,m[6],b[6]), 'k-', linewidth=0.5)
 plt.plot(x2, f(x2,m[7],b[7]), 'k-', linewidth=0.5)
 plt.plot(x2, f(x2,m[8],b[8]), 'k-', linewidth=0.5)
-plt.plot(x2, f(x2,m[9],b[9]), 'k-', linewidth=0.5)
+plt.plot(x2, f(x2,m[9],b[9]), 'k--', linewidth=0.5)
 
 plt.xlabel(r'g / cm')
 plt.ylabel(r'b / cm')
