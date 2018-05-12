@@ -1,17 +1,17 @@
 \section{Auswertung}
 \label{sec:Auswertung}
 
-\subsection{Messung der Gegenstands- und Bild-weite}
+\subsection{Messung der Gegenstands- und Bild-weite bei bekannter Brennweite}
 
-Die Messwerte für die Bestimmung der Brennweite mittels Messen der Gegenstands- und Bild-weite sind in Tabelle \ref{tab:Gegenstands} aufgetragen.
+Die Messwerte für die Bestimmung der Brennweite mittels Messen der Gegenstands- und Bild-weite sind in Tabelle \ref{tab:bekannt} aufgetragen.
 Hierbei wurden nicht die Größen g und b direkt gemessen, sondern die Position der optischen Elemente und die Bildgröße B.
 Die Postion des Perl L ist für jeden Versuch mit $\SI{20}{\centi\metre}$ gemessen worden.
 
 \begin{table}
   \centering
-  \caption{bekannte Brennweite}
-  \label{tab:Gegenstands}
-  \begin{tabular}[t]{c|c|c}
+  \caption{Messwerte für die Linse mit bekannter Brennweite}
+  \label{tab:bekannt}
+  \begin{tabular}[t]{c c c}
    \toprule
      $\text{Pos d. Linse} \, / \, \si{\centi\metre}$ & $\text{Pos d. Schrims} \, / \, \si{\centi\metre}$ & $B \, / \, \si{\centi\metre}$ \\
      \midrule
@@ -20,7 +20,7 @@ Die Postion des Perl L ist für jeden Versuch mit $\SI{20}{\centi\metre}$ gemess
      late after last line=\\\bottomrule,
      filter test={\ifnumless{\thecsvinputline}{32}}]%
      {data/linse1.csv}{}%
-     {\csvcoli & \csvcolii }%
+     {\csvcoli & \csvcolii  & \csvcoliii}%
    \end{tabular}
  \end{table}
 
@@ -59,3 +59,26 @@ Damit lässt sich die Brennweite auf $f= $ berechnen.
   \caption{Überprüfen der Messgenauigkeit}
   \label{fig:Messgenauigkeit}
 \end{figure}
+
+\subsection{Messung der Gegenstands- und Bild-weite bei unbekannter Brennweite}
+
+Für die Messung der Brennweite einer Linse mit unbekannter Brennweite wird eine Wasserlinse verwendet.
+Die Messungen erfolgen analog.
+Die Messwerte für die Positionen der optischen Elemente sind in Tabelle \ref{tab:unbekannt} dargestellt.
+
+\begin{table}
+  \centering
+  \caption{Messwerte für die Linse mit unbekannter Brennweite}
+  \label{tab:unbekannt}
+  \begin{tabular}[t]{c c c}
+   \toprule
+     $\text{Pos d. Linse} \, / \, \si{\centi\metre}$ & $\text{Pos d. Schrims} \, / \, \si{\centi\metre}$ \\
+     \midrule
+     \csvreader[no head,
+     late after line=\\,
+     late after last line=\\\bottomrule,
+     filter test={\ifnumless{\thecsvinputline}{32}}]%
+     {data/linse2.csv}{}%
+     {\csvcoli & \csvcolii}%
+   \end{tabular}
+ \end{table}
