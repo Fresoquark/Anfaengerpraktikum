@@ -51,12 +51,12 @@ Die Messgenauigkeit wird durch den folgenden Plot überprüft.
 Hierbei werden die Wertepaare für $g_i, b_i$ aufgetragen.
 Bei hoher Genauigkeit sollten sich alle Geraden in einem Punkt treffen.
 Da die Graphen für $g = \SI{5}{\centi\metre}, \SI{13}{\centi\metre}, \SI{14}{\centi\metre}$ zu stark abweichen werden diese für diese Berechnung vernachlässigt.
-Damit lässt sich die Brennweite auf $f= $ berechnen.
+Damit lässt sich die Brennweite auf $f = $ berechnen.
 
 \begin{figure}
   \centering
   \includegraphics{linse1.pdf}
-  \caption{Überprüfen der Messgenauigkeit}
+  \caption{Überprüfen der Messgenauigkeit der Linse mit bekannter Brennweite}
   \label{fig:Messgenauigkeit}
 \end{figure}
 
@@ -65,12 +65,13 @@ Damit lässt sich die Brennweite auf $f= $ berechnen.
 Für die Messung der Brennweite einer Linse mit unbekannter Brennweite wird eine Wasserlinse verwendet.
 Die Messungen erfolgen analog.
 Die Messwerte für die Positionen der optischen Elemente sind in Tabelle \ref{tab:unbekannt} dargestellt.
+Das Perl L befindet sich erneut bei $\SI{20}{\centi\metre}$.
 
 \begin{table}
   \centering
   \caption{Messwerte für die Linse mit unbekannter Brennweite}
   \label{tab:unbekannt}
-  \begin{tabular}[t]{c c c}
+  \begin{tabular}[t]{c c}
    \toprule
      $\text{Pos d. Linse} \, / \, \si{\centi\metre}$ & $\text{Pos d. Schrims} \, / \, \si{\centi\metre}$ \\
      \midrule
@@ -82,3 +83,140 @@ Die Messwerte für die Positionen der optischen Elemente sind in Tabelle \ref{ta
      {\csvcoli & \csvcolii}%
    \end{tabular}
  \end{table}
+
+Die Brennweite wird erneut mit der Linsengleichung \eqref{eqn:Linsengleichung} ermittelt.
+Der Mittelwert nach Gleichung \eqref{eqn:mittelwert} und dessen Fehler nach Gleichung \eqref{eqn:mittelwertfehler}.
+Es ergibt sich folglich für die Brennweite:
+
+\begin{align*}
+  f = \SI{6.134\pm0.010}{\centi\metre}
+\end{align*}
+
+Da bei der Wasserlinse keine Herstellerangabe überprüft werden kann, muss die Messgenauigkeit einzig mithilfe des Plotes \ref{fig:MessgenauigkeitII} überprüft werden.
+Hier wird erneut der Schnittpunkt der einzelnen Geraden ermittelt und gemittelt.
+Es ergibt sich für die Brennweite dann: $f = $.
+
+\begin{figure}
+  \centering
+  \includegraphics{linse2.pdf}
+  \caption{Überprüfen der Messgenauigkeit der Wasserlinse}
+  \label{fig:MessgenauigkeitII}
+\end{figure}
+
+\subsection{Methode nach Bessel}
+
+Wie in Abschnitt \ref{} der Durchführung beschrieben wird bei der Messung nach Bessel der Abstand zwischen Schirm und Perl variiert.
+Dieser Abstand wird mit e bezeichnet.
+Ferner werden die zwei Positonen der Linsen festgehalten, für die das Bild bei gegebenem Abstand e scharf ist.
+Diese werden mit $p_1$ und $p_2$ bezeichnet.
+Die Ergebnisse sind in Tabelle \ref{tab:Bessel1} dargestellt.
+
+\begin{table}
+  \centering
+  \caption{Messwerte für die Besselsche Methode}
+  \label{tab:Bessel1}
+  \begin{tabular}[t]{c c c}
+   \toprule
+     $e \, / \, \si{\centi\metre}$ & $p_1 \, / \, \si{\centi\metre}$ & $p_2 \, / \, \si{\centi\metre}$ \\
+     \midrule
+     \csvreader[no head,
+     late after line=\\,
+     late after last line=\\\bottomrule,
+     filter test={\ifnumless{\thecsvinputline}{32}}]%
+     {data/bessel1.csv}{}%
+     {\csvcoli & \csvcolii & \csvcoliii}%
+   \end{tabular}
+ \end{table}
+
+Die Besselsche Methode erfordert die Nutzung der Gleichung \eqref{eqn:Bessel}.
+Wendet man dies für alle Abstände an, erhält man folgende Werte, die in Tabelle \ref{tab:Besselbrennweite2} aufgetragen sind:
+
+\begin{table}
+  \centering
+  \caption{Brennweiten nach Bessel}
+  \label{tab:Besselbrennweite}
+  \begin{tabular}{S[table-format=3.0] S [table-format=2.2] S [table-format=1.2]}
+    \toprule
+    {$e \, / \, \si{\centi\metre}$} & {$f_1 \, / \, \si{\centi\metre}$} & {$f_2 \, / \, \si{\centi\metre}$} \\
+    \midrule
+    65  & 10.03 & 9.53 \\
+    70  & 10.12 & 9.52 \\
+    75  & 10.08 & 9.71 \\
+    80  & 10.18 & 9.60 \\
+    85  & 10.28 & 9.78 \\
+    90  & 10.27 & 9.81 \\
+    95  & 10.22 & 9.67 \\
+    100 & 10.20 & 9.70 \\
+    105 & 10.45 & 9.72 \\
+    110 & 10.55 & 9.66 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+Mittelt man diese Werte zunächst für $f_1$ und anschließend für $f_2$, so erhält man die Mittelwerte nach Gleichung \eqref{eqn:mittelwert} und deren Fehler nach Gleichung \eqref{eqn:mittelwertfehler}.
+Anschließend werden noch einmal alle Brennweiten gemittelt und zu einer Brennweite zusammengefasst.
+
+\begin{align*}
+  f_1 &= \SI{10.24\pm0.05}{\centi\metre} \\
+  f_2 &= \SI{9.67\pm0.03}{\centi\metre} \\
+  f   &= \SI{9.95\pm0.07}{\centi\metre}
+\end{align*}
+
+Vergleicht man diesen Wert mit den Herstellerangaben von $f = \SI{100}{\milli\metre}$, so sieht man, dass die gemessene Brennweite sehr nah an der Herstellerangabe dran ist.
+Es ergibt sich ein Fehler von lediglich $\SI{0.5}{\percent}$.
+
+\subsection{Chromatische Abberation und Bessel}
+
+Der Aufbau nach Bessel wird nun für einen roten und blauen Filter reproduziert.
+An dem Prozess ändert sich im Vergleich zu vorher nichts, es wird lediglich jeweils ein roter und ein blauer Filter hinter dem Perl L montiert.
+Die Positionen der Linsen sind jeweils mit $p_{1,rot}$ und $p_{2,rot}$, bzw. mit $p_{1,blau}$ und $p_{2,blau}$ gekennzeichnet.
+Die Messwerte sind in Tabelle \ref{tab:Bessel2} zusammengefasst.
+
+\begin{table}
+  \centering
+  \caption{Messwerte für die Besselsche Methode}
+  \label{tab:Bessel2}
+  \begin{tabular}[t]{c c c c c}
+   \toprule
+     $e \, / \, \si{\centi\metre}$ & $p_{1,rot} \, / \, \si{\centi\metre}$ & $p_{2,rot} \, / \, \si{\centi\metre}$  & $p_{1,blau} \, / \, \si{\centi\metre}$ & $p_{2,blau} \, / \, \si{\centi\metre}$\\
+     \midrule
+     \csvreader[no head,
+     late after line=\\,
+     late after last line=\\\bottomrule,
+     filter test={\ifnumless{\thecsvinputline}{32}}]%
+     {data/bessel2.csv}{}%
+     {\csvcoli & \csvcolii & \csvcoliii & \csvcoliv  & \csvcolv}%
+   \end{tabular}
+ \end{table}
+
+Auch hier wird die Gleichung \eqref{eqn:Bessel} verwendet.
+Es ergeben sich dann folgende Werte, die in Tabelle \ref{tab:Besselbrennweite2} aufgetragen sind:
+
+\begin{table}
+  \centering
+  \caption{Brennweiten nach Bessel für farbige Filter}
+  \label{tab:Besselbrennweite2}
+  \begin{tabular}{S[table-format=3.0] S [table-format=2.2] S [table-format=1.2] S [table-format=2.2] S [table-format=1.2]}
+    \toprule
+    {$e \, / \, \si{\centi\metre}$} & {$f_{1, rot} \, / \, \si{\centi\metre}$} & {$f_{2, rot} \, / \, \si{\centi\metre}$} & {$f_{1, blau} \, / \, \si{\centi\metre}$} & {$f_{2, blau} \, / \, \si{\centi\metre}$} \\
+    \midrule
+    70 & 10.08 & 9.74 & 10.12 & 9.72 \\
+    75 & 10.24 & 9.55 & 10.26 & 9.66 \\
+    80 & 10.27 & 9.60 & 14.82 & 9.66 \\
+    85 & 10.31 & 9.56 & 10.34 & 9.72 \\
+    90 & 10.36 & 9.68 & 10.36 & 9.78 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+Mittelt man diese Werte zunächst für $f_{1, rot}$, $f_{2, rot}$, $f_{1, blau}$ und $f_{2, blau}$, so erhält man die Mittelwerte nach Gleichung \eqref{eqn:mittelwert} und deren Fehler nach Gleichung \eqref{eqn:mittelwertfehler}.
+Anschließend werden noch einmal die farblich entsprechenden Brennweiten gemittelt und zu einer Brennweite zusammengefasst.
+
+\begin{align*}
+  f_{1, rot}  &= \SI{10.25\pm0.05}{\centi\metre} \\
+  f_{2, rot}  &= \SI{9.63\pm0.04}{\centi\metre}  \\
+  f_{rot}     &= \SI{9.94\pm0.11}{\centi\metre}  \\
+  f_{1, blau} &= \SI{11.2\pm0.90}{\centi\metre}  \\
+  f_{2, blau} &= \SI{9.7\pm0.02}{\centi\metre}   \\
+  f_{blau}    &= \SI{10.4\pm0.5}{\centi\metre}   \\
+\end{align*}

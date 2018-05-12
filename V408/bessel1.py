@@ -26,3 +26,9 @@ f2 = (e**2 - d2**2)/(4*e)
 f2mitt = ufloat(np.mean(f2), sem(f2))
 print ("Die durch g2 und b2 ermittelten Brennweiten:",f2)
 print ("Die durch g2 und b2 ermittelte mittlere Brennweite:",f2mitt)
+
+f = np.hstack([f1,f2])
+fmitt = ufloat(np.mean(f), sem(f))
+
+print ("Die durch g und b ermittelten Brennweiten:",f)
+print ("Die durch g und b ermittelte mittlere Brennweite:",fmitt)
