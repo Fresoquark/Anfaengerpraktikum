@@ -9,6 +9,16 @@ V=B/3
 gs=A-20
 bs=55-A
 
+print("g' = ", gs)
+print("b' = ", bs)
+print("V = ", V)
+
+fg= ufloat(6.7078836623, 0.763756173812)
+fb= ufloat( 6.80754360969, 0.709495195725)
+
+fmitt= (fg+fb)/2
+print("Mittlere Abbe Brennweite=", fmitt)
+
 x1= 1 + 1/V
 
 def f(x, a, b):

@@ -9,6 +9,7 @@ V=B/3
 gs=A-20
 bs=55-A
 
+
 x1= 1 + V
 
 def f(x, a, b):

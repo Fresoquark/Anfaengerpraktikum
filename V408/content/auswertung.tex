@@ -2,10 +2,10 @@
 \label{sec:Auswertung}
 
 \subsection{Messung der Gegenstands- und Bild-weite bei bekannter Brennweite}
-
+\FloatBarrier
 Die Messwerte für die Bestimmung der Brennweite mittels Messen der Gegenstands- und Bild-weite sind in Tabelle \ref{tab:bekannt} aufgetragen.
 Hierbei wurden nicht die Größen g und b direkt gemessen, sondern die Position der optischen Elemente und die Bildgröße B.
-Die Postion des Perl L ist für jeden Versuch mit $\SI{20}{\centi\metre}$ gemessen worden.
+Die Postion des Perl L ist für jeden Versuch mit $\SI{20}{\centi\metre}$ gemessen worden. Die Gegenstandsgröße G des Perl L berträgt laut Hersteller $\SI{3}{\centi\metre}$.
 
 \begin{table}
   \centering
@@ -59,9 +59,9 @@ Damit lässt sich die Brennweite auf $f = $ berechnen.
   \caption{Überprüfen der Messgenauigkeit der Linse mit bekannter Brennweite}
   \label{fig:Messgenauigkeit}
 \end{figure}
-
+\FloatBarrier
 \subsection{Messung der Gegenstands- und Bild-weite bei unbekannter Brennweite}
-
+\FloatBarrier
 Für die Messung der Brennweite einer Linse mit unbekannter Brennweite wird eine Wasserlinse verwendet.
 Die Messungen erfolgen analog.
 Die Messwerte für die Positionen der optischen Elemente sind in Tabelle \ref{tab:unbekannt} dargestellt.
@@ -103,10 +103,11 @@ Es ergibt sich für die Brennweite dann: $f = $.
   \label{fig:MessgenauigkeitII}
 \end{figure}
 
+\FloatBarrier
 \subsection{Methode nach Bessel}
-
-Wie in Abschnitt \ref{} der Durchführung beschrieben wird bei der Messung nach Bessel der Abstand zwischen Schirm und Perl variiert.
-Dieser Abstand wird mit e bezeichnet.
+\FloatBarrier
+Wie in Abschnitt \ref{sec:bessel} der Durchführung beschrieben wird bei der Messung nach Bessel der Abstand zwischen Schirm und Perl variiert.
+Dieser Abstand wird mit e bezeichnet. Dieser Abstand ist die Differenz zwischen der Position des Schirmes $p_0$ und des Gegenstandes.
 Ferner werden die zwei Positonen der Linsen festgehalten, für die das Bild bei gegebenem Abstand e scharf ist.
 Diese werden mit $p_1$ und $p_2$ bezeichnet.
 Die Ergebnisse sind in Tabelle \ref{tab:Bessel1} dargestellt.
@@ -117,7 +118,7 @@ Die Ergebnisse sind in Tabelle \ref{tab:Bessel1} dargestellt.
   \label{tab:Bessel1}
   \begin{tabular}[t]{c c c}
    \toprule
-     $e \, / \, \si{\centi\metre}$ & $p_1 \, / \, \si{\centi\metre}$ & $p_2 \, / \, \si{\centi\metre}$ \\
+     $p_0 \, / \, \si{\centi\metre}$ & $p_1 \, / \, \si{\centi\metre}$ & $p_2 \, / \, \si{\centi\metre}$ \\
      \midrule
      \csvreader[no head,
      late after line=\\,
@@ -139,16 +140,16 @@ Wendet man dies für alle Abstände an, erhält man folgende Werte, die in Tabel
     \toprule
     {$e \, / \, \si{\centi\metre}$} & {$f_1 \, / \, \si{\centi\metre}$} & {$f_2 \, / \, \si{\centi\metre}$} \\
     \midrule
-    65  & 10.03 & 9.53 \\
-    70  & 10.12 & 9.52 \\
-    75  & 10.08 & 9.71 \\
-    80  & 10.18 & 9.60 \\
-    85  & 10.28 & 9.78 \\
-    90  & 10.27 & 9.81 \\
-    95  & 10.22 & 9.67 \\
-    100 & 10.20 & 9.70 \\
-    105 & 10.45 & 9.72 \\
-    110 & 10.55 & 9.66 \\
+    45  & 10.03 & 9.53 \\
+    50  & 10.12 & 9.52 \\
+    55  & 10.08 & 9.71 \\
+    60  & 10.18 & 9.60 \\
+    65  & 10.28 & 9.78 \\
+    70  & 10.27 & 9.81 \\
+    75  & 10.22 & 9.67 \\
+    80 & 10.20 & 9.70 \\
+    85 & 10.45 & 9.72 \\
+    90 & 10.55 & 9.66 \\
     \bottomrule
   \end{tabular}
 \end{table}
@@ -165,7 +166,9 @@ Anschließend werden noch einmal alle Brennweiten gemittelt und zu einer Brennwe
 Vergleicht man diesen Wert mit den Herstellerangaben von $f = \SI{100}{\milli\metre}$, so sieht man, dass die gemessene Brennweite sehr nah an der Herstellerangabe dran ist.
 Es ergibt sich ein Fehler von lediglich $\SI{0.5}{\percent}$.
 
+\FloatBarrier
 \subsection{Chromatische Abberation und Bessel}
+\FloatBarrier
 
 Der Aufbau nach Bessel wird nun für einen roten und blauen Filter reproduziert.
 An dem Prozess ändert sich im Vergleich zu vorher nichts, es wird lediglich jeweils ein roter und ein blauer Filter hinter dem Perl L montiert.
@@ -178,7 +181,7 @@ Die Messwerte sind in Tabelle \ref{tab:Bessel2} zusammengefasst.
   \label{tab:Bessel2}
   \begin{tabular}[t]{c c c c c}
    \toprule
-     $e \, / \, \si{\centi\metre}$ & $p_{1,rot} \, / \, \si{\centi\metre}$ & $p_{2,rot} \, / \, \si{\centi\metre}$  & $p_{1,blau} \, / \, \si{\centi\metre}$ & $p_{2,blau} \, / \, \si{\centi\metre}$\\
+     $p_0 \, / \, \si{\centi\metre}$ & $p_{1,rot} \, / \, \si{\centi\metre}$ & $p_{2,rot} \, / \, \si{\centi\metre}$  & $p_{1,blau} \, / \, \si{\centi\metre}$ & $p_{2,blau} \, / \, \si{\centi\metre}$\\
      \midrule
      \csvreader[no head,
      late after line=\\,
@@ -200,11 +203,11 @@ Es ergeben sich dann folgende Werte, die in Tabelle \ref{tab:Besselbrennweite2} 
     \toprule
     {$e \, / \, \si{\centi\metre}$} & {$f_{1, rot} \, / \, \si{\centi\metre}$} & {$f_{2, rot} \, / \, \si{\centi\metre}$} & {$f_{1, blau} \, / \, \si{\centi\metre}$} & {$f_{2, blau} \, / \, \si{\centi\metre}$} \\
     \midrule
-    70 & 10.08 & 9.74 & 10.12 & 9.72 \\
-    75 & 10.24 & 9.55 & 10.26 & 9.66 \\
-    80 & 10.27 & 9.60 & 14.82 & 9.66 \\
-    85 & 10.31 & 9.56 & 10.34 & 9.72 \\
-    90 & 10.36 & 9.68 & 10.36 & 9.78 \\
+    50 & 10.08 & 9.74 & 10.12 & 9.72 \\
+    55 & 10.24 & 9.55 & 10.26 & 9.66 \\
+    60 & 10.27 & 9.60 & 14.82 & 9.66 \\
+    65 & 10.31 & 9.56 & 10.34 & 9.72 \\
+    70 & 10.36 & 9.68 & 10.36 & 9.78 \\
     \bottomrule
   \end{tabular}
 \end{table}
@@ -220,3 +223,79 @@ Anschließend werden noch einmal die farblich entsprechenden Brennweiten gemitte
   f_{2, blau} &= \SI{9.7\pm0.02}{\centi\metre}   \\
   f_{blau}    &= \SI{10.4\pm0.5}{\centi\metre}   \\
 \end{align*}
+
+\FloatBarrier
+\subsection{Methode nach Abbe}
+\FloatBarrier
+Die gemessenen Bildgrößen und Referenzpuktpositionen befinden sich in Tabelle \ref{tab:abbe}. Der Abstand zwischen Gegenstand und Schirm wurde auf $\SI{35}{\centi\metre}$
+eingestellt.
+\begin{table}
+  \centering
+  \caption{Messwerte für die Abbesche Methode}
+  \label{tab:abbe}
+  \begin{tabular}[t]{c c}
+   \toprule
+     $p_\text{A} \, / \, \si{\centi\metre}$ & $B \, / \, \si{\centi\metre}$ \\
+     \midrule
+     \csvreader[no head,
+     late after line=\\,
+     late after last line=\\\bottomrule]
+     {data/abbe.csv}{}%
+     {\csvcolii & \csvcoli}%
+   \end{tabular}
+ \end{table}
+Aus den Positionen des Gegenstandes und des Referenzpunktes des Linsensystems lassen sich nun $g'$ und $b'$ bestimmen. Der Abbildungsmaßstab V wird mittels Gleichung
+\eqref{eqn:Abbildungsgesetz} und der gemessenen Bildgröße B sowie der bekannten Gegenstandsgröße bestimmt.
+Die so ermittelten Werte befinden sich in Tabelle \ref{tab:abbe2}.
+\begin{table}
+  \centering
+  \caption{Gegenstandsweite, Bildweite und Abbukdungsmaßstab der Abbe Methode}
+  \label{tab:abbe2}
+  \begin{tabular}{S[table-format=3.0] S [table-format=2.2] S [table-format=1.2]}
+    \toprule
+    $g' \, / \, \si{\centi\metre}$ &   $b' \, / \, \si{\centi\metre}$ & V \\
+    \midrule
+    8  & 27 & 1.63\\
+    9  & 26 & 1.77\\
+    10 & 25 & 1.43\\
+    11 & 24 & 1.23\\
+    12 & 23 & 1.07\\
+    13 & 22 & 1.27\\
+    14 & 21 & 0.80\\
+    15 & 20 & 0.70\\
+    16 & 19 & 0.63\\
+    17 & 18 & 0.57\\
+    \bottomrule
+  \end{tabular}
+\end{table}
+Nun werden die Gleichungen \eqref{eqn:Abbe1} und \eqref{eqn:Abbe2} mittels Scipy mit
+\begin{equation*}
+  y=ax+b
+\end{equation*}
+linear gefittet, indem $g'$ gegen $1+\sfrac{1}{V}$ und $b'$ gegen $1+V$ aufgetragen wird.
+Die so entstandenen Plots sind in den Abbildungen \ref{fig:abbe1} und \ref{fig:abbe2} zu sehen.
+\begin{figure}
+  \centering
+  \includegraphics{abbe1.pdf}
+  \caption{Lineare Regression für die Abbe Methode.}
+  \label{fig:abbe1}
+\end{figure}
+\begin{figure}
+  \centering
+  \includegraphics{abbe2.pdf}
+  \caption{Lineare Regression für die Abbe Methode.}
+  \label{fig:abbe2}
+\end{figure}
+Bei \eqref{eqn:Abbe1} und \eqref{eqn:Abbe2} entspricht der Parameter $a$ der Brennweite der Sammellinse. Der Parameter $b$ entspricht bei der ersten Gleichung dem Abstand
+$h$ zwischen der ersten Hauptebene und dem Referenzpunkt, bei der zweiten Gleichung entspricht $b$ dem Abstand $h'$ zwischen der zweiten Hauptebene und dem
+Referenzpunkt. So wurden die Brennweiten und Äbstande der Hauptebenen zu
+\begin{align*}
+  f_{g'} &= \SI{6.71\pm0.76}{\centi\metre} \\
+  f_{b'} &= \SI{6.81\pm0.71}{\centi\metre} \\
+  h &= \SI{-1.21\pm1.59}{\centi\metre} \\
+  h' &= \SI{8.14\pm1.52}{\centi\metre}
+\end{align*}
+bestimmt.
+Die aus $f_{g'}$ und $f_{b'}$ mittels \eqref{eqn:mittelwert} und \eqref{eqn:mittelwertfehler} errechnete mittlere Brennweite beträgt $f_\text{Abbe}=\SI{6.8\pm0.5}{\centi\metre}$.
+Die Brennweiten der verwendeten Sammel- und Zerstreuungslinse betragen laut Herstellerangabe $\SI{\pm10}{\centi\metre}$. Somit ergibt sich eine
+relative Abweichung von $32 \%$.
