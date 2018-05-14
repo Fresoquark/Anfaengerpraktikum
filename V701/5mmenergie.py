@@ -6,6 +6,7 @@ from scipy.optimize import curve_fit
 
 druck,kanal,counts= np.genfromtxt("data/5mm.txt")
 
+
 energie = kanal / 1150 * 4
 xeff = 5 * druck / 1013
 

@@ -78,16 +78,39 @@ Dies ist in den Abbildungen \ref{fig:25mmcounts} und \ref{fig:5mmcounts} dargest
   \label{fig:5mmcounts}
 \end{figure}
 \FloatBarrier
-Als mittlere Reichweite wird nun die effektive Länge gewählt, bei welcher die Counts auf die Hälfte des konstanten Niveaus gesunken sind.
-Dies entspricht bei Abbildung \ref{fig:25mmcounts} einer mittleren Reichweite von
+Zur Bestimmung der mittleren Reichweite wird der linear abfallende Teil der Daten mit $y=ax+b$ gefittet.
+So ergeben sich die Parameter:
+\begin{align*}
+  a&=\SI{-9496.88\pm388.70}{\per\milli\metre}\\
+  b&=243897.83\pm8668.86
+\end{align*}
+Nun wird die so erhaltene Funktion nach x umgestellt und für y die Hälfte der maximalen Counts, welche aus Tabelle \ref{tab:25mm}
+entnommen werden, eingesetzt.
 \begin{equation*}
-  R_m = 22 \: \si{\milli\metre}.
- \end{equation*}
-Durch Umstellen von Gleichung \ref{eqn:rm} nach der Energie $E_{\alpha}$ und Einsetzen der zuvor ermittelten mittleren Reichweite ergibt sich eine
-Energie von
-\begin{equation*}
-  E_{\alpha} = 3,69 \, \si{\mega\electronvolt}.
+  R_m = x = \frac{\frac{y}{2}-b}{a}
 \end{equation*}
+Der Fehler wird mit
+\begin{equation*}
+  \Delta R_m = \sqrt{\frac{\Delta_{b}^{2}}{a^{2}} + \frac{\Delta_{y}^{2}}{4 a^{2}} + \frac{\Delta_{a}^{2}}{a^{4}} \left(- b + \frac{y}{2}\right)^{2}}
+\end{equation*}
+berechnet.
+So ergibt sich für die mittlere Reichweite
+\begin{equation*}
+  R_m = \SI{21.7\pm1.3}{\milli\metre}
+\end{equation*}.
+Die dazu gehörige Energie wird mit der durch Umstellen von \eqref{eqn:rm} hergeleiteten Formel
+\begin{equation*}
+  E_{\alpha}=(\frac{R_m}{3.1})^{\frac{2}{3}}
+\end{equation*}
+und der Fehler mit
+\begin{equation*}
+  \Delta E_{\alpha} = \frac{2}{3 \cdot 3.1^{\frac{2}{3}}} \sqrt{\frac{\Delta_{R_{m}}^{2}}{R_{m}^{\frac{2}{3}}}}
+\end{equation*}
+berechnet.
+So ergibt sich eine Energie von
+\begin{equation*}
+  E_{\alpha}=\SI{3.66\pm0.14}{\mega\electronvolt}
+\end{equation*}.
 Bei Abbildung \ref{fig:5mmcounts} kann so keine mittlere Reichweite bestimmt werden, da die Counts nicht auf das halbe Niveau absinken.
 
 \subsection{Bestimmung des Energieverlustes von \texorpdfstring{$\alpha$}{alpha}-Strahlung}
@@ -100,6 +123,14 @@ Um den Energieverlust bestimmen zu können, wird die Energie gegen die effektive
 \end{equation*}
  mit Python \cite{numpy} \cite{scipy} linear gefittet.
  Diese Kurven sind in den Abbildungen \ref{fig:25mmenergie} und \ref{fig:5mmenergie} zu finden.
+ So wurden die Parameter zu
+ \begin{align*}
+   a_5 &= \SI{-0.17\pm0.01}{\mega\electronvolt\per\milli\metre}\\
+   b_5 &= \SI{3.87\pm0.04}{\mega\electronvolt}\\
+   a_{25} &= \SI{-0.13\pm0.01}{\mega\electronvolt\per\milli\metre}\\
+   b_{25} &= \SI{3.99\pm0.12}{\mega\electronvolt}
+ \end{align*}
+ bestimmt.
 \FloatBarrier
  \begin{figure}
      \centering
@@ -131,15 +162,16 @@ Um den Energieverlust bestimmen zu können, wird die Energie gegen die effektive
 \subsection{Bestimmung der Statistik des radioaktiven Zerfalls}
 Die Messwerte sind in Tabelle \ref{tab:hist} zu finden.
 Zur Bestimmung der Statistik des radioaktiven Zerfalls wird mit den Messwerten ein Histogramm erstellt. Dafür werden die gemessenen Counts in zehn
-gleich große Bins eingeordnet diese gegen die absolute Häufigkeit aufgetragen. Dies ist in Abbildung \ref{fig:hist} zu sehen.
-Das Histogramm ähnelt keiner gängigen statistischen Verteilung.
-Der Mittelwert und die Varianz der Counts werden mit
+gleich große Bins eingeordnet diese gegen die relative Häufigkeit aufgetragen. Dies ist in Abbildung \ref{fig:hist} zu sehen.
+Das Histogramm ähnelt, wie durch die zusätzlich geplotteten Verteilungen deutlich wird, keiner gängigen statistischen Verteilung.
+Der Mittelwert der Counts wird mit
 \begin{align*}
   \overline{x} &= \frac{1}{N} \sum_{i=1}^N x_i
   \intertext{und} \\
-  \Delta \overline{x} &= \frac{1}{\sqrt{N}} \sqrt{\frac{1}{N-1} \sum_{i=1}^N (x_i - \overline{x})^2} 
+  \Delta \overline{x} &= \frac{1}{\sqrt{N}} \sqrt{\frac{1}{N-1} \sum_{i=1}^N (x_i - \overline{x})^2}
 \end{align*}
-zu $ 6238 \pm 22$ bestimmt.
+zu $ 6238 \pm 215.30$ bestimmt.
+Die Varianz ${\Delta\overline{x}}^2$ beträgt $46352.65$.
 \FloatBarrier
 \begin{table}
   \centering
@@ -175,6 +207,6 @@ zu $ 6238 \pm 22$ bestimmt.
 \begin{figure}
     \centering
     \includegraphics[scale=0.8]{build/histo.pdf}
-    \caption{Histogramm des radioaktiven Zerfalls.}
+    \caption{Histogramm des radioaktiven Zerfalls mit Normal- und Laplaceverteilung.}
     \label{fig:hist}
 \end{figure}
