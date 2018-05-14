@@ -162,8 +162,10 @@ Um den Energieverlust bestimmen zu können, wird die Energie gegen die effektive
 \subsection{Bestimmung der Statistik des radioaktiven Zerfalls}
 Die Messwerte sind in Tabelle \ref{tab:hist} zu finden.
 Zur Bestimmung der Statistik des radioaktiven Zerfalls wird mit den Messwerten ein Histogramm erstellt. Dafür werden die gemessenen Counts in zehn
-gleich große Bins eingeordnet diese gegen die relative Häufigkeit aufgetragen. Dies ist in Abbildung \ref{fig:hist} zu sehen.
-Das Histogramm ähnelt, wie durch die zusätzlich geplotteten Verteilungen deutlich wird, keiner gängigen statistischen Verteilung.
+gleich große Bins eingeordnet diese gegen die relative Häufigkeit aufgetragen.
+Zum Vergleich werden noch eine von Numpy generierte Poisson- und Gaußverteilung mit jeweils 10000 Werten und dem gemessenen Mittelwert und der dazu gehörigen Varianz geplottet.
+Dies ist in Abbildung \ref{fig:hist} zu sehen.
+Es wird ersichtlich, dass die gemesse Verteilung keiner der beiden Verteilungen ähnelt.
 Der Mittelwert der Counts wird mit
 \begin{align*}
   \overline{x} &= \frac{1}{N} \sum_{i=1}^N x_i
@@ -207,6 +209,6 @@ Die Varianz ${\Delta\overline{x}}^2$ beträgt $46352.65$.
 \begin{figure}
     \centering
     \includegraphics[scale=0.8]{build/histo.pdf}
-    \caption{Histogramm des radioaktiven Zerfalls mit Normal- und Laplaceverteilung.}
+    \caption{Histogramm des radioaktiven Zerfalls mit Normal- und Poissonverteilung.}
     \label{fig:hist}
 \end{figure}
