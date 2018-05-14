@@ -8,6 +8,7 @@ lpos, spos, B = np.genfromtxt("data/linse1.csv",delimiter=",", unpack = True)
 g=lpos-20
 b=spos-lpos
 
+
 V1= B/3
 V2= b/g
 print("Durch Bildgroesse berechneter Massstab V=", V1)

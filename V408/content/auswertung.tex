@@ -49,9 +49,35 @@ Dies wird mit der Herstellerangabe von $\SI{50}{\milli\metre}$ verglichen.
 Es ergibt sich ein Fehler von $\SI{10}{\percent}$.
 Die Messgenauigkeit wird durch den folgenden Plot überprüft.
 Hierbei werden die Wertepaare für $g_i, b_i$ aufgetragen.
-Bei hoher Genauigkeit sollten sich alle Geraden in einem Punkt treffen.
+Bei hoher Genauigkeit sollten sich alle Geraden in einem Punkt schneiden. Die x und y Koordinate dieses Punktes stellt dann die Brennweite dar.
 Da die Graphen für $g = \SI{5}{\centi\metre}, \SI{13}{\centi\metre}, \SI{14}{\centi\metre}$ zu stark abweichen werden diese für diese Berechnung vernachlässigt.
-Damit lässt sich die Brennweite auf $f = $ berechnen.
+Durch Ablesen aus dem Graphen wird der Schnittpunkt der Geraden zu $(4.97,4.19)$ bestimmt. Die Brennweite beträgt dann $f=\SI{4.97}{\centi\metre}$ oder
+$f=\SI{4.19}{\centi\metre}$. Die durch die x-Koordinate bestimmte Brennweite weicht um 0.6 \% von den Herstellerangaben ab, die durch die y-Koordinate bestimmte
+jedoch um 16.2 \%. Der Mittelwert der beiden liegt bei $f=\SI{4.58}{\centi\metre}$ und weicht um 8.4 \% ab. Desweiteren wird noch das Abbildungsgesetz \eqref{eqn:Abbildungsgesetz} überprüft.
+Dafür wird der Abbildungsmaßstab einmal durch die gemessenen b und g bestimmt, und einmal durch die Bild- und Gegenstandsgröße B und G.
+Die Ergebnisse befinden sich in Tabelle \ref{tab:V}.
+
+\begin{table}
+  \centering
+  \caption{Vergleich der Abbildungsmaßstäbe}
+  \label{tab:V}
+  \begin{tabular}{c c c }
+    \toprule
+    $V(b,g)$ & $V(B,G)$ & $Relative Abweichung \, / \, \%$ \\
+    \midrule
+    4.71 & 4.10 & 14.88\\
+    3.28 & 3.60 & 9.00\\
+    2.06 & 2.27 & 9.25\\
+    1.34 & 1.43 & 6.72\\
+    1.02 & 1.13 & 10.78\\
+    0.83 & 0.93 & 12.05\\
+    0.67 & 0.77 & 14.93\\
+    0.60 & 0.67 & 11.66\\
+    0.51 & 0.60 & 17.65\\
+    0.41 & 0.53 & 29.27\\
+    \bottomrule
+  \end{tabular}
+\end{table}
 
 \begin{figure}
   \centering
@@ -93,8 +119,9 @@ Es ergibt sich folglich für die Brennweite:
 \end{align*}
 
 Da bei der Wasserlinse keine Herstellerangabe überprüft werden kann, muss die Messgenauigkeit einzig mithilfe des Plotes \ref{fig:MessgenauigkeitII} überprüft werden.
-Hier wird erneut der Schnittpunkt der einzelnen Geraden ermittelt und gemittelt.
-Es ergibt sich für die Brennweite dann: $f = $.
+Hier wird erneut der Schnittpunkt der einzelnen Geraden ermittelt und die Koordinaten des Schnittpunktes entsprechen jeweils der Brennweite.
+Der Schnittpunkt wurde wieder durch Ablesen aus dem Graphen zu $(6.17,6.17)$ bestimmt. Somit ergibt sich für beide Koordinaten übereinstimmend eine Brennweite
+von $f=\SI{6.17}{\centi\metre}$. Diese weicht um 5.9 \% von der zuvor bestimmten Brennweite ab.
 
 \begin{figure}
   \centering
@@ -247,6 +274,7 @@ eingestellt.
 Aus den Positionen des Gegenstandes und des Referenzpunktes des Linsensystems lassen sich nun $g'$ und $b'$ bestimmen. Der Abbildungsmaßstab V wird mittels Gleichung
 \eqref{eqn:Abbildungsgesetz} und der gemessenen Bildgröße B sowie der bekannten Gegenstandsgröße bestimmt.
 Die so ermittelten Werte befinden sich in Tabelle \ref{tab:abbe2}.
+\FloatBarrier
 \begin{table}
   \centering
   \caption{Gegenstandsweite, Bildweite und Abbukdungsmaßstab der Abbe Methode}
@@ -268,6 +296,7 @@ Die so ermittelten Werte befinden sich in Tabelle \ref{tab:abbe2}.
     \bottomrule
   \end{tabular}
 \end{table}
+\FloatBarrier
 Nun werden die Gleichungen \eqref{eqn:Abbe1} und \eqref{eqn:Abbe2} mittels Scipy mit
 \begin{equation*}
   y=ax+b
