@@ -1,0 +1,16 @@
+Bei dem elektrischen Feld wurde von der untersten zur obersten Linie gemessen.
+Der Abstand der Linien beträgt 6mm.
+Bei dem magnetischen Feld wurde von oben nach unten gemessen.
+
+Oszilloskop:
+  U_B = 350V
+  Max. Auslenkung (Doppelte Amplitude des Sinus): 28mm
+  Frequenzen(Hz):
+    39.92, 79.79, 159.55, 239.32
+
+Erdmagnetfeld:
+  U_B = 200V
+  I = 40mA
+  phi = 82°
+  N_Spule = 20
+  R_Spule ,d_Spule = 0.282m
