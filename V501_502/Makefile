@@ -23,6 +23,10 @@ build/300V.pdf: 300V.py data/300V.csv matplotlibrc header-matplotlib.tex | build
 	TEXINPUTS="$(call translate,$(pwd):)" python 300V.py
 build/UB.pdf: UB.py matplotlibrc header-matplotlib.tex | build
 		TEXINPUTS="$(call translate,$(pwd):)" python UB.py
+build/250Vmag.pdf: 250Vmag.py data/250Vmag.csv matplotlibrc header-matplotlib.tex | build
+		TEXINPUTS="$(call translate,$(pwd):)" python 250Vmag.py
+build/350Vmag.pdf: 350Vmag.py data/350Vmag.csv matplotlibrc header-matplotlib.tex | build
+			TEXINPUTS="$(call translate,$(pwd):)" python 350Vmag.py
 
 # hier weitere Abhängigkeiten für build/main.pdf deklarieren:
 build/main.pdf: build/180V.pdf
@@ -31,6 +35,8 @@ build/main.pdf: build/250V.pdf
 build/main.pdf: build/280V.pdf
 build/main.pdf: build/300V.pdf
 build/main.pdf: build/UB.pdf
+build/main.pdf: build/250Vmag.pdf
+build/main.pdf: build/350Vmag.pdf
 
 build/main.pdf: FORCE | build
 	  TEXINPUTS="$(call translate,build:)" \
