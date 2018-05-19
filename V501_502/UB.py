@@ -16,7 +16,14 @@ def f(x, a, b):
 params, covariance_matrix = curve_fit(f, xfit, afit)
 errors = np.sqrt(np.diag(covariance_matrix))
 
+p=10.3 #Kondesatorlänge
+d=3.8 #Plattenabstand
+L=143 #Weglänge nach Kondesator
+
+a2=(p*L)/(2*d)
+
 print('a=', params[0], '+-', errors[0])
+print("Durch Angaben berechnetes a=",a2)
 print('b=', params[1], '+-', errors[1])
 
 

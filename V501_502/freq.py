@@ -15,7 +15,7 @@ print ("Die gemittelte Frequenz:",fmitt)
 
 #alles in mm
 p=10.3 #Kondesatorlänge
-d=9.5 #Plattenabstand
+d=3.8 #Plattenabstand
 L=143 #Weglänge nach Kondesator
 D=14 #gmessene Ablenkung
 
