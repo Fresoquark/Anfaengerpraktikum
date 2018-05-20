@@ -7,3 +7,129 @@
   \caption{Lineare Regression für 180 Volt Beschleunigungsspannung.}
   \label{fig:180V}
 \end{figure}
+
+\subsection{Spezifische Ladung der Elektronen}
+\label{sec:SpezifischeLadung}
+
+Die Messwerte für die konstante Beschleunigungsspannung von $\SI{250}{\volt}$ sind in Tabelle \ref{tab:Ladung1} aufgetragen.
+
+\begin{table}
+  \centering
+  \caption{Messwerte für die konstante Beschleunigungsspannung von $\SI{250}{\volt}$.}
+  \label{tab:Ladung1}
+  \begin{tabular}[t]{c c}
+   \toprule
+     $\text{Liniennummer}$ & $ I \, / \, \si{\milli\ampere}$ \\
+     \midrule
+     \csvreader[no head,
+     late after line=\\,
+     late after last line=\\\bottomrule,
+     filter test={\ifnumless{\thecsvinputline}{32}}]%
+     {data/250Vmag.csv}{}%
+     {\csvcoli & \csvcolii}%
+   \end{tabular}
+ \end{table}
+
+Nach Gleichung \eqref{eqn:helmholtz} wird das B- Feld des Helmholtzspulenpaares für $N = 20$ Windungen und einem Radius von $R = \SI{0.282}{\metre}$ berechnet.
+Dies wird in Gleichung \eqref{eqn:AblenkungBFeld} eingesetzt.
+Es wird dann $\text{D} / (\text{L}^2 + \text{D}^2)$ gegen B aufgetragen, um die Größe $\text{e}_0/\text{m}_0$ durch eine lineare Ausgleichsrechnung zu bestimmen.
+Der Plot ist in Abbildung \ref{fig:250Vmag} zu finden.
+Die Berechnung der linearen Ausgleichsgeraden erfolgt mit SciPy, der Fehler wird mit uncertainties berechnet.
+Es ergeben sich für die Steigung a und dem y- Achsenabschnitt der Geraden folgende Werte:
+
+\begin{align*}
+  a &= 0.87\pm 0.02 \\
+  b &= 0.39\pm 0.23
+\end{align*}
+
+Vergleicht man Gleichung \eqref{eqn:AblenkungBFeld} mit einer normalen Geradengleichung, so fällt auf, dass um $\text{e}_0/\text{m}_0$ zu bestimmen eine Umrechnung von a notwendig ist.
+
+\begin{equation}
+  a^2 \cdot 8 \text{U}_{\text{B}} = \frac{\text{e}_0}{\text{m}_0}
+  \label{eqn:SpezifischeLadung}
+\end{equation}
+
+Es ergibt sich somit für $\text{e}_0/\text{m}_0$:
+
+\begin{align*}
+  \frac{\text{e}_0}{\text{m}_0} = \SI{1.52 \pm 0.08e3}{\coulomb\per\kilo\per\gram}
+\end{align*}
+
+\begin{figure}
+  \centering
+  \includegraphics{250Vmag.pdf}
+  \caption{Lineare Regression für 250 Volt Beschleunigungsspannung.}
+  \label{fig:250Vmag}
+\end{figure}
+
+Selbiges wird für die Beschleunigungsspannung von $\SI{350}{\volt}$ durchgeführt.
+Die Messwerte für die konstante Beschleunigungsspannung von $\SI{350}{\volt}$ sind in Tabelle \ref{tab:Ladung2} aufgetragen.
+
+\begin{table}
+  \centering
+  \caption{Messwerte für die konstante Beschleunigungsspannung von $\SI{350}{\volt}$.}
+  \label{tab:Ladung1}
+  \begin{tabular}[t]{c c}
+   \toprule
+     $\text{Liniennummer}$ & $ I \, / \, \si{\milli\ampere}$ \\
+     \midrule
+     \csvreader[no head,
+     late after line=\\,
+     late after last line=\\\bottomrule,
+     filter test={\ifnumless{\thecsvinputline}{32}}]%
+     {data/350Vmag.csv}{}%
+     {\csvcoli & \csvcolii}%
+   \end{tabular}
+ \end{table}
+
+ Nach Gleichung \eqref{eqn:helmholtz} wird das B- Feld des Helmholtzspulenpaares für $N = 20$ Windungen und einem Radius von $R = \SI{0.282}{\metre}$ berechnet.
+ Dies wird in Gleichung \eqref{eqn:AblenkungBFeld} eingesetzt.
+ Es wird dann $\text{D} / (\text{L}^2 + \text{D}^2)$ gegen B aufgetragen, um die Größe $\text{e}_0/\text{m}_0$ durch eine lineare Ausgleichsrechnung zu bestimmen.
+ Der Plot ist in Abbildung \ref{fig:350Vmag} zu finden.
+ Es ergeben sich für die Steigung a und dem y- Achsenabschnitt der Geraden folgende Werte:
+
+ \begin{align*}
+   a &= 0.73\pm 0.01 \\
+   b &= 0.17\pm 0.14
+ \end{align*}
+
+Die Berechnung von $\text{e}_0/\text{m}_0$ erfolgt analog mittels Gleichung \eqref{eqn:SpezifischeLadung}.
+Es ergibt sich dann:
+
+\begin{align*}
+  \frac{\text{e}_0}{\text{m}_0} = \SI{1.48 \pm 0.05e3}{\coulomb\per\kilo\per\gram}
+\end{align*}
+
+\begin{figure}
+  \centering
+  \includegraphics{350Vmag.pdf}
+  \caption{Lineare Regression für 350 Volt Beschleunigungsspannung.}
+  \label{fig:350Vmag}
+\end{figure}
+
+\subsection{Bestimmung der Erdmagnetfeldes}
+
+Der Spulenstrom, welcher das Erdmagnetfeld kompensiert, wurde auf $\SI{40}{\milli\ampere}$ bestimmt.
+Die horizontale Komponente des Erdmagnetfeldes entspricht also der entgegengesetzten horizontalen Komponente des Magnetfeldes des Helmholtzspulenpaares.
+Es ergibt sich nach Gleichung \eqref{eqn:helmholtz} für $\text{B}_\text{Erd, hor}$:
+
+\begin{align*}
+  \text{B}_\text{Erd, hor} = \SI{-2.55e-6}{\tesla}
+\end{align*}
+
+Die restlichen Parameter bleiben unverändert zum vorherigen Versuchsteil \ref{sec:SpezifischeLadung}
+Die Gesamtfeldstärke von $\text{B}_\text{Erd}$ erhält man nach folgender Gleichung:
+
+\begin{equation}
+  \text{B}_\text{Erd} = \frac{\text{B}_\text{Erd, hor}}{\cos \mleft(\phi \mright)}
+  \label{eqn:Erdmagnetfeld}
+\end{equation}
+
+Hierbei stellt der Winkel $\phi$ den Inklinationswinkel dar.
+Er wird auf $\phi = \SI{82}{\degree}$ festgestellt.
+
+Nach Gleichung \eqref{eqn:Erdmagnetfeld} ergibt sich dann:
+
+\begin{align*}
+  \text{B}_\text{Erd} = \SI{-18.3e-6}{\tesla}
+\end{align*}
