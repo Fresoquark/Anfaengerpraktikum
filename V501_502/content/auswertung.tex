@@ -1,13 +1,139 @@
 \section{Auswertung}
 \label{sec:Auswertung}
-
+\subsection{Bestimmung der Empfindlichkeit der  Kathodenstrahlröhre}
+\FloatBarrier
+Die Messdaten für die verschiedenen Beschleunigungsspannungen zur Bestimmung der Empfindlichkeit der Röhre befinden sich in Tabelle \ref{tab:empf}.
+Der Abstand zwischen den äquidistanten Linien beträgt $\SI{6}{\milli\metre}$ und die Ablenkung lässt sich mit
+\begin{equation}
+  D= (N_{\text{Linie}}-1) \cdot \SI{6}{\milli\metre}
+  \label{eqn:linie}
+\end{equation}
+aus der Liniennummer $N_{\text{Linie}}$ bestimmen.
+\begin{table}
+  \centering
+  \caption{Messwerte für die Empfindlichkeit der Röhre.}
+  \label{tab:empf}
+  \begin{tabular}[t]{c c c c c c}
+   \toprule
+   Liniennummer & $U_{d,180V}$ / $\si{\volt}$ & $U_{d,200V}$ / $\si{\volt}$ & $U_{d,250V}$ / $\si{\volt}$ & $U_{d,280V}$ / $\si{\volt}$ & $U_{d,300V}$ / $\si{\volt}$ \\
+   \midrule
+   1& -19.5 & -21.1& -27.4& -32.7& -33.9 \\
+   2& -16.1 & -18.3& -22.4& -25.9& -27.7 \\
+   3& -12.4 & -14.6& -17.8& -19.8& -21.5 \\
+   4& -9.6 & -10.8 & -13.9& -13.3& -15.9 \\
+   5& -6.2 & -6.8  & -8.6 & -8.1 & -10.1 \\
+   6& -2.4 & -2.7  & -3.8 & -2.2 & -3.5  \\
+   7& 1.2 & 1.9    & 1.5  & 2.9  & 2.8   \\
+   8& 5.1 & 5.8    & 6.7  & 9.1  & 8.9   \\
+   9& 8.3 & 9.6    & 11.8 & 14.7 & 16.3  \\
+   \bottomrule
+   \end{tabular}
+ \end{table}
+Nun wird für die Beschleunigungsspannungen von $\SI{180}{\volt}$, $\SI{200}{\volt}$, $\SI{250}{\volt}$, $\SI{280}{\volt}$ und $\SI{300}{\volt}$ $D$ gegen $U_d$
+aufgetragen und mit SciPy linear gefittet. Dies ist in den Abbildungen \ref{fig:180V}, \ref{fig:200V}, \ref{fig:250V}, \ref{fig:280V} und \ref{fig:300V} zu sehen.
 \begin{figure}
   \centering
   \includegraphics{180V.pdf}
   \caption{Lineare Regression für 180 Volt Beschleunigungsspannung.}
   \label{fig:180V}
 \end{figure}
+\begin{figure}
+  \centering
+  \includegraphics{200V.pdf}
+  \caption{Lineare Regression für 200 Volt Beschleunigungsspannung.}
+  \label{fig:200V}
+\end{figure}
+\begin{figure}
+  \centering
+  \includegraphics{250V.pdf}
+  \caption{Lineare Regression für 250 Volt Beschleunigungsspannung.}
+  \label{fig:250V}
+\end{figure}
+\begin{figure}
+  \centering
+  \includegraphics{280V.pdf}
+  \caption{Lineare Regression für 280 Volt Beschleunigungsspannung.}
+  \label{fig:280V}
+\end{figure}
+\begin{figure}
+  \centering
+  \includegraphics{300V.pdf}
+  \caption{Lineare Regression für 300 Volt Beschleunigungsspannung.}
+  \label{fig:300V}
+\end{figure}
+\FloatBarrier
+Die so bestimmten Parameter sind:
+\begin{align*}
+  a_{180V} &= \SI{1.72\pm0.02}{\milli\metre\per\volt} & b_{180V} &= \SI{33.86\pm0.21}{\milli\metre} \\
+  a_{200V} &= \SI{1.52\pm0.03}{\milli\metre\per\volt} & b_{200V} &= \SI{33.63\pm0.32}{\milli\metre} \\
+  a_{250V} &= \SI{1.23\pm0.02}{\milli\metre\per\volt} & b_{250V} &= \SI{34.08\pm0.24}{\milli\metre} \\
+  a_{280V} &= \SI{1.02\pm0.01}{\milli\metre\per\volt} & b_{280V} &= \SI{32.57\pm0.22}{\milli\metre} \\
+  a_{300V} &= \SI{0.97\pm0.01}{\milli\metre\per\volt} & b_{300V} &= \SI{33.01\pm0.19}{\milli\metre}.
+\end{align*}
+Die bestimmten Steigungen der Geraden $a$ entsprechen, wie durch Vergleich mit \eqref{eqn:AblenkungEFeld} ersichtlich wird, der Empfindlichkeit $\sfrac{D}{U_d}$ für
+die jeweilige Beschleunigungsspannung $U_B$. Diese Empfindlichkeiten werden nun gegen $\sfrac{1}{U_B}$ in einem Diagramm aufgetragen und es wird wieder eine lineare
+Ausgleichsrechnung durchgeführt. Dies ist in Abbildung \ref{fig:UB} zu sehen.
+\begin{figure}
+  \centering
+  \includegraphics{UB.pdf}
+  \caption{Lineare Regression für 300 Volt Beschleunigungsspannung.}
+  \label{fig:UB}
+\end{figure}
+So wird der Proportionalitätsfaktor $a$ zwischen $\sfrac{D}{U_d}$ und $\sfrac{1}{U_B}$, welcher durch Vegleich mit \eqref{eqn:AblenkungEFeld} als
+$\sfrac{pL}{2d}$ indentifiziert wird, und der y-Achsenabschnitt $b$ zu
+\begin{align*}
+  a &= \SI{338.03\pm13.24}{\milli\metre} \\
+  b &= \SI{-0.16\pm0.06}{\milli\metre\per\volt}
+\end{align*}
+bestimmt. Der Wert $\sfrac{pL}{2d}$ wird nun mit den Herstellerangaben berechnet. Diese Angaben lauten:
+\begin{align*}
+  p &= \SI{10.3}{\milli\metre} \\
+  d &= \SI{3.8}{\milli\metre} \\
+  L &= \SI{143}{\milli\metre}.
+\end{align*}
+So wird $\sfrac{pL}{2d}$ zu $\SI{193.8}{\milli\metre}$ bestimmt. Dies entspricht einer Abweichung von $\SI{42.66}{\percent}$ von dem durch
+Ausgleichsrechnung bestimmten Wert.
+\FloatBarrier
+\subsection{Bestimmung der Spannung und Frequenz einer Sinuspspannung}
+Die ermittelten Frequenzen befinden sich in Tabelle \ref{tab:freq},die Gesamtaplitude des zu sehenden Sinus wurde zu
+$\SI{28}{\milli\metre}$ bestimmt und die Beschleunigungsspannung betrug $\SI{350}{\volt}$.
 
+\begin{table}
+  \centering
+  \caption{Messwerte für die Frequenz des Sinuspsannung.}
+  \label{tab:freq}
+  \begin{tabular}[t]{c c}
+   \toprule
+   $n$ & ${\nu}_{\text{Sägezahn}}$ / $\si{\hertz}$ \\
+   \midrule
+    1/2 & 39.92 \\
+     1  & 79.79 \\
+     2  &159.55 \\
+     3  &239.32 \\
+   \bottomrule
+   \end{tabular}
+ \end{table}
+Mit Gleichung \eqref{eqn:Oszillograph} wird nun aus den verschiedenen Frequenzen die Frequenz der Sinusspannung bestimmt. Die so ermittelten Frequenzen sind
+\begin{align*}
+  {\nu}_{1/2} &= \SI{79.84}{\hertz} \\
+  {\nu}_{1} &= \SI{79.79}{\hertz} \\
+  {\nu}_{2} &= \SI{79.78}{\hertz} \\
+  {\nu}_{3} &= \SI{79.77}{\hertz}.
+\end{align*}
+Nun werden diese Frequenzen mit
+\begin{equation}
+  \label{eqn:mittelwert}
+  \overline{x} = \frac{1}{N} \sum_{i=1}^N x_i
+\end{equation}
+und
+\begin{equation}
+  \label{eqn:mittelwertfehler}
+  \Delta \overline{x} = \frac{1}{\sqrt{N}} \sqrt{\frac{1}{N-1} \sum_{i=1}^N (x_i - \overline{x})^2}
+\end{equation}
+gemittelt. Die so ermittelte Frequenz der Sinuspsannung beträgt $\SI{79.795\pm0.016}{\hertz}$.
+Durch Gleichung \eqref{eqn:AblenkungEFeld}, die Beschleunigungsspannung und den zuvor durch die Herstellerangaben ermittelten Parameter $\sfrac{pL}{2d}$
+wird aus der Gesamtaplitude des Sinus die maximale Ablenkspannung $U_d$ der Sinusspannung zu $\SI{25.280}{\volt}$ bestimmt.
+\FloatBarrier
 \subsection{Spezifische Ladung der Elektronen}
 \label{sec:SpezifischeLadung}
 
@@ -23,8 +149,7 @@ Die Messwerte für die konstante Beschleunigungsspannung von $\SI{250}{\volt}$ s
      \midrule
      \csvreader[no head,
      late after line=\\,
-     late after last line=\\\bottomrule,
-     filter test={\ifnumless{\thecsvinputline}{32}}]%
+     late after last line=\\\bottomrule]%
      {data/250Vmag.csv}{}%
      {\csvcoli & \csvcolii}%
    \end{tabular}
@@ -32,14 +157,15 @@ Die Messwerte für die konstante Beschleunigungsspannung von $\SI{250}{\volt}$ s
 
 Nach Gleichung \eqref{eqn:helmholtz} wird das B- Feld des Helmholtzspulenpaares für $N = 20$ Windungen und einem Radius von $R = \SI{0.282}{\metre}$ berechnet.
 Dies wird in Gleichung \eqref{eqn:AblenkungBFeld} eingesetzt.
+Die Ablenkung $D$ wird mit Gleichung \eqref{eqn:linie} aus der Liniennummer bestimmt.
 Es wird dann $\text{D} / (\text{L}^2 + \text{D}^2)$ gegen B aufgetragen, um die Größe $\text{e}_0/\text{m}_0$ durch eine lineare Ausgleichsrechnung zu bestimmen.
 Der Plot ist in Abbildung \ref{fig:250Vmag} zu finden.
 Die Berechnung der linearen Ausgleichsgeraden erfolgt mit SciPy, der Fehler wird mit uncertainties berechnet.
 Es ergeben sich für die Steigung a und dem y- Achsenabschnitt der Geraden folgende Werte:
 
 \begin{align*}
-  a &= 0.87\pm 0.02 \\
-  b &= 0.39\pm 0.23
+  a &= \SI{0.87\pm0.02}{\per\micro\metre\per\milli\tesla} \\
+  b &= \SI{0.39\pm0.23}{\per\micro\metre}
 \end{align*}
 
 Vergleicht man Gleichung \eqref{eqn:AblenkungBFeld} mit einer normalen Geradengleichung, so fällt auf, dass um $\text{e}_0/\text{m}_0$ zu bestimmen eine Umrechnung von a notwendig ist.
@@ -52,7 +178,7 @@ Vergleicht man Gleichung \eqref{eqn:AblenkungBFeld} mit einer normalen Geradengl
 Es ergibt sich somit für $\text{e}_0/\text{m}_0$:
 
 \begin{align*}
-  \frac{\text{e}_0}{\text{m}_0} = \SI{1.52 \pm 0.08e3}{\coulomb\per\kilo\per\gram}
+  \frac{\text{e}_0}{\text{m}_0} = \SI{1.52 \pm 0.08e11}{\coulomb\per\kilo\per\gram}
 \end{align*}
 
 \begin{figure}
@@ -68,7 +194,7 @@ Die Messwerte für die konstante Beschleunigungsspannung von $\SI{350}{\volt}$ s
 \begin{table}
   \centering
   \caption{Messwerte für die konstante Beschleunigungsspannung von $\SI{350}{\volt}$.}
-  \label{tab:Ladung1}
+  \label{tab:Ladung2}
   \begin{tabular}[t]{c c}
    \toprule
      $\text{Liniennummer}$ & $ I \, / \, \si{\milli\ampere}$ \\
@@ -97,7 +223,7 @@ Die Berechnung von $\text{e}_0/\text{m}_0$ erfolgt analog mittels Gleichung \eqr
 Es ergibt sich dann:
 
 \begin{align*}
-  \frac{\text{e}_0}{\text{m}_0} = \SI{1.48 \pm 0.05e3}{\coulomb\per\kilo\per\gram}
+  \frac{\text{e}_0}{\text{m}_0} = \SI{1.48 \pm 0.05e11}{\coulomb\per\kilo\per\gram}
 \end{align*}
 
 \begin{figure}
@@ -106,9 +232,9 @@ Es ergibt sich dann:
   \caption{Lineare Regression für 350 Volt Beschleunigungsspannung.}
   \label{fig:350Vmag}
 \end{figure}
-
+\FloatBarrier
 \subsection{Bestimmung der Erdmagnetfeldes}
-
+\FloatBarrier
 Der Spulenstrom, welcher das Erdmagnetfeld kompensiert, wurde auf $\SI{40}{\milli\ampere}$ bestimmt.
 Die horizontale Komponente des Erdmagnetfeldes entspricht also der entgegengesetzten horizontalen Komponente des Magnetfeldes des Helmholtzspulenpaares.
 Es ergibt sich nach Gleichung \eqref{eqn:helmholtz} für $\text{B}_\text{Erd, hor}$:
