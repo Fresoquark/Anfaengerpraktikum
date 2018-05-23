@@ -23,15 +23,17 @@ plt.ylabel(r'$\sqrt{I}$ / $\sqrt{\SI{100}{\pico\ampere}}$')
 
 Uy = U[~np.isnan(yel)]
 yel = yel[~np.isnan(yel)]
+yelfit= np. delete(yel,[0,1,2,3,4,5,6,7,8,9])
+Ufit= np. delete(Uy,[0,1,2,3,4,5,6,7,8,9])
 
-params, covariance_matrix = curve_fit(f, Uy, yel)
+params, covariance_matrix = curve_fit(f, Ufit, yelfit)
 errors = np.sqrt(np.diag(covariance_matrix))
 
 print('ay=', params[0], '+-', errors[0])
 print('by=', params[1], '+-', errors[1])
 
 plt.plot(Uy,yel, 'yellow',marker="x",linestyle="none", label="Daten (Gelb)", ms=2.5)
-plt.plot(Uy, f(Uy, *params), 'yellow',linestyle="-", label='Fit (Gelb)')
+plt.plot(Ufit, f(Ufit, *params), 'yellow',linestyle="-", label='Fit (Gelb)')
 
 
 Ur = U[~np.isnan(red)]
