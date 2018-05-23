@@ -1,0 +1,56 @@
+\section{Auswertung}
+\label{sec:Auswertung}
+
+
+\begin{table}
+  \centering
+  \caption{Messwerte für die verschiedenen Spektrallinien.}
+  \label{tab:messreihe1}
+  \begin{tabular}{c c c c c c}
+   \toprule
+    $U$ / $\si{\volt}$ & $I_\text{Gelb}$ / $\SI{100}{\pico\ampere}$ & $I_\text{Rot}$ / $\SI{100}{\pico\ampere}$ & $I_\text{Grün}$ / $\SI{100}{\pico\ampere}$ & $I_\text{Violett}$ / $\SI{100}{\pico\ampere}$ & $I_\text{Ultraviolett}$ / $\SI{100}{\pico\ampere}$ \\
+     \midrule
+     \csvreader[no head,
+     late after line=\\,
+     late after last line=\\\bottomrule]%
+     {data/messreihe1.csv}{}%
+     {\csvcoli & \csvcolii  & \csvcoliii & \csvcoliv & \csvcolv & \csvcolvi}%
+   \end{tabular}
+ \end{table}
+
+
+ \begin{table}
+   \centering
+   \caption{Messwerte für die Gelbe Linie}
+   \label{tab:es}
+   \begin{tabular}[t]{c|c}
+    \toprule
+      $U$ / $\si{\volt}$ & $I_\text{Gelb}$ / $\SI{100}{\pico\ampere}$ \\
+      \midrule
+      \csvreader[no head,
+      late after line=\\,
+      late after last line=\\\bottomrule,
+      filter test={\ifnumless{\thecsvinputline}{20}}]%
+      {data/messreihe2.csv}{}%
+      {\csvcoli & \csvcolii }%
+    \end{tabular}
+   \begin{tabular}[t]{c|c}
+    \toprule
+       $U$ / $\si{\volt}$ & $I_\text{Gelb}$ / $\SI{100}{\pico\ampere}$ \\
+     \midrule
+     \csvreader[filter test={\ifnumgreater{\thecsvinputline}{19}},
+     late after line=\\,
+     late after last line=\\\bottomrule]%
+     {data/messreihe2.csv}{}%
+     {\csvcoli & \csvcolii}%
+   \end{tabular}
+ \end{table}
+
+
+
+\begin{figure}
+  \centering
+  \includegraphics{messreihe1.pdf}
+  \caption{Lineare Regressionen für die verschiedenen Spektrallinien.}
+  \label{fig:messreihe1}
+\end{figure}
