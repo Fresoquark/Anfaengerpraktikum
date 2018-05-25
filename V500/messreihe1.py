@@ -3,6 +3,7 @@ from uncertainties import ufloat
 from scipy.stats import sem
 import matplotlib.pyplot as plt
 from scipy.optimize import curve_fit
+import uncertainties.unumpy as unp
 
 U,yel,red,gre,vio,uv = np.genfromtxt("data/messreihe1.csv",delimiter=",",unpack=True)
 
@@ -31,6 +32,10 @@ errors = np.sqrt(np.diag(covariance_matrix))
 
 print('ay=', params[0], '+-', errors[0])
 print('by=', params[1], '+-', errors[1])
+ay=unp.uarray(params[0],errors[0])
+by=unp.uarray(params[1],errors[1])
+ny=(-by)/ay
+print('ny=', ny)
 
 plt.plot(Uy,yel, 'yellow',marker="x",linestyle="none", label="Daten (Gelb)", ms=2.5)
 plt.plot(Ufit, f(Ufit, *params), 'yellow',linestyle="-", label='Fit (Gelb)')
@@ -44,6 +49,10 @@ errors = np.sqrt(np.diag(covariance_matrix))
 
 print('ar=', params[0], '+-', errors[0])
 print('br=', params[1], '+-', errors[1])
+ar=unp.uarray(params[0],errors[0])
+br=unp.uarray(params[1],errors[1])
+nr=(-br)/ar
+print('nr=', nr)
 
 plt.plot(Ur,red, 'rx', label="Daten (Rot)", ms=2.5)
 plt.plot(Ur, f(Ur, *params), 'r-', label='Fit (Rot)')
@@ -57,6 +66,10 @@ errors = np.sqrt(np.diag(covariance_matrix))
 
 print('ag=', params[0], '+-', errors[0])
 print('bg=', params[1], '+-', errors[1])
+ag=unp.uarray(params[0],errors[0])
+bg=unp.uarray(params[1],errors[1])
+ng=(-bg)/ag
+print('ng=', ng)
 
 plt.plot(Ug,gre, 'gx', label="Daten (Grün)", ms=2.5)
 plt.plot(Ug, f(Ug, *params), 'g-', label='Fit (Grün)')
@@ -69,6 +82,10 @@ errors = np.sqrt(np.diag(covariance_matrix))
 
 print('av=', params[0], '+-', errors[0])
 print('bv=', params[1], '+-', errors[1])
+av=unp.uarray(params[0],errors[0])
+bv=unp.uarray(params[1],errors[1])
+nv=(-bv)/av
+print('nv=', nv)
 
 plt.plot(Uv,vio, 'violet',marker="x",linestyle="none", label="Daten (Violett)", ms=2.5)
 plt.plot(Uv, f(Uv, *params), 'violet',linestyle="-", label='Fit (Violett)')
@@ -81,6 +98,10 @@ errors = np.sqrt(np.diag(covariance_matrix))
 
 print('au=', params[0], '+-', errors[0])
 print('bu=', params[1], '+-', errors[1])
+au=unp.uarray(params[0],errors[0])
+bu=unp.uarray(params[1],errors[1])
+nu=(-bu)/au
+print('nu=', nu)
 
 plt.plot(Uu,uv, 'darkviolet',marker="x",linestyle="none", label="Daten (Ultraviolett)", ms=2.5)
 plt.plot(Uu, f(Uu, *params), 'darkviolet',linestyle="-", label='Fit (Ultraviolett)')

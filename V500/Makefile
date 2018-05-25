@@ -13,9 +13,12 @@ all: build/main.pdf
 # hier Python-Skripte:
 build/messreihe1.pdf: messreihe1.py  data/messreihe1.csv matplotlibrc header-matplotlib.tex | build
 	TEXINPUTS="$(call translate,$(pwd):)" python messreihe1.py
+build/he0.pdf: he0.py matplotlibrc header-matplotlib.tex | build
+	TEXINPUTS="$(call translate,$(pwd):)" python he0.py
 
 # hier weitere Abhängigkeiten für build/main.pdf deklarieren:
 build/main.pdf: build/messreihe1.pdf
+build/main.pdf: build/he0.pdf
 
 build/main.pdf: FORCE | build
 	  TEXINPUTS="$(call translate,build:)" \

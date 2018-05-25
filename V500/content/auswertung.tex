@@ -1,6 +1,9 @@
 \section{Auswertung}
 \label{sec:Auswertung}
 
+Um $\text{U}_\text{g}$ zu bestimmen, wird für die einzelnen Lichtwellenlängen $\sqrt{\text{I}}$ / $\sqrt{\SI{100}{\pico\ampere}}$ gegen $\text{U}$ / $\si{\volt}$ in einem Diagramm aufgetragen.
+Die entsprechenden Messwerte sind in Tabelle \ref{tab:messreihe1} zu finden.
+Die so entstehenden Plots wurden in Abbildung \ref{fig:messreihe1} zusammengetragen.
 
 \begin{table}
   \centering
@@ -18,39 +21,92 @@
    \end{tabular}
  \end{table}
 
-
- \begin{table}
+ \begin{figure}
    \centering
-   \caption{Messwerte für die Gelbe Linie}
-   \label{tab:es}
-   \begin{tabular}[t]{c|c}
-    \toprule
-      $U$ / $\si{\volt}$ & $I_\text{Gelb}$ / $\SI{100}{\pico\ampere}$ \\
-      \midrule
-      \csvreader[no head,
-      late after line=\\,
-      late after last line=\\\bottomrule,
-      filter test={\ifnumless{\thecsvinputline}{20}}]%
-      {data/messreihe2.csv}{}%
-      {\csvcoli & \csvcolii }%
-    \end{tabular}
-   \begin{tabular}[t]{c|c}
-    \toprule
-       $U$ / $\si{\volt}$ & $I_\text{Gelb}$ / $\SI{100}{\pico\ampere}$ \\
-     \midrule
-     \csvreader[filter test={\ifnumgreater{\thecsvinputline}{19}},
-     late after line=\\,
-     late after last line=\\\bottomrule]%
-     {data/messreihe2.csv}{}%
-     {\csvcoli & \csvcolii}%
-   \end{tabular}
- \end{table}
+   \includegraphics{messreihe1.pdf}
+   \caption{Lineare Regressionen für die verschiedenen Spektrallinien.}
+   \label{fig:messreihe1}
+ \end{figure}
 
+Es ergeben sich für die verschiedenen Ausgleichsgeraden der entsprechenden Lichtwellenlängen folgende Werte, hierbei entspricht $\text{a}_\text{x}$ der Steigung und $\text{b}_\text{x}$ dem Y-Achsenabschnitt der entsprechenden Lichtwellenlänge:
 
+\begin{align*}
+  \text{a}_\text{gelb} &= -2.85 +- 0.11         \\
+  \text{b}_\text{gelb} &= 1.75 +- 0.04          \\
+  \text{a}_\text{rot} &= -0.62 +- 0.05          \\
+  \text{b}_\text{rot} &= 0.66 +- 0.04           \\
+  \text{a}_\text{grün} &= -3.99 +- 0.17         \\
+  \text{b}_\text{grün} &= 2.80 +- 0.07          \\
+  \text{a}_\text{violett} &= -3.18 +- 0.14      \\
+  \text{b}_\text{violett} &= 3.89 +- 0.09       \\
+  \text{a}_\text{ultraviolett} &= -1.93 +- 0.05 \\
+  \text{b}_\text{ultraviolett} &= 2.67 +- 0.03
+\end{align*}
+
+Die Berechnung erfolgt mit SciPy, die Fehlerrechnung mittels uncertainties.
+Aus diesen Parametern wird die Nullstelle der Funktionen und damit $\text{U}_\text{g}$ bestimmt.
+Es ergibt sich folglich für die Nullstellen $\text{N}_\text{x} = \text{U}_\text{g, x}$:
+
+\begin{align*}
+  \text{N}_\text{gelb}         &= \SI{0.61\pm0.03}{\volt} \\
+  \text{N}_\text{rot}          &= \SI{1.07\pm0.10}{\volt} \\
+  \text{N}_\text{grün}         &= \SI{0.70\pm0.03}{\volt} \\
+  \text{N}_\text{violett}      &= \SI{1.22\pm0.06}{\volt} \\
+  \text{N}_\text{ultraviolett} &= \SI{1.38\pm0.04}{\volt}
+\end{align*}
+
+Um nun das Verhältnis $\text{h} / \text{e}_0$ bestimmen zu können, werden die zuvor berechneten $\text{N}_\text{x}$ / $\text{U}_\text{g, x}$ gegen die Lichtfrequenz $\nu$ aufgetragen.
+Die Lichtwellenlänge werden der Versuchsanleitung\cite[80]{sample} entnommen.
+Die Werte sind in Tabelle \ref{tab:Lichtwellenlänge} zusammengefasst.
+Der entsprechende Plot wurde in Abbildung \ref{fig:he0} dargestellt.
+
+\begin{table}
+  \centering
+  \caption{Die untersuchten Spektrallinien des Lichtes.}
+  \label{tab:Lichtwellenlänge}
+  \begin{tabular}{c|c|c|l}
+    \toprule
+    $\lambda$ / $\si{\nano\metre}$ & $\nu$ / $\si{\tera\hertz}$ & $\text{U}_\text{g}$ / $\si{\volt}$ & Farbe \\
+    \midrule
+    671 & 467.69 & 1.07\pm0.10 & rot \\
+    578 & 518.67 & 0.61\pm0.03 & gelb \\
+    546 & 549.07 & 0.70\pm0.03 & grün \\
+    405 & 740.23 & 1.22\pm0.06 & violett \\
+    366 & 819.11 & 1.38\pm0.04 & ultraviolett \\
+    \bottomrule
+  \end{tabular}
+\end{table}
 
 \begin{figure}
   \centering
-  \includegraphics{messreihe1.pdf}
-  \caption{Lineare Regressionen für die verschiedenen Spektrallinien.}
-  \label{fig:messreihe1}
+  \includegraphics{he0.pdf}
+  \caption{Lineare Regressionen der einzelnen $\text{U}_\text{g}$ gegen die Lichtwellenlänge $\nu$.}
+  \label{fig:he0}
 \end{figure}
+
+\begin{table}
+  \centering
+  \caption{Messwerte für die gelbe Spektrallinie bei $\SI{278}{\nano\metre}$}
+  \label{tab:es}
+  \begin{tabular}[t]{c|c}
+   \toprule
+     $U$ / $\si{\volt}$ & $I_\text{Gelb}$ / $\SI{100}{\pico\ampere}$ \\
+     \midrule
+     \csvreader[no head,
+     late after line=\\,
+     late after last line=\\\bottomrule,
+     filter test={\ifnumless{\thecsvinputline}{20}}]%
+     {data/messreihe2.csv}{}%
+     {\csvcoli & \csvcolii }%
+   \end{tabular}
+  \begin{tabular}[t]{c|c}
+   \toprule
+      $U$ / $\si{\volt}$ & $I_\text{Gelb}$ / $\SI{100}{\pico\ampere}$ \\
+    \midrule
+    \csvreader[filter test={\ifnumgreater{\thecsvinputline}{19}},
+    late after line=\\,
+    late after last line=\\\bottomrule]%
+    {data/messreihe2.csv}{}%
+    {\csvcoli & \csvcolii}%
+  \end{tabular}
+\end{table}
