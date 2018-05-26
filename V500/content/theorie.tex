@@ -26,13 +26,26 @@ Elektronen ist, und dass die Elektronen ihre Energie nur durch die Photonen erha
 \end{equation}
 Dabei ist $U_g$ die Bremsspannung und $e_0$ die Elementarladung der Elektronen.
 Da die Elektronen im Festkörper jedoch eine nicht monoenergetische Energieverteilung besitzen, welche durch die Fermi-Dirac-Statistik beschrieben wird, verliert Gleichung \eqref{eqn:energie2} in der Praxis ihre Gültigkeit im Bezug auf
-die Bremsspannung $U_g$. Die Elektronen besitzen im Festkörper Energien zwischen $0$ und der Fermi-Energie $\zeta$. Abhilfe verschafft die unter bestimmten Voraussetzungen geltende Beziehung
+die Bremsspannung $U_g$. Die Elektronen besitzen im Festkörper Energien zwischen $0$ und der Fermi-Energie $\zeta$.
+Dadurch sieht der Verlauf des Stromes in Abhängigkeit von der Spannung aus wie in Abbildung \ref{fig:iu}.
+\begin{figure}
+  \centering
+  \includegraphics{images/iu.png}
+  \caption{Photostrom in Abhängigkeit der Spannung bei monochromatischem Licht \cite{sample}.}
+  \label{fig:iu}
+\end{figure}
+Abhilfe verschafft die unter bestimmten Voraussetzungen geltende Beziehung
 \begin{equation}
   I_\text{Ph} \sim U^2 .
   \label{eqn:ipropu}
 \end{equation}
 Besitzt die Anode jedoch eine sehr hohe Austrittsarbeit $A_A$ kann es sein, dass weitere Probleme bei der Untersuchung des Photoeffekts auftreten. Da die Kathode und Anode elektrisch leitend miteinader verbunden werden, stellen sich ihre
-Fermi-Energien auf das selbe Niveau ein, wodurch teilweise eine Beschleunigungsspannung angelegt werden muss, um einen Photostrom zu messen. Dies ist anschaulich in Abbildung \ref{fig:AA} dargestellt.
+Fermi-Energien auf das selbe Niveau ein, wodurch teilweise eine Beschleunigungsspannung angelegt werden muss, um einen Photostrom zu messen. Dies ist anschaulich in Abbildung \ref{fig:AA} dargestellt und wird durch folgende Energiebilanz
+beschrieben:
+\begin{equation}
+  h \nu + e_0 U_b \geq A_A
+  \label{eqn:energie3}
+\end{equation}
 \begin{figure}
   \centering
   \includegraphics{images/AA.png}

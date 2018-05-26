@@ -1,33 +1,8 @@
 \section{Auswertung}
 \label{sec:Auswertung}
-
 Um $\text{U}_\text{g}$ zu bestimmen, wird für die einzelnen Lichtwellenlängen $\sqrt{\text{I}}$ / $\sqrt{\SI{100}{\pico\ampere}}$ gegen $\text{U}$ / $\si{\volt}$ in einem Diagramm aufgetragen.
 Die entsprechenden Messwerte sind in Tabelle \ref{tab:messreihe1} zu finden.
 Die so entstehenden Plots wurden in Abbildung \ref{fig:messreihe1} zusammengetragen.
-
-\begin{table}
-  \centering
-  \caption{Messwerte für die verschiedenen Spektrallinien.}
-  \label{tab:messreihe1}
-  \begin{tabular}{c c c c c c}
-   \toprule
-    $U$ / $\si{\volt}$ & $I_\text{Gelb}$ / $\SI{100}{\pico\ampere}$ & $I_\text{Rot}$ / $\SI{100}{\pico\ampere}$ & $I_\text{Grün}$ / $\SI{100}{\pico\ampere}$ & $I_\text{Violett}$ / $\SI{100}{\pico\ampere}$ & $I_\text{Ultraviolett}$ / $\SI{100}{\pico\ampere}$ \\
-     \midrule
-     \csvreader[no head,
-     late after line=\\,
-     late after last line=\\\bottomrule]%
-     {data/messreihe1.csv}{}%
-     {\csvcoli & \csvcolii  & \csvcoliii & \csvcoliv & \csvcolv & \csvcolvi}%
-   \end{tabular}
- \end{table}
-
- \begin{figure}
-   \centering
-   \includegraphics{messreihe1.pdf}
-   \caption{Lineare Regressionen für die verschiedenen Spektrallinien.}
-   \label{fig:messreihe1}
- \end{figure}
-
 Es ergeben sich für die verschiedenen Ausgleichsgeraden der entsprechenden Lichtwellenlängen folgende Werte, hierbei entspricht $\text{a}_\text{x}$ der Steigung und $\text{b}_\text{x}$ dem Y-Achsenabschnitt der entsprechenden Lichtwellenlänge:
 
 \begin{align*}
@@ -43,6 +18,15 @@ Es ergeben sich für die verschiedenen Ausgleichsgeraden der entsprechenden Lich
   \text{b}_\text{ultraviolett} &= 2.67 +- 0.03
 \end{align*}
 
+\FloatBarrier
+\begin{figure}
+  \centering
+  \includegraphics{messreihe1.pdf}
+  \caption{Lineare Regressionen für die verschiedenen Spektrallinien.}
+  \label{fig:messreihe1}
+\end{figure}
+\FloatBarrier
+
 Die Berechnung erfolgt mit SciPy, die Fehlerrechnung mittels uncertainties.
 Aus diesen Parametern wird die Nullstelle der Funktionen und damit $\text{U}_\text{g}$ bestimmt.
 Es ergibt sich folglich für die Nullstellen $\text{N}_\text{x} = \text{U}_\text{g, x}$:
@@ -54,6 +38,23 @@ Es ergibt sich folglich für die Nullstellen $\text{N}_\text{x} = \text{U}_\text
   \text{N}_\text{violett}      &= \SI{1.22\pm0.06}{\volt} \\
   \text{N}_\text{ultraviolett} &= \SI{1.38\pm0.04}{\volt}
 \end{align*}
+\FloatBarrier
+\begin{table}
+  \centering
+  \caption{Messwerte für die verschiedenen Spektrallinien.}
+  \label{tab:messreihe1}
+  \begin{tabular}{c c c c c c}
+   \toprule
+    $U$ / $\si{\volt}$ & $I_\text{Gelb}$ / $\SI{100}{\pico\ampere}$ & $I_\text{Rot}$ / $\SI{100}{\pico\ampere}$ & $I_\text{Grün}$ / $\SI{100}{\pico\ampere}$ & $I_\text{Violett}$ / $\SI{100}{\pico\ampere}$ & $I_\text{Ultraviolett}$ / $\SI{100}{\pico\ampere}$ \\
+     \midrule
+     \csvreader[no head,
+     late after line=\\,
+     late after last line=\\\bottomrule]%
+     {data/messreihe1.csv}{}%
+     {\csvcoli & \csvcolii  & \csvcoliii & \csvcoliv & \csvcolv & \csvcolvi}%
+   \end{tabular}
+ \end{table}
+\FloatBarrier
 
 Um nun das Verhältnis $\text{h} / \text{e}_0$ und die Austrittsarbeit $A_k$ bestimmen zu können, werden die zuvor berechneten $\text{N}_\text{x}$ / $\text{U}_\text{g, x}$ gegen die Lichtfrequenz $\nu$ aufgetragen und linear gefittet.
 Die Lichtwellenlänge werden der Versuchsanleitung\cite[80]{sample} entnommen.
@@ -99,11 +100,29 @@ Somit wurden folgende Werte bestimmt:
   \caption{Lineare Regressionen der einzelnen $\text{U}_\text{g}$ gegen die Lichtwellenlänge $\nu$.}
   \label{fig:he0}
 \end{figure}
+\FloatBarrier
+
+Bei der zweiten Messreihe wurden die in Tabelle \ref{tab:messreihe2} befindlichen Daten aufgenommen.
+Nun wird $I$ gegen $U$ in einem Diagramm aufgetragen. Dies ist in Abbildung \ref{fig:messreihe2} zu sehen.
+Zur Deutung des Kurvenverlaufes müssen verschiedene Fregestellungen geklärt werden.
+So zum Einen, dass sich der Photostrom bei steigender Beschleunigungspannung einem Sättigungswert annähert.
+Dies geht darauf zurück, dass der maximale Photostrom von der Intensität des Lichtes abhängt. Ist die
+Beschleunigungsspannung groß genug um alle herausgelösten Elektronen zur Anode zu bewegen, lässt sich der
+Strom nicht mehr vergrößern. Das asymptotische Annähern an den Sättigungswert ist dabei unter anderem der
+Energieverteilung der Elektronen im Festkörper zuzuschreiben, wodurch manche Elektronen mit einer sehr geringen
+Energie austreten und deshalb erst bei großen Beschleunigungsspannungen die Anode erreichen.
+Analog dazu wird das Absinken des Photostromes schon vor Erreichen der Bremsspannung $U_g$ darauf zurück geführt,
+dass die Elektronen unterschiedliche Energien im Festkörper besitzen. Außerdem kann unter Umständen ein negativer
+Strom auftreten. Dieser geht darauf zurück, dass das Kathodenmaterial bereits bei $T=\SI{20}{\degree\celsius}$
+verdampfen kannl, und somit Elektronen frei werden. Diese lagern sich an der Kathode an und werden dann von der
+Bremsspannung zur Kathode beschleunigt. Da es sich hirbei jedoch um eine sehr geringe Anzahl an Elektronen handelt, wird
+sehr schnell ein Sättigungswert erreicht. Da solche negativen Ströme auch bei energiearmen Licht auftreten, kann geschlussfolgert werden, dass
+die Anode eine Austrittsarbeit besitzt, welche der der Kathode ähnelt.
 
 \begin{table}
   \centering
   \caption{Messwerte für die gelbe Spektrallinie bei $\SI{278}{\nano\metre}$}
-  \label{tab:es}
+  \label{tab:messreihe2}
   \begin{tabular}[t]{c|c}
    \toprule
      $U$ / $\si{\volt}$ & $I_\text{Gelb}$ / $\SI{100}{\pico\ampere}$ \\
@@ -126,3 +145,10 @@ Somit wurden folgende Werte bestimmt:
     {\csvcoli & \csvcolii}%
   \end{tabular}
 \end{table}
+
+\begin{figure}
+  \centering
+  \includegraphics{messreihe2.pdf}
+  \caption{Verluaf von $I$ gegen $U$ für die gelbe Spektrallinie bei $\SI{278}{\nano\metre}$.}
+  \label{fig:messreihe2}
+\end{figure}
