@@ -33,6 +33,7 @@ build/main.pdf: build/brom.pdf
 build/main.pdf: build/emission.pdf
 build/main.pdf: build/zink.pdf
 build/main.pdf: build/zirkonium.pdf
+build/main.pdf: build/strontium.pdf
 
 build/main.pdf: FORCE | build
 	  TEXINPUTS="$(call translate,build:)" \
