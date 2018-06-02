@@ -7,9 +7,11 @@ from scipy.optimize import curve_fit
 theta, counts = np.genfromtxt("data/braggbedingung.csv",delimiter=",",unpack=True)
 
 theta=0.5*theta
-
+max = theta[np.argmax(counts)]
+print("Maximum bei ",max)
 
 plt.figure(figsize=(4.76, 2.94))
+plt.axvline(max,color="r",label="Position des Maximums")
 plt.plot(theta, counts, 'k.', label="Daten", ms=2.5)
 plt.legend(loc="best")
 plt.grid()
