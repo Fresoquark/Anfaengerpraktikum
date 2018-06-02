@@ -8,9 +8,9 @@ Die Messdaten befinden sich in Tabelle \ref{tab:bragg}.
   \centering
   \caption{Messwerte zur Überprüfung der Braggbedingung.}
   \label{tab:bragg}
-  \begin{tabular}[t]{c@{} S[table-format=2.1] S[table-format=3.0]}
+  \begin{tabular}[t]{c@{} S[table-format=2.1] S[table-format=3.0] | }
    \toprule
-     {$2\, \theta \, / \, \si{\degree}\:\:$} & {$\text{Rate} \, /  \, \si{\per\second}$} \\\midrule
+     {$2\cdot \theta \, / \, \si{\degree}\:\:$} & {$\text{Counts} \, /  \, \si{\per\second}$} \\\midrule
      \csvreader[no head,
      late after line=\\,
      late after last line=\\\bottomrule,
@@ -18,9 +18,9 @@ Die Messdaten befinden sich in Tabelle \ref{tab:bragg}.
      {data/braggbedingung.csv}{}%
      {$\SI{\csvcoli}{}$ & $\SI{\csvcolii}{}$}%
    \end{tabular}
-   \begin{tabular}[t]{c@{} S[table-format=2.1] S[table-format=3.0]}
+   \begin{tabular}[t]{ | c@{} S[table-format=2.1] S[table-format=3.0]}
     \toprule
-      {$2\, \theta \, / \, \si{\degree}\:\:$} & {$\text{Rate} \, /  \, \si{\per\second}$} \\\midrule
+      {$2\cdot \theta \, / \, \si{\degree}\:\:$} & {$\text{Counts} \, /  \, \si{\per\second}$} \\\midrule
      \csvreader[filter test={\ifnumgreater{\thecsvinputline}{21}},
      late after line=\\,
      late after last line=\\\bottomrule]%
@@ -55,37 +55,37 @@ Dort können die K$_\alpha$ und K$_\beta$ abgelesen werden.
   \centering
   \caption{Die zu den entsprechenden Winkeln gemessenen Counts.}
   \label{tab:Emissionsspektrum}
-  \begin{tabular}[t]{c|c}
+  \begin{tabular}[t]{c@{} S [table-format=2.1] S [table-format=4.0] |}
     \toprule
-      $2 \cdot \theta \, / \, \si{\degree}$ & $\text{Counts} \, / \, \si{\per\second}$ \\
+      {$2 \cdot \theta \, / \, \si{\degree}\:\:$} & {$\text{Counts} \, / \, \si{\per\second}$} \\
       \midrule
       \csvreader[no head,
       late after line=\\,
       late after last line=\\\bottomrule,
       filter test={\ifnumless{\thecsvinputline}{38}}]%
       {data/emissionsspektrum.csv}{}%
-      {\csvcoli & \csvcolii }%
+      {$\SI{\csvcoli}{}$ & $\SI{\csvcolii}{}$}%
   \end{tabular}
-  \begin{tabular}[t]{c|c}
+  \begin{tabular}[t]{| c@{} S [table-format=2.1] S [table-format=4.0] |}
     \toprule
-      $2 \cdot \theta \, / \, \si{\degree}$ & $\text{Counts} \, / \, \si{\per\second}$ \\
+      {$2 \cdot \theta \, / \, \si{\degree}\:\:$} & {$\text{Counts} \, / \, \si{\per\second}$} \\
       \midrule
       \csvreader[filter expr={ test{\ifnumgreater{\thecsvinputline}{37}}
                            and test{\ifnumless{\thecsvinputline}{75}}},
       late after line=\\,
       late after last line=\\\bottomrule]%
       {data/emissionsspektrum.csv}{}%
-      {\csvcoli & \csvcolii}%
+      {$\SI{\csvcoli}{}$ & $\SI{\csvcolii}{}$}%
   \end{tabular}
-  \begin{tabular}[t]{c|c}
+  \begin{tabular}[t]{| c@{} S [table-format=2.1] S [table-format=4.0]}
     \toprule
-      $2 \cdot \theta \, / \, \si{\degree}$ & $\text{Counts} \, / \, \si{\per\second}$ \\
+      {$2 \cdot \theta \, / \, \si{\degree}\:\:$} & {$\text{Counts} \, / \, \si{\per\second}$} \\
       \midrule
       \csvreader[filter test={\ifnumgreater{\thecsvinputline}{74}},
       late after line=\\,
       late after last line=\\\bottomrule]%
       {data/emissionsspektrum.csv}{}%
-      {\csvcoli & \csvcolii}%
+      {$\SI{\csvcoli}{}$ & $\SI{\csvcolii}{}$}%
   \end{tabular}
 \end{table}
 
@@ -202,3 +202,5 @@ Daraus können die Abschirmungszahlen bestimmt werden:
   \sigma_1 &= z_\text{Cu} - \sqrt{\frac{\text{E}_{\beta}}{\text{R}_{\infty}}} = 3.05\\
   \sigma_2 &= z_\text{Cu} - 2\sqrt{\frac{\text{R}_{\infty} \left(z_\text{Cu} - \sigma_1 \right)^2 - \text{E}_{\alpha}}{\text{R}_{\infty}}} = 12.41
 \end{align*}
+
+\subsection{Absorptionsspektren verschiedener Stoffe}
