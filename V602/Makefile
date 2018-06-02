@@ -25,6 +25,8 @@ build/zink.pdf: zink.py data/zink.csv matplotlibrc header-matplotlib.tex | build
 	TEXINPUTS="$(call translate,$(pwd):)" python zink.py
 build/zirkonium.pdf: zirkonium.py data/zirkonium.csv matplotlibrc header-matplotlib.tex | build
 	TEXINPUTS="$(call translate,$(pwd):)" python zirkonium.py
+build/moseley.pdf: moseley.py matplotlibrc header-matplotlib.tex | build
+	TEXINPUTS="$(call translate,$(pwd):)" python moseley.py
 
 # hier weitere Abhängigkeiten für build/main.pdf deklarieren:
 build/main.pdf: build/bragg.pdf
@@ -34,6 +36,7 @@ build/main.pdf: build/emission.pdf
 build/main.pdf: build/zink.pdf
 build/main.pdf: build/zirkonium.pdf
 build/main.pdf: build/strontium.pdf
+build/main.pdf: build/moseley.pdf
 
 build/main.pdf: FORCE | build
 	  TEXINPUTS="$(call translate,build:)" \

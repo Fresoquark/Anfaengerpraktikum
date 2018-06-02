@@ -203,4 +203,129 @@ Daraus können die Abschirmungszahlen bestimmt werden:
   \sigma_2 &= z_\text{Cu} - 2\sqrt{\frac{\text{R}_{\infty} \left(z_\text{Cu} - \sigma_1 \right)^2 - \text{E}_{\alpha}}{\text{R}_{\infty}}} = 12.41
 \end{align*}
 
+\newpage
 \subsection{Absorptionsspektren verschiedener Stoffe}
+Die Messwerte für die Absorber mit $30 \leq Z \leq 50$ befinden sich in den Tabellen \ref{tab:absorption1} und \ref{tab:absorption2}.
+\begin{table}
+  \centering
+  \caption{Messwerte zum Absorptionsspektrum von Brom und Strontium}
+  \label{tab:absorption1}
+  \begin{tabular}[t]{c@{} S[table-format=2.1] S[table-format=3.0] | }
+   \toprule
+     {$2\cdot {\theta}_\text{Brom} \, / \, \si{\degree}\:\:$} & {$\text{Counts}_\text{Brom} \, /  \, \si{\per\second}$} \\\midrule
+     \csvreader[no head,
+     late after line=\\,
+     late after last line=\\\bottomrule]%
+     {data/brom.csv}{}%
+     {$\SI{\csvcoli}{}$ & $\SI{\csvcolii}{}$}%
+   \end{tabular}
+   \begin{tabular}[t]{ | c@{} S[table-format=2.1] S[table-format=3.0] | }
+    \toprule
+      {$2\cdot {\theta}_\text{Strontium} \, / \, \si{\degree}\:\:$} & {$\text{Counts}_\text{Strontium} \, /  \, \si{\per\second}$} \\\midrule
+      \csvreader[no head,
+      late after line=\\,
+      late after last line=\\\bottomrule]%
+      {data/strontium.csv}{}%
+      {$\SI{\csvcoli}{}$ & $\SI{\csvcolii}{}$}%
+    \end{tabular}
+\end{table}
+\begin{table}
+  \centering
+  \caption{Messwerte zum Absorptionsspektrum von Zink und Zirkonium.}
+  \label{tab:absorption2}
+  \begin{tabular}[t]{c@{} S[table-format=2.1] S[table-format=3.0] | }
+   \toprule
+     {$2\cdot {\theta}_\text{Zink} \, / \, \si{\degree}\:\:$} & {$\text{Counts}_\text{Zink} \, /  \, \si{\per\second}$} \\\midrule
+     \csvreader[no head,
+     late after line=\\,
+     late after last line=\\\bottomrule]%
+     {data/zink.csv}{}%
+     {$\SI{\csvcoli}{}$ & $\SI{\csvcolii}{}$}%
+   \end{tabular}
+   \begin{tabular}[t]{ | c@{} S[table-format=2.1] S[table-format=3.0] | }
+    \toprule
+      {$2\cdot {\theta}_\text{Zirkonium} \, / \, \si{\degree}\:\:$} & {$\text{Counts}_\text{Zirkonium} \, /  \, \si{\per\second}$} \\\midrule
+      \csvreader[no head,
+      late after line=\\,
+      late after last line=\\\bottomrule]%
+      {data/zirkonium.csv}{}%
+      {$\SI{\csvcoli}{}$ & $\SI{\csvcolii}{}$}%
+    \end{tabular}
+\end{table}
+Die grafische Darstellung der Messdaten, sowie die bestimmten K-Kanten sind in den Abbildungen \ref{fig:Brom}, \ref{fig:Strontium}, \ref{fig:Zink} und \ref{fig:Zirkonium} zu sehen.
+\begin{figure}
+  \centering
+  \includegraphics{build/brom.pdf}
+  \caption{Absorptionsspektrum von Brom mit K-Kante.}
+  \label{fig:Brom}
+\end{figure}
+\begin{figure}
+  \centering
+  \includegraphics{build/strontium.pdf}
+  \caption{Absorptionsspektrum von Strontium mit K-Kante.}
+  \label{fig:Strontium}
+\end{figure}
+\begin{figure}
+  \centering
+  \includegraphics{build/zink.pdf}
+  \caption{Absorptionsspektrum von Zink mit K-Kante.}
+  \label{fig:Zink}
+\end{figure}
+\begin{figure}
+  \centering
+  \includegraphics{build/zirkonium.pdf}
+  \caption{Absorptionsspektrum von Zirkonium mit K-Kante.}
+  \label{fig:Zirkonium}
+\end{figure}
+Der aus den Grafiken bestimmte Winkel, die daraus mit \eqref{eqn:Energie} bestimmte Energie sowie die
+Literaturwerte \cite{kanten} und Abweichungen sind in Tabelle \ref{tab:absorption3}
+dargestellt.
+\begin{table}
+  \centering
+  \caption{Messergebnisse für die Absorptionsenergien.}
+  \label{tab:absorption3}
+  \begin{tabular}{c S [table-format=3.2] S[table-format=2.2] S [table-format=2.2] S [table-format=2.2]}
+    \toprule
+    Element & {$\theta \, / \, \si{\degree}$} & {$E_\text{K,gemessen} \,/\, \si{\kilo\electronvolt}$} & {$E_\text{K,Literatur} \,/\, \si{\kilo\electronvolt}$} & {$\text{rel. Abweichung}\,/\,\si{\percent}$} \\
+    \midrule
+    Brom & 13,60 & 13,09 & 13,47 & 2,90 \\
+    Strontium & 11,40 & 15,57 & 16,11 & 3,47 \\
+    Zink & 18,75 & 9,57 & 9,65 & 8,36 \\
+    Zirkonium & 10,30 & 17,21 & 18,00 & 4,59 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+Aus den berechneten und recherchierten Energien werden nun mit \eqref{eqn:sigma} die Abschirmkonstanten ermittelt und verglichen. Dies ist in Tabelle \ref{tab:absorption4} zu sehen.
+\begin{table}
+  \centering
+  \caption{Messergebnisse für die Abschirmkonstanten.}
+  \label{tab:absorption4}
+  \begin{tabular}{c S [table-format=1.2] S[table-format=1.2] S [table-format=2.2]}
+    \toprule
+    Element & {${\sigma}_\text{gemessen}$} & {${\sigma}_\text{Literatur}$} & {$\text{rel. Abweichung}\,/\,\si{\percent}$} \\
+    \midrule
+    Brom & 3,98 & 3,53 & 12,75 \\
+    Strontium & 4,16 & 3,58 & 16,20 \\
+    Zink & 3,47 & 3,36 & 3,27 \\
+    Zirkonium & 4,43 & 3,62 & 22,38 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+Die Quadratwurzel der gemessenen Energien wird nun in einem Diagramm gegen $Z$ aufgetragen und mit $y=ax+b$ mittels SciPy linear gefittet.
+Dies ist in Abbildung \ref{fig:moseley} dargestellt.
+\begin{figure}
+  \centering
+  \includegraphics{build/moseley.pdf}
+  \caption{Bestimmung der Rydbergkonstanten durch lineares Fitten.}
+  \label{fig:moseley}
+\end{figure}
+Die Parameter ergeben sich so zu
+\begin{align*}
+  a &= (3,35\pm0,02)\cdot1/\sqrt{\si{\electronvolt}} \\
+  b &= (-2,63\pm0,85)\cdot\sqrt{\si{\electronvolt}}.
+\end{align*}
+Durch Vergleich mit \eqref{eqn:En} lässt sich die Rydbergkonstante nun zu
+\begin{equation*}
+  R_{\infty} = a^2 = \SI{11,21\pm0,16}{\electronvolt}
+\end{equation*}
+bestimmen. Dies entspricht einer Abweichung von $\SI{17.57}{\percent}$ vom Literaturwert von $\SI{13.6}{\electronvolt}$.
