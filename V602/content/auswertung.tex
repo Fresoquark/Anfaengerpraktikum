@@ -206,6 +206,7 @@ Daraus können die Abschirmungszahlen bestimmt werden:
 \newpage
 \subsection{Absorptionsspektren verschiedener Stoffe}
 Die Messwerte für die Absorber mit $30 \leq Z \leq 50$ befinden sich in den Tabellen \ref{tab:absorption1} und \ref{tab:absorption2}.
+\FloatBarrier
 \begin{table}
   \centering
   \caption{Messwerte zum Absorptionsspektrum von Brom und Strontium}
@@ -252,7 +253,9 @@ Die Messwerte für die Absorber mit $30 \leq Z \leq 50$ befinden sich in den Tab
       {$\SI{\csvcoli}{}$ & $\SI{\csvcolii}{}$}%
     \end{tabular}
 \end{table}
+\FloatBarrier
 Die grafische Darstellung der Messdaten, sowie die bestimmten K-Kanten sind in den Abbildungen \ref{fig:Brom}, \ref{fig:Strontium}, \ref{fig:Zink} und \ref{fig:Zirkonium} zu sehen.
+\FloatBarrier
 \begin{figure}
   \centering
   \includegraphics{build/brom.pdf}
@@ -277,9 +280,11 @@ Die grafische Darstellung der Messdaten, sowie die bestimmten K-Kanten sind in d
   \caption{Absorptionsspektrum von Zirkonium mit K-Kante.}
   \label{fig:Zirkonium}
 \end{figure}
+\FloatBarrier
 Der aus den Grafiken bestimmte Winkel, die daraus mit \eqref{eqn:Energie} bestimmte Energie sowie die
 Literaturwerte \cite{kanten} und Abweichungen sind in Tabelle \ref{tab:absorption3}
 dargestellt.
+\FloatBarrier
 \begin{table}
   \centering
   \caption{Messergebnisse für die Absorptionsenergien.}
@@ -295,7 +300,9 @@ dargestellt.
     \bottomrule
   \end{tabular}
 \end{table}
+\FloatBarrier
 Aus den berechneten und recherchierten Energien werden nun mit \eqref{eqn:sigma} die Abschirmkonstanten ermittelt und verglichen. Dies ist in Tabelle \ref{tab:absorption4} zu sehen.
+\FloatBarrier
 \begin{table}
   \centering
   \caption{Messergebnisse für die Abschirmkonstanten.}
@@ -311,14 +318,17 @@ Aus den berechneten und recherchierten Energien werden nun mit \eqref{eqn:sigma}
     \bottomrule
   \end{tabular}
 \end{table}
+\FloatBarrier
 Die Quadratwurzel der gemessenen Energien wird nun in einem Diagramm gegen $Z$ aufgetragen und mit $y=ax+b$ mittels SciPy linear gefittet.
 Dies ist in Abbildung \ref{fig:moseley} dargestellt.
+\FloatBarrier
 \begin{figure}
   \centering
   \includegraphics{build/moseley.pdf}
   \caption{Bestimmung der Rydbergkonstanten durch lineares Fitten.}
   \label{fig:moseley}
 \end{figure}
+\FloatBarrier
 Die Parameter ergeben sich so zu
 \begin{align*}
   a &= (3,35\pm0,02)\cdot1/\sqrt{\si{\electronvolt}} \\
@@ -329,3 +339,48 @@ Durch Vergleich mit \eqref{eqn:En} lässt sich die Rydbergkonstante nun zu
   R_{\infty} = a^2 = \SI{11,21\pm0,16}{\electronvolt}
 \end{equation*}
 bestimmen. Dies entspricht einer Abweichung von $\SI{17.57}{\percent}$ vom Literaturwert von $\SI{13.6}{\electronvolt}$.
+\newpage
+Die Messwerte für das Absorptionsspektrum von Bismut sind in Tabelle \ref{tab:bismut} dargestellt.
+\FloatBarrier
+\begin{table}
+  \centering
+  \caption{Messwerte zum Absorptionsspektrum von Bismut.}
+  \label{tab:bismut}
+  \begin{tabular}[t]{c@{} S[table-format=2.1] S[table-format=3.0] | }
+   \toprule
+     {$2\cdot \theta \, / \, \si{\degree}\:\:$} & {$\text{Counts} \, /  \, \si{\per\second}$} \\\midrule
+     \csvreader[no head,
+     late after line=\\,
+     late after last line=\\\bottomrule,
+     filter test={\ifnumless{\thecsvinputline}{22}}]%
+     {data/bismut.csv}{}%
+     {$\SI{\csvcoli}{}$ & $\SI{\csvcolii}{}$}%
+   \end{tabular}
+   \begin{tabular}[t]{ | c@{} S[table-format=2.1] S[table-format=3.0]}
+    \toprule
+      {$2\cdot \theta \, / \, \si{\degree}\:\:$} & {$\text{Counts} \, /  \, \si{\per\second}$} \\\midrule
+     \csvreader[filter test={\ifnumgreater{\thecsvinputline}{21}},
+     late after line=\\,
+     late after last line=\\\bottomrule]%
+     {data/bismut.csv}{}%
+    {$\SI{\csvcoli}{}$ & $\SI{\csvcolii}{}$}%
+  \end{tabular}
+\end{table}
+\FloatBarrier
+Diese Daten werden nun grafisch dargestellt, und aus der Grafik die Position der $L_{II}$ und $L_{III}$ Kante bestimmt.
+Dies ist in Abbilung \ref{fig:bismut} zu sehen.
+\begin{figure}
+  \centering
+  \includegraphics{build/bismut.pdf}
+  \caption{Absorptionsspektrum von Bismut mit L-Kanten.}
+  \label{fig:bismut}
+\end{figure}
+Für den Winkel, die daraus mit \eqref{eqn:Energie} berechnete Energie und die mit \eqref{eqn:sigmaL} berechnete Abschirmkonstante wurden folgende Werte bestimmt:
+\begin{align*}
+  {\theta}_{L_{II}} &= \SI{11.6}{\degree} &  {\theta}_{L_{III}} &= \SI{13.7}{\degree} \\
+  {E}_{L_{II}} &= \SI{15.31}{\kilo\electronvolt}  & {E}_{L_{III}} &= \SI{12.99}{\kilo\electronvolt} \\
+  {\sigma}_L &= 3,37 .
+\end{align*}
+Die Energie der $L_{II}$ Kante weicht vom Literaturwert $\SI{15.71}{\kilo\electronvolt}$\cite{kanten} um $\SI{2.55}{\percent}$ ab.
+Die Energie der $L_{III}$ Kante weicht vom Literaturwert $\SI{13.42}{\kilo\electronvolt}$\cite{kanten} um $\SI{3.20}{\percent}$ ab.
+Die Abschirmkonstante weicht vom Literaturwert $3,60$ um $\SI{6.82}{\percent}$ ab.
