@@ -1,0 +1,53 @@
+Bekannter Widerstand R3: 998 Ohm
+
+Dy203:
+m = 15.1 g    L = 13 cm
+  1:
+    U0 = 3.35 mV
+    U2 = 4.55 mV
+    R0 = 906 * 5 mOhm
+    R1 = 655 * 5 mOhm
+  2:
+    U0 = 3.4 mV
+    U2 = 4.7 mV
+    R0 = 912 * 5 mOhm
+    R1 = 630 * 5 mOhm
+  3:
+    U0 = 3.3 mV
+    U2 = 4.6 mV
+    R0 = 897 * 5 mOhm
+    R1 = 557 * 5 mOhm
+Nd203:
+m = 9 g    L = 16 cm
+  1:
+    U0 = 3.35 mV
+    U2 = 3.4 mV
+    R0 = 875 * 5 mOhm
+    R1 = 785 * 5 mOhm
+  2:
+    U0 = 3.3 mV
+    U2 = 3.4 mV
+    R0 = 846 * 5 mOhm
+    R1 = 764 * 5 mOhm
+  3:
+    U0 = 3.3 mV
+    U2 = 3.35 mV
+    R0 = 833 * 5 mOhm
+    R1 = 760 * 5 mOhm
+Bd203:
+m = 14.08 g   L = 16.7 cm
+  1:
+    U0 = 3.3 mV
+    U2 = 3.5 mV
+    R0 = 823 * 5 mOhm
+    R1 = 669 * 5 mOhm
+  2:
+    U0 = 3.3 mV
+    U2 = 3.55 mV
+    R0 = 821 * 5 mOhm
+    R1 = 672 * 5 mOhm
+  3:
+    U0 = 3.35 mV
+    U2 = 3.65 mV
+    R0 = 850 * 5 mOhm
+    R1 = 676 * 5 mOhm
