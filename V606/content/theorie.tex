@@ -1,4 +1,65 @@
 \section{Theorie}
 \label{sec:Theorie}
 
-\cite{sample}
+\subsection{Berechnung der Suszeptibilität aus atomaren Größen}
+Die magnetische Suszeptibilität ist eine Größe, welche die Magnetisierbarkeit eines Materials in einem äußeren Feld angibt.
+Man unterscheidet dabei zwischen der diamagnetischen und der paramagnetischen Suszeptibilität.
+Die diamagnetische Suszeptibilität ist eine allgemeine Eigenschaft der Materie.
+Hierbei wird durch ein externer Feld ein magnetisches Moment induziert.
+Dies resultiert in einem eigenem Magnetfeld, welches dem äußeren entgegengesetzt ist.
+Die Suszeptibilität ist somit negativ.
+Für diesen Versuch wird hingegen die paramagnetische Suszeptibilität untersucht.
+Sie tritt nur bei Atomen, Ionen oder Molekülen auf, die einen nichtverschwindenden Drehimpuls aufweisen.
+Die paramagnetische Suszeptibilität ist von der Ausrichtung der Momente abhängig und dadurch stark Temperatur abhängig.
+Der Gesamtdrehimpuls $\vec{J}$ eines Teilchens setzt sich dabei aus dem Bahndrehimpuls der Elektronenhülle, dem Spin der Elektronen und dem Kerndrehimpuls zusammen.
+Für schwache äußere Felder kann der Gesamtdrehimpuls als lediglich aus dem Spin $\vec{S}$ und dem Bahndrehimpuls $\vec{L}$ zusammengesetzt verstanden werden.
+Für diese lässt sich mittels der Quantenmechanik die Beträge der entsprechenden magnetischen Momente berechnen.
+Hierbei sind lediglich die zu $\vec{J}$ parallelen, bzw. antiparallelen Komponenten der Momente messbar.
+Die Winkelbeziehungen sind daher in Abbildung \ref{fig:Winkelbeziehungen} dargestellt.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.5\textwidth]{images/Winkelbeziehungen.png}
+  \caption{Darstellung der Vektoren der magnetischen Momente und deren Zusammenhänge zum Gesamtdrehimpuls, entnommen der Veruchsanleitung\cite[174]{sample}}
+  \label{fig:Winkelbeziehungen}
+\end{figure}
+
+Hier muss irgendwann auch noch was zum Landefaktor hin.
+
+Aus der quantenmechanischen Richtungsquantelung ergibt sich, dass der Winkel zwischen dem gesamten magnetischen Moment $\mu_J$ und dem äußeren magnetischen Feld nicht beliebig sein darf, sondern vielmehr ein ganzzahliges Vielfaches des Bohrschen Magnetons und dem gyromagnetischen Verhältnis sein muss.
+Diese ganzzahlige Größe m wird auch die Orientierungsquantenzahl genannnt und ergibt sich aus dem Zeeman-Effekt.
+
+\subsection{Berechnung der Suszeptibilität aus einer geeigneten Messanordnung}
+
+Die Suszeptibilität kann durch die Änderung der Induktivität einer Spule innerhalb einer Brückenschaltung ermittelt werden.
+Diese äußert sich durch die Änderung der gemessenen Brückenspannung der Brückenschaltung.
+Die Änderung der Induktivität entsteht, wenn man in eine der Spulen, hier L$_M$ die entsprechende Probe einführt.
+Die verwendete Schaltung ist in Abbildung \ref{fig:Brückenschaltung} dargestellt.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.5\textwidth]{images/Brueckenschaltung.png}
+  \caption{Die für die Messung verwendete Brückenschaltung, entnommen der Versuchsanleitung\cite[179]{sample}}
+  \label{fig:Brückenschaltung}
+\end{figure}
+
+Dabei ist der Widerstand R$_3$ und R$_4$ ein regelbarer Widerstand, der für beide Widerstände die gleichen Werte einstellt.
+R$_1$ und R$_2$ stellen die Widerstände der Spulen dar.
+R$_P$ kann für die Rechnungen vernachlässigt werden, allerdings ist er für die Eichung der Messapparatur von großer Bedeutung.
+Berücksichtig man den Aufbau der Brückenschaltung, so kann man durch das Verhältnis der Brückenspannung vor und nach der Einführung der Probe in die Spule die Suszeptibilität nach der Gleichung:
+
+\begin{equation}
+  \Chi = 4 \frac{F}{Q} \frac{U_{Br}}{U_{Sp}}
+\end{equation}
+
+erechnen.
+Dabei stellt F den Querschnitt der Spule, Q den Querschnitt der Probe, $U_{Br}$ die Brückenspannung nach und $U_{Sp}$ die Brückenspannung vor dem Einführen der Probe dar.
+Diese Gleichung ist nur für hohe Frequenzen hinreichend genau.
+
+Eine weitere Methode stellt die Bestimmung der Abgleichbedingung für R$_3$ und R$_4$ dar.
+Hierbei kann durch die Änderung der Widerstände um die Abgleichbedingung zu erfüllen die Suszeptibilität berechnet werden.
+Dies erfolgt mittels dieser Gleichung:
+
+\begin{equation}
+  \Chi = 2 \frac{\Delta R}{R_3} \frac{F}{Q}
+\end{equation}
