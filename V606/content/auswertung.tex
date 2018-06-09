@@ -4,11 +4,11 @@
 \subsection{Untersuchen der Filterkurve des verwendeten Selektivverstärkers}
 
 Die Güte des Selektivverstärkers wird nach Gleichung \eqref{eqn:Güte} berechnet.
-Um an die Werte für $\nu_0$, $\nu_-$ und $\nu_+$ zu gelangenl, werden die entsprechenden Daten in Abbildung \ref{fig:Filterkurve} aufgezeichnet.
+Um an die Werte für $\nu_0$, $\nu_-$ und $\nu_+$ zu gelangen, werden die entsprechenden Daten in Abbildung \ref{fig:Filterkurve} aufgezeichnet.
 Die Messwerte sind in Tabelle \ref{tab:Filterkurve} zusammengetragen.
 Die Eingangsspannung beträgt $\SI{1}{\volt}$.
-Die Werte in Tabelle \ref{tab:Filterkurve} für $U_A$ sind durch den Selektivverstärker noch einmal um den Faktor 10 verstärkt worden.
-Unter Berücksichtigung dieses Faktors erhält man das richtige Verhältnis  von $U_A$ zu $U_E$ in Abbildung \ref{fig:Filterkurve}.
+Die Werte in Tabelle \ref{tab:Filterkurve} für $\text{U}_\text{A}$ sind durch den Selektivverstärker noch einmal um den Faktor 10 verstärkt worden.
+Unter Berücksichtigung dieses Faktors erhält man das richtige Verhältnis  von $\text{U}_\text{A}$ zu $\text{U}_\text{E}$ in Abbildung \ref{fig:Filterkurve}.
 
 \begin{table}
   \centering
@@ -16,7 +16,7 @@ Unter Berücksichtigung dieses Faktors erhält man das richtige Verhältnis  von
   \label{tab:Filterkurve}
   \begin{tabular}[t]{c@{} S [table-format=2.0] S [table-format=1.2] |}
    \toprule
-    $\omega \, / \, \si{\kilo\hertz}\:\:$ & $U_A$ \, /  \, $\si{\volt}$\\
+    $\omega \, / \, \si{\kilo\hertz}\:\:$ & $\text{U}_\text{A}$ \, /  \, $\si{\volt}$\\
      \midrule
      \csvreader[no head,
      late after line=\\,
@@ -27,7 +27,7 @@ Unter Berücksichtigung dieses Faktors erhält man das richtige Verhältnis  von
    \end{tabular}
    \begin{tabular}[t]{| c@{} S [table-format=2.0] S [table-format=1.2] |}
     \toprule
-     $\omega \, / \, \si{\kilo\hertz}\:\:$ & $U_A$ \, /  \, $\si{\volt}$\\
+     $\omega \, / \, \si{\kilo\hertz}\:\:$ & $\text{U}_\text{A}$ \, /  \, $\si{\volt}$\\
       \midrule
       \csvreader[filter expr={ test{\ifnumgreater{\thecsvinputline}{11}}
                            and test{\ifnumless{\thecsvinputline}{23}}},
@@ -38,7 +38,7 @@ Unter Berücksichtigung dieses Faktors erhält man das richtige Verhältnis  von
     \end{tabular}
     \begin{tabular}[t]{| c@{} S [table-format=2.0] S [table-format=1.2]}
      \toprule
-      $\omega \, / \, \si{\kilo\hertz}\:\:$ & $U_A$ \, /  \, $\si{\volt}$\\
+      $\omega \, / \, \si{\kilo\hertz}\:\:$ & $\text{U}_\text{A}$ \, /  \, $\si{\volt}$\\
        \midrule
        \csvreader[filter test={\ifnumgreater{\thecsvinputline}{22}},
        late after line=\\,
@@ -54,3 +54,17 @@ Unter Berücksichtigung dieses Faktors erhält man das richtige Verhältnis  von
    \caption{Filterkurve, die sich aus den Messwerten aus Tabelle \ref{tab:Filterkurve} ergibt.}
    \label{fig:Filterkurve}
  \end{figure}
+
+Aus den Daten wird ersichtlich, dass $\nu_0$ bei einer Frequenz von $\SI{35.1}{\kilo\hertz}$ liegt.
+Das Spannungsverhältnis beträgt dort $0.91$.
+Für $\nu_-$ und $\nu_+$ ergibt sich somit ein theoretisches Verhältnis von 0.6435.
+Da es keine Messwerte mit diesem Verhältnis gibt, werden die Messwerte genutz, die diesem Verhältnis am nächsten kommen.
+Die sind für $\nu_- = 0.68$ bei einer Frequenz von $\SI{34.9}{\kilo\hertz}$ und für $\nu_+ = 0.72$ bei einer Frequenz von $\SI{35.2}{\kilo\hertz}$.
+Die Angaben für die Frequenzen von $\nu_-$ und $\nu_+$ sind hinreichend genau, da bei Betrachtung des Kurvenverlaufs die tatsächlichen Frequenzen für das Verhältnis von 0.6435 lediglich um wenige $\SI{10}{\hertz}$ abweichen würden.
+Die Güte lässt sich damit nach Gleichung \eqref{eqn:Güte} folgendermaßen bestimmen:
+
+\begin{equation*}
+  Q = \frac{\SI{35.1}{\kilo\hertz}}{\SI{35.2}{\kilo\hertz} - \SI{34.9}{\kilo\hertz}} = 117
+\end{equation*}
+
+Dieser Wert ist allerdings nicht die tatsächliche Güte, da hierfür die Auflösung der Frequenzen zu gering war.

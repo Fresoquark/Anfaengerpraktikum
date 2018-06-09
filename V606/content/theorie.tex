@@ -2,10 +2,10 @@
 \label{sec:Theorie}
 
 \subsection{Berechnung der Suszeptibilität aus atomaren Größen}
-Die magnetische Suszeptibilität $\chi$ ist eine Größe, welche die Magnetisierbarkeit $\vec{M}$ eines Materials in einem äußeren Feld $\vec{H}$ angibt.
+Die magnetische Suszeptibilität $\chi$ ist eine Größe, welche die Magnetisierbarkeit $\vec{\text{M}}$ eines Materials in einem äußeren Feld $\vec{\text{H}}$ angibt.
 Dies wird durch folgende Gleichung beschrieben:
 \begin{equation}
-  \vec{M} = {\mu}_0 \chi \vec{H}
+  \vec{\text{M}} = {\mu}_0 \chi \vec{\text{H}}
   \label{eqn:magnetisierung}
 \end{equation}
 Es wird dabei zwischen einer dia- und paramgnetischen Suszeptibilität unterschieden.
@@ -16,32 +16,32 @@ Die Suszeptibilität ist somit negativ.
 Für diesen Versuch wird hingegen die paramagnetische Suszeptibilität untersucht.
 Sie tritt nur bei Atomen, Ionen oder Molekülen auf, die einen nichtverschwindenden Drehimpuls aufweisen.
 Die paramagnetische Suszeptibilität ist von der Ausrichtung der Momente abhängig und dadurch stark temperaturabhängig.
-Der Gesamtdrehimpuls $\vec{J}$ eines Teilchens setzt sich dabei aus dem Bahndrehimpuls der Elektronenhülle, dem Spin der Elektronen und dem Kerndrehimpuls zusammen.
-Für schwache äußere Felder kann der Gesamtdrehimpuls als lediglich aus dem Spin $\vec{S}$ und dem Bahndrehimpuls $\vec{L}$ zusammengesetzt verstanden werden.
+Der Gesamtdrehimpuls $\vec{\text{J}}$ eines Teilchens setzt sich dabei aus dem Bahndrehimpuls der Elektronenhülle, dem Spin der Elektronen und dem Kerndrehimpuls zusammen.
+Für schwache äußere Felder kann der Gesamtdrehimpuls als lediglich aus dem Spin $\vec{\text{S}}$ und dem Bahndrehimpuls $\vec{\text{L}}$ zusammengesetzt verstanden werden.
 Diese sogennante L-S-Kopplung wird quantitativ folgendermaßen beschrieben:
 \begin{equation}
-  \vec{J} = \vec{L} + \vec{S} .
+  \vec{\text{J}} = \vec{\text{L}} + \vec{\text{S}} .
 \end{equation}
 Da für die Berechnung der Suszeptibilität die Magnetisierung von Interesse ist, muss nun das magnetische Moment des Atoms berechnet werden.
 Dabei werden zunächst die magnetischen Momente des Bahndrehimpulses und des Spins durch die aus der Quantenmechanik bekannten Werte ersetzt und aufsummiert.
-Da in der Quantenmechanik beobachtet wird, dass bei der L-S-Kopplung die zu $\vec{J}$ senkrechten Komponenten verschwinden, muss die Rechnung um die in
+Da in der Quantenmechanik beobachtet wird, dass bei der L-S-Kopplung die zu $\vec{\text{J}}$ senkrechten Komponenten verschwinden, muss die Rechnung um die in
 Abbildung \ref{fig:Winkelbeziehungen} dargestellten Winkelbeziehungen erweitert werden. Dies führt zu folgender Gleichung:
 \begin{gather}
-  |\vec{{\mu}_J}| \approx {\mu}_B g_J \sqrt{J(J+1)}
+  |\vec{{\mu}_J}| \approx {\mu}_\text{B} \text{g}_\text{J} \sqrt{\text{J}(\text{J}+1)}
   \intertext{mit dem Bohrschen Magneton:}
-  {\mu}_B = \frac{1}{2} \frac{e_0}{m_0} \hbar
+  {\mu}_\text{B} = \frac{1}{2} \frac{\text{e}_0}{\text{m}_0} \hbar
   \label{eqn:bohr}
   \intertext{und dem Landé-Faktor:}
-  g_J = \frac{3\, J (J+1)+S(S+1)-L(L+1)}{2\, J(J+1)}
+  \text{g}_\text{J} = \frac{3\, \text{J} (\text{J}+1)+\text{S}(\text{S}+1)-\text{L}(\text{L}+1)}{2\, \text{J}(\text{J}+1)}
   \label{eqn:lande}
 \end{gather}
-Wird nun weiterhin die Richtungsquantelung mit der Richtungsquantenzahl $m$ und die aus dem normalen Zeeman-Effekt folgende Quantelung der Energieniveaus im
+Wird nun weiterhin die Richtungsquantelung mit der Richtungsquantenzahl m und die aus dem normalen Zeeman-Effekt folgende Quantelung der Energieniveaus im
 äußeren Magnetfeld beachtet und eine Hochtemperaturnäherung der Boltzmann-Verteilung durchgeführt lässt sich folgende Formel für die Suszeptibilität herleiten:
 \begin{equation}
-  \chi = \frac{{\mu}_0 {{\mu}_B}^2 {g_J}^2 N J(J+1)}{3 k T} .
+  \chi = \frac{{\mu}_0 {{\mu}_\text{B}}^2 {\text{g}_\text{J}}^2 \text{N} \text{J}(\text{J}+1)}{3 \text{k} \text{T}} .
   \label{eqn:atomchi}
 \end{equation}
-Dabei ist $k$ die Boltzmann-Konstante, $T$ die Tmeperatur und N die Anzahl Atome.
+Dabei ist $k$ die Boltzmann-Konstante, $T$ die Temperatur und N die Anzahl Atome.
 
 \begin{figure}
   \centering
@@ -56,7 +56,7 @@ Dabei ist $k$ die Boltzmann-Konstante, $T$ die Tmeperatur und N die Anzahl Atome
 
 Die Suszeptibilität kann durch die Änderung der Induktivität einer Spule innerhalb einer Brückenschaltung ermittelt werden.
 Diese äußert sich durch die Änderung der gemessenen Brückenspannung der Brückenschaltung.
-Die Änderung der Induktivität entsteht, wenn in eine der Spulen, hier L$_M$, die entsprechende Probe eingeführt wird.
+Die Änderung der Induktivität entsteht, wenn in eine der Spulen, hier L$_\text{M}$, die entsprechende Probe eingeführt wird.
 Die verwendete Schaltung ist in Abbildung \ref{fig:Brückenschaltung} dargestellt.
 
 \begin{figure}
@@ -68,33 +68,33 @@ Die verwendete Schaltung ist in Abbildung \ref{fig:Brückenschaltung} dargestell
 
 Dabei ist der Widerstand R$_3$ und R$_4$ ein regelbarer Widerstand, der für beide Widerstände die gleichen Werte einstellt.
 R$_1$ und R$_2$ stellen die Widerstände der Spulen dar.
-R$_P$ kann für die Rechnungen vernachlässigt werden, allerdings ist er für die Eichung der Messapparatur von großer Bedeutung.
+R$_\text{P}$ kann für die Rechnungen vernachlässigt werden, allerdings ist er für die Eichung der Messapparatur von großer Bedeutung.
 Unter Berücksichtigung der aus dem Aufbau folgenden Zusammenhänge  kann durch das Verhältnis der Brückenspannung vor und nach der Einführung der Probe in die Spule die Suszeptibilität nach der Gleichung:
 
 \begin{equation}
-  \chi = 4 \frac{F}{Q} \frac{U_{Br}}{U_{Sp}}
+  \chi = 4 \frac{\text{F}}{\text{Q}} \frac{\text{U}_\text{Br}}{\text{U}_\text{Br}}
   \label{eqn:chi1}
 \end{equation}
 
 berechnet werden.
-Dabei stellt F den Querschnitt der Spule, Q den Querschnitt der Probe, $U_{Br}$ die Brückenspannung nach und $U_{Sp}$ die Brückenspannung vor dem Einführen der Probe dar.
+Dabei stellt F den Querschnitt der Spule, Q den Querschnitt der Probe, $\text{U}_\text{Br}$ die Brückenspannung nach und $\text{U}_\text{Br}$ die Brückenspannung vor dem Einführen der Probe dar.
 Diese Gleichung ist nur für hohe Frequenzen hinreichend genau.
 Es ist hierbe drauf zu achten, dass die zwei genannten Brückenspannungen nur für abgeglichene Brückenschaltungen gelten.
 Weiterhin ist darauf zu achten, dass es sich bei den verwendeten Proben um staubförmige Präparate handelt.
 Diese lassen sich nicht auf die tatsächliche Dichte eines Einkristalls stopfen.
-Der tatsächliche Queschnitt Q$_{real}$ weicht daher von dem theoretischen ab.
-Es wird daher der Quotient zwischen der wahren Dichte eines Einkristalls $\rho_w$ und der der gestopften Probe $\rho_p$ gesucht.
+Der tatsächliche Queschnitt Q$_\text{real}$ weicht daher von dem theoretischen ab.
+Es wird daher der Quotient zwischen der wahren Dichte eines Einkristalls $\rho_\text{w}$ und der der gestopften Probe $\rho_\text{p}$ gesucht.
 Dieser gibt das Verhältnis des theoretischen und des tatsächlichen Querschnitts an.
 Die Dichte der Probe wird dabei durch die folgende Relation bestimmt:
 
 \begin{equation}
-  \rho_p = \frac{M_p}{Q L}
+  \rho_\text{p} = \frac{\text{M}_\text{p}}{\text{Q} \text{L}}
 \end{equation}
 
 Der tatsächliche Querschnitt weist dann folgende Relation auf:
 
 \begin{equation}
-  Q_{real} = \frac{M_p}{L \rho_w}
+  \text{Q}_\text{real} = \frac{\text{M}_\text{p}}{\rho_\text{w}}
   \label{eqn:qreal}
 \end{equation}
 
@@ -103,7 +103,7 @@ Die Störspannungen müssen somit heraus gefiltert und die Brückenspannungen am
 Dies kann hinreichend genau durch einen Selektivverstärker geschehen.
 Dieser weist eine Filterkurve auf, die in ausreichender Genauigkeit die monofrequente Brückenspannung herausfiltert.
 Eine beispielhafte Kruve ist in Abbildung \ref{fig:theofilterkurve} dargestellt.
-U$_A$ bezeichnet dort die Ausgangs- und U$_E$ die Eingangsspannung.
+U$_\text{A}$ bezeichnet dort die Ausgangs- und U$_\text{E}$ die Eingangsspannung.
 
 \begin{figure}
   \centering
@@ -116,7 +116,8 @@ Die Güte Q eines solchen Selektivverstärkers kann dabei durch die Größen $\n
 Es ergibt sich dafür folgende Gleichung:
 
 \begin{equation}
-  Q = \frac{\nu_0}{\nu_+ - \nu_-}
+  \text{Q} = \frac{\nu_0}{\nu_+ - \nu_-}
+  \label{eqn:Güte}
 \end{equation}
 
 Eine weitere Methode stellt die Bestimmung der Abgleichbedingung für R$_3$ und R$_4$ dar.
@@ -124,6 +125,6 @@ Hierbei kann durch die Änderung der Widerstände um die Abgleichbedingung zu er
 Dies erfolgt mittels dieser Gleichung:
 
 \begin{equation}
-  \chi = 2 \frac{\Delta R}{R_3} \frac{F}{Q}
+  \chi = 2 \frac{\Delta \text{R}}{\text{R}_3} \frac{\text{F}}{\text{Q}}
   \label{eqn:chi2}
 \end{equation}
