@@ -2,20 +2,46 @@
 \label{sec:Theorie}
 
 \subsection{Berechnung der Suszeptibilität aus atomaren Größen}
-Die magnetische Suszeptibilität ist eine Größe, welche die Magnetisierbarkeit eines Materials in einem äußeren Feld angibt.
-Man unterscheidet dabei zwischen der diamagnetischen und der paramagnetischen Suszeptibilität.
+Die magnetische Suszeptibilität $\chi$ ist eine Größe, welche die Magnetisierbarkeit $\vec{M}$ eines Materials in einem äußeren Feld $\vec{H}$ angibt.
+Dies wird durch folgende Gleichung beschrieben:
+\begin{equation}
+  \vec{M} = {\mu}_0 \chi \vec{H}
+  \label{eqn:magnetisierung}
+\end{equation}
+Es wird dabei zwischen einer dia- und paramgnetischen Suszeptibilität unterschieden.
 Die diamagnetische Suszeptibilität ist eine allgemeine Eigenschaft der Materie.
-Hierbei wird durch ein externer Feld ein magnetisches Moment induziert.
+Hierbei wird durch ein externes Feld ein magnetisches Moment induziert.
 Dies resultiert in einem eigenem Magnetfeld, welches dem äußeren entgegengesetzt ist.
 Die Suszeptibilität ist somit negativ.
 Für diesen Versuch wird hingegen die paramagnetische Suszeptibilität untersucht.
 Sie tritt nur bei Atomen, Ionen oder Molekülen auf, die einen nichtverschwindenden Drehimpuls aufweisen.
-Die paramagnetische Suszeptibilität ist von der Ausrichtung der Momente abhängig und dadurch stark Temperatur abhängig.
+Die paramagnetische Suszeptibilität ist von der Ausrichtung der Momente abhängig und dadurch stark temperaturabhängig.
 Der Gesamtdrehimpuls $\vec{J}$ eines Teilchens setzt sich dabei aus dem Bahndrehimpuls der Elektronenhülle, dem Spin der Elektronen und dem Kerndrehimpuls zusammen.
 Für schwache äußere Felder kann der Gesamtdrehimpuls als lediglich aus dem Spin $\vec{S}$ und dem Bahndrehimpuls $\vec{L}$ zusammengesetzt verstanden werden.
-Für diese lässt sich mittels der Quantenmechanik die Beträge der entsprechenden magnetischen Momente berechnen.
-Hierbei sind lediglich die zu $\vec{J}$ parallelen, bzw. antiparallelen Komponenten der Momente messbar.
-Die Winkelbeziehungen sind daher in Abbildung \ref{fig:Winkelbeziehungen} dargestellt.
+Diese sogennante L-S-Kopplung wird quantitativ folgendermaßen beschrieben:
+\begin{equation}
+  \vec{J} = \vec{L} + \vec{S} .
+\end{equation}
+Da für die Berechnung der Suszeptibilität die Magnetisierung von Interesse ist, muss nun das magnetische Moment des Atoms berechnet werden.
+Dabei werden zunächst die magnetischen Momente des Bahndrehimpulses und des Spins durch die aus der Quantenmechanik bekannten Werte ersetzt und aufsummiert.
+Da in der Quantenmechanik beobachtet wird, dass bei der L-S-Kopplung die zu $\vec{J}$ senkrechten Komponenten verschwinden, muss die Rechnung um die in
+Abbildung \ref{fig:Winkelbeziehungen} dargestellten Winkelbeziehungen erweitert werden. Dies führt zu folgender Gleichung:
+\begin{gather}
+  |\vec{{\mu}_J}| \approx {\mu}_B g_J \sqrt{J(J+1)}
+  \intertext{mit dem Bohrschen Magneton:}
+  {\mu}_B = \frac{1}{2} \frac{e_0}{m_0} \hbar
+  \label{eqn:bohr}
+  \intertext{und dem Landé-Faktor:}
+  g_J = \frac{3\, J (J+1)+S(S+1)-L(L+1)}{2\, J(J+1)}
+  \label{eqn:lande}
+\end{gather}
+Wird nun weiterhin die Richtungsquantelung mit der Richtungsquantenzahl $m$ und die aus dem normalen Zeeman-Effekt folgende Quantelung der Energieniveaus im
+äußeren Magnetfeld beachtet und eine Hochtemperaturnäherung der Boltzmann-Verteilung durchgeführt lässt sich folgende Formel für die Suszeptibilität herleiten:
+\begin{equation}
+  \chi = \frac{{\mu}_0 {{\mu}_B}^2 {g_J}^2 N J(J+1)}{3 k T} .
+  \label{eqn:atomchi}
+\end{equation}
+Dabei ist $k$ die Boltzmann-Konstante, $T$ die Tmeperatur und N die Anzahl Atome.
 
 \begin{figure}
   \centering
@@ -24,16 +50,12 @@ Die Winkelbeziehungen sind daher in Abbildung \ref{fig:Winkelbeziehungen} darges
   \label{fig:Winkelbeziehungen}
 \end{figure}
 
-Hier muss irgendwann auch noch was zum Landefaktor hin.
-
-Aus der quantenmechanischen Richtungsquantelung ergibt sich, dass der Winkel zwischen dem gesamten magnetischen Moment $\mu_J$ und dem äußeren magnetischen Feld nicht beliebig sein darf, sondern vielmehr ein ganzzahliges Vielfaches des Bohrschen Magnetons und dem gyromagnetischen Verhältnis sein muss.
-Diese ganzzahlige Größe m wird auch die Orientierungsquantenzahl genannnt und ergibt sich aus dem Zeeman-Effekt.
-
+\FloatBarrier
 \subsection{Berechnung der Suszeptibilität aus einer geeigneten Messanordnung}
 
 Die Suszeptibilität kann durch die Änderung der Induktivität einer Spule innerhalb einer Brückenschaltung ermittelt werden.
 Diese äußert sich durch die Änderung der gemessenen Brückenspannung der Brückenschaltung.
-Die Änderung der Induktivität entsteht, wenn man in eine der Spulen, hier L$_M$ die entsprechende Probe einführt.
+Die Änderung der Induktivität entsteht, wenn in eine der Spulen, hier L$_M$, die entsprechende Probe eingeführt wird.
 Die verwendete Schaltung ist in Abbildung \ref{fig:Brückenschaltung} dargestellt.
 
 \begin{figure}
@@ -46,13 +68,14 @@ Die verwendete Schaltung ist in Abbildung \ref{fig:Brückenschaltung} dargestell
 Dabei ist der Widerstand R$_3$ und R$_4$ ein regelbarer Widerstand, der für beide Widerstände die gleichen Werte einstellt.
 R$_1$ und R$_2$ stellen die Widerstände der Spulen dar.
 R$_P$ kann für die Rechnungen vernachlässigt werden, allerdings ist er für die Eichung der Messapparatur von großer Bedeutung.
-Berücksichtig man den Aufbau der Brückenschaltung, so kann man durch das Verhältnis der Brückenspannung vor und nach der Einführung der Probe in die Spule die Suszeptibilität nach der Gleichung:
+Unter Berücksichtigung der aus dem Aufbau folgenden Zusammenhänge  kann durch das Verhältnis der Brückenspannung vor und nach der Einführung der Probe in die Spule die Suszeptibilität nach der Gleichung:
 
 \begin{equation}
-  \Chi = 4 \frac{F}{Q} \frac{U_{Br}}{U_{Sp}}
+  \chi = 4 \frac{F}{Q} \frac{U_{Br}}{U_{Sp}}
+  \label{eqn:chi1}
 \end{equation}
 
-errechnen.
+berechnet werden.
 Dabei stellt F den Querschnitt der Spule, Q den Querschnitt der Probe, $U_{Br}$ die Brückenspannung nach und $U_{Sp}$ die Brückenspannung vor dem Einführen der Probe dar.
 Diese Gleichung ist nur für hohe Frequenzen hinreichend genau.
 Es ist hierbe drauf zu achten, dass die zwei genannten Brückenspannungen nur für abgeglichene Brückenschaltungen gelten.
@@ -71,6 +94,7 @@ Der tatsächliche Querschnitt weist dann folgende Relation auf:
 
 \begin{equation}
   Q_{real} = \frac{M_p}{L \rho_w}
+  \label{eqn:qreal}
 \end{equation}
 
 Die so entstehenden Brückenspannungen sind in der Größenordnung von Störspannungen.
@@ -87,7 +111,7 @@ U$_A$ bezeichnet dort die Ausgangs- und U$_E$ die Eingangsspannung.
   \label{fig:theofilterkurve}
 \end{figure}
 
-Die Güte Q eines solchen Selektivverstärkers kann man dabei durch die größen $\nu_0$, $\nu_-$ und $\nu_+$ berechnet werden.
+Die Güte Q eines solchen Selektivverstärkers kann dabei durch die Größen $\nu_0$, $\nu_-$ und $\nu_+$ berechnet werden.
 Es ergibt sich dafür folgende Gleichung:
 
 \begin{equation}
@@ -99,5 +123,6 @@ Hierbei kann durch die Änderung der Widerstände um die Abgleichbedingung zu er
 Dies erfolgt mittels dieser Gleichung:
 
 \begin{equation}
-  \Chi = 2 \frac{\Delta R}{R_3} \frac{F}{Q}
+  \chi = 2 \frac{\Delta R}{R_3} \frac{F}{Q}
+  \label{eqn:chi2}
 \end{equation}
