@@ -52,12 +52,50 @@ Berücksichtig man den Aufbau der Brückenschaltung, so kann man durch das Verh�
   \Chi = 4 \frac{F}{Q} \frac{U_{Br}}{U_{Sp}}
 \end{equation}
 
-erechnen.
+errechnen.
 Dabei stellt F den Querschnitt der Spule, Q den Querschnitt der Probe, $U_{Br}$ die Brückenspannung nach und $U_{Sp}$ die Brückenspannung vor dem Einführen der Probe dar.
 Diese Gleichung ist nur für hohe Frequenzen hinreichend genau.
+Es ist hierbe drauf zu achten, dass die zwei genannten Brückenspannungen nur für abgeglichene Brückenschaltungen gelten.
+Weiterhin ist darauf zu achten, dass es sich bei den verwendeten Proben um staubförmige Präparate handelt.
+Diese lassen sich nicht auf die tatsächliche Dichte eines Einkristalls stopfen.
+Der tatsächliche Queschnitt Q$_{real}$ weicht daher von dem theoretischen ab.
+Es wird daher der Quotient zwischen der wahren Dichte eines Einkristalls $\rho_w$ und der der gestopften Probe $\rho_p$ gesucht.
+Dieser gibt das Verhältnis des theoretischen und des tatsächlichen Querschnitts an.
+Die Dichte der Probe wird dabei durch die folgende Relation bestimmt:
+
+\begin{equation}
+  \rho_p = \frac{M_p}{Q L}
+\end{equation}
+
+Der tatsächliche Querschnitt weist dann folgende Relation auf:
+
+\begin{equation}
+  Q_{real} = \frac{M_p}{L \rho_w}
+\end{equation}
+
+Die so entstehenden Brückenspannungen sind in der Größenordnung von Störspannungen.
+Die Störspannungen müssen somit heraus gefiltert und die Brückenspannungen amplifiziert werden.
+Dies kann hinreichend genau durch einen Selektivverstärker geschehen.
+Dieser weist eine Filterkurve auf, die in ausreichender Genauigkeit die monofrequente Brückenspannung herausfiltert.
+Eine beispielhafte Kruve ist in Abbildung \ref{fig:theofilterkurve} dargestellt.
+U$_A$ bezeichnet dort die Ausgangs- und U$_E$ die Eingangsspannung.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.5\textwidth]{images/theodiefilterkurve.png}
+  \caption{Beispielhafte Filterkurve eines Selektivverstärkers, entnommen der Versuchsanleitung\cite[182]{sample}}
+  \label{fig:theofilterkurve}
+\end{figure}
+
+Die Güte Q eines solchen Selektivverstärkers kann man dabei durch die größen $\nu_0$, $\nu_-$ und $\nu_+$ berechnet werden.
+Es ergibt sich dafür folgende Gleichung:
+
+\begin{equation}
+  Q = \frac{\nu_0}{\nu_+ - \nu_-}
+\end{equation}
 
 Eine weitere Methode stellt die Bestimmung der Abgleichbedingung für R$_3$ und R$_4$ dar.
-Hierbei kann durch die Änderung der Widerstände um die Abgleichbedingung zu erfüllen die Suszeptibilität berechnet werden.
+Hierbei kann durch die Änderung der Widerstände um die Abgleichbedingung zu erfüllen, die Suszeptibilität berechnet werden.
 Dies erfolgt mittels dieser Gleichung:
 
 \begin{equation}
