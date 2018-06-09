@@ -2,11 +2,12 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 omega,U = np.genfromtxt("data/verstaerker.csv",delimiter=",",unpack=True)
+U = U/10
 
 plt.grid()
 plt.plot(omega, U,"k.",ms=2, label='Daten')
 plt.xlabel(r'$\omega \:/\:\si{\kilo\hertz}$')
-plt.ylabel(r'$U \:/\:\si{\volt}$')
+plt.ylabel(r'$\frac{U_A}{U_E} \:/\:\si{\volt}$')
 plt.legend(loc='best')
 
 # in matplotlibrc leider (noch) nicht möglich

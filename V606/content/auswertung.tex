@@ -1,2 +1,56 @@
 \section{Auswertung}
 \label{sec:Auswertung}
+
+\subsection{Untersuchen der Filterkurve des verwendeten Selektivverstärkers}
+
+Die Güte des Selektivverstärkers wird nach Gleichung \eqref{eqn:Güte} berechnet.
+Um an die Werte für $\nu_0$, $\nu_-$ und $\nu_+$ zu gelangenl, werden die entsprechenden Daten in Abbildung \ref{fig:Filterkurve} aufgezeichnet.
+Die Messwerte sind in Tabelle \ref{tab:Filterkurve} zusammengetragen.
+Die Eingangsspannung beträgt $\SI{1}{\volt}$.
+Die Werte in Tabelle \ref{tab:Filterkurve} für $U_A$ sind durch den Selektivverstärker noch einmal um den Faktor 10 verstärkt worden.
+Unter Berücksichtigung dieses Faktors erhält man das richtige Verhältnis  von $U_A$ zu $U_E$ in Abbildung \ref{fig:Filterkurve}.
+
+\begin{table}
+  \centering
+  \caption{Messwerte der untersuchten Filterkurve des Selektivverstärkers}
+  \label{tab:Filterkurve}
+  \begin{tabular}[t]{c@{} S [table-format=2.0] S [table-format=1.2] |}
+   \toprule
+    $\omega \, / \, \si{\kilo\hertz}\:\:$ & $U_A$ \, /  \, $\si{\volt}$\\
+     \midrule
+     \csvreader[no head,
+     late after line=\\,
+     late after last line=\\\bottomrule,
+     filter test={\ifnumless{\thecsvinputline}{12}}]%
+     {data/verstaerker.csv}{}%
+     {$\SI{\csvcoli}{}$ & $\SI{\csvcolii}{}$}%
+   \end{tabular}
+   \begin{tabular}[t]{| c@{} S [table-format=2.0] S [table-format=1.2] |}
+    \toprule
+     $\omega \, / \, \si{\kilo\hertz}\:\:$ & $U_A$ \, /  \, $\si{\volt}$\\
+      \midrule
+      \csvreader[filter expr={ test{\ifnumgreater{\thecsvinputline}{11}}
+                           and test{\ifnumless{\thecsvinputline}{23}}},
+      late after line=\\,
+      late after last line=\\\bottomrule]%
+      {data/verstaerker.csv}{}%
+      {$\SI{\csvcoli}{}$ & $\SI{\csvcolii}{}$}%
+    \end{tabular}
+    \begin{tabular}[t]{| c@{} S [table-format=2.0] S [table-format=1.2]}
+     \toprule
+      $\omega \, / \, \si{\kilo\hertz}\:\:$ & $U_A$ \, /  \, $\si{\volt}$\\
+       \midrule
+       \csvreader[filter test={\ifnumgreater{\thecsvinputline}{22}},
+       late after line=\\,
+       late after last line=\\\bottomrule]%
+       {data/verstaerker.csv}{}%
+       {$\SI{\csvcoli}{}$ & $\SI{\csvcolii}{}$}%
+     \end{tabular}
+ \end{table}
+
+ \begin{figure}
+   \centering
+   \includegraphics{build/verstaerker.pdf}
+   \caption{Filterkurve, die sich aus den Messwerten aus Tabelle \ref{tab:Filterkurve} ergibt.}
+   \label{fig:Filterkurve}
+ \end{figure}
