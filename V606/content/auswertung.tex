@@ -69,6 +69,46 @@ Die Güte lässt sich damit nach Gleichung \eqref{eqn:Güte} folgendermaßen bes
 
 Dieser Wert ist allerdings nicht die tatsächliche Güte, da hierfür die Auflösung der Frequenzen zu gering war.
 
+\subsection{Berechnung der Suszeptibilität durch atomare Größen}
+Zur Berechnung der Suszeptibilität durch atomare Größen werden die Spin-, Bahndrehimpuls- und Gesamtdrehimpulsquantenzahl aus den aus \cite{sample} entnommenen Angaben bestimmt.
+Daraus wird dann mit \eqref{eqn:lande} der Landé-Faktor bestimmt. Die Werte wurden in Tabelle \ref{tab:lande} zusammengetragen.
+\begin{table}
+  \centering
+  \caption{S, L, J und Landé-Faktor der zu untersuchenden Stoffe.}
+  \label{tab:lande}
+  \begin{tabular}{l c c c c}
+    \toprule
+Name & S & L & J & $g_J$ \\
+    \midrule
+  $\text{Nd}_2 \text{O}_3$ & 1,5 & 6 & 4,5 & 0,72 \\
+  $\text{Gd}_2 \text{O}_3$ & 3,5 & 0 & 3,5 & 2 \\
+  $\text{Dy}_2 \text{O}_3$ & 2,5 & 5 & 7,5 & 1,33 \\
+  \bottomrule
+  \end{tabular}
+\end{table}
+Die Momente pro Volumeneinheit $N=N_A \cdot \frac{\rho}{M}$ werden aus den aus \cite{sample} entnommenen Dichten, den aus \cite{molmassen} entnommenen molaren Massen und der
+aus \cite{scipy} entnommenen Avogadro-Konstante berechnet. DIe Werte wurden in Tabelle \ref{tab:N} zusammengetragen.
+\begin{table}
+  \centering
+  \caption{Dichten, molare Massen und Momente pro Volumeneinheit der zu untersuchenden Stoffe.}
+  \label{tab:N}
+  \begin{tabular}{l c c c}
+    \toprule
+Name & $\rho$ / $\si{\kilo\gram\per\meter\cubed}$ & Molare Masse / $\si{\kilo\gram\per\mol}$ & N / $\SI{e28}{\per\meter\cubed}$ \\
+    \midrule
+  $\text{Nd}_2 \text{O}_3$ & 7240 & 0,34 & 1,30\\
+  $\text{Gd}_2 \text{O}_3$ & 7400 & 0,36 & 1,23\\
+  $\text{Dy}_2 \text{O}_3$ & 7800 & 0,37 & 1,26 \\
+  \bottomrule
+  \end{tabular}
+\end{table}
+Aus diesen Werten werden nun mittels Gleichung \eqref{eqn:atomchi} die Suszeptibilitäten der zu untersuchenden Stoffe zu folgenden Werten berechnet:
+\begin{align*}
+  \chi_\text{Nd} &= 1,46\cdot10^{-3} \\
+  \chi_\text{Gd} &= 6,78\cdot10^{-3}\\
+  \chi_\text{Dy} &= 12,43\cdot10^{-3} .
+\end{align*}
+
 \subsection{Bestimmung der Suszeptibilität von Seltener-Erd-Verbindungen}
 
 Die Messwerte der Brückenschaltung sind in Tabelle \ref{tab:Brückenmessung} zusammengetragen.
@@ -84,9 +124,11 @@ Die Messwerte der Brückenschaltung sind in Tabelle \ref{tab:Brückenmessung} zu
      $\text{Dy}_2 \text{O}_3$ & 3.35 & 4.55 & 1.20 & 4530 & 3275 & 1255 \\
                             & 3.40 & 4.70 & 1.30 & 4560 & 3150 & 1410 \\
                             & 3.30 & 4.60 & 1.30 & 4485 & 2785 & 1700 \\
+                            \hline
      $\text{Nd}_2 \text{O}_3$ & 3.35 & 3.40 & 0.05 & 4375 & 3925 & 450  \\
                             & 3.30 & 3.40 & 0.10 & 4230 & 3820 & 410  \\
                             & 3.30 & 3.35 & 0.05 & 4165 & 3800 & 365  \\
+                            \hline
      $\text{Gd}_2 \text{O}_3$ & 3.30 & 3.50 & 0.20 & 4115 & 3345 & 770  \\
                             & 3.30 & 3.55 & 0.25 & 4105 & 3360 & 745  \\
                             & 3.35 & 3.65 & 0.30 & 4250 & 3380 & 870  \\
@@ -108,5 +150,6 @@ Der reale Querschnitt Q$_\text{real}$ wurde nach der Gleichung \eqref{eqn:qreal}
     $\text{Dy}_2 \text{O}_3$ & 15.1  & 13   & 7.80 & 0.15 \\
     $\text{Nd}_2 \text{O}_3$ & 9     & 16   & 7.24 & 0.08 \\
     $\text{Gd}_2 \text{O}_3$ & 14.08 & 16.7 & 7.40 & 0.11 \\
+    \bottomrule
   \end{tabular}
 \end{table}

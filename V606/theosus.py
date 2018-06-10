@@ -12,8 +12,11 @@ T= 298.15
 
 rho =rho*1000
 M = M*0.001
+print("Dichte =",rho)
+print("Molare Masse =",M)
 
 N=rho/M*const.N_A
+print("N= ",N)
 chi = (const.mu_0 * mub**2 * gj**2 * N * J * (J+1) ) / (3 * const.k * T)
 
 print("Chi(Nd,Gd,Dy) in m^3/mol = ",chi)
