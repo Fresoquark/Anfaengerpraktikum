@@ -86,8 +86,8 @@ Name & S & L & J & $g_J$ \\
   \bottomrule
   \end{tabular}
 \end{table}
-Die Momente pro Volumeneinheit $N=N_A \cdot \frac{\rho}{M}$ werden aus den aus \cite{sample} entnommenen Dichten, den aus \cite{molmassen} entnommenen molaren Massen und der
-aus \cite{scipy} entnommenen Avogadro-Konstante berechnet. DIe Werte wurden in Tabelle \ref{tab:N} zusammengetragen.
+Die Momente pro Volumeneinheit $N=N_A \cdot \frac{\rho}{M}$ werden aus den aus \cite{sample} entnommenen Dichten, den aus \cite{nd}, \cite{dy} und \cite{gd} entnommenen molaren Massen und der
+aus \cite{scipy} entnommenen Avogadro-Konstante berechnet. Die Werte wurden in Tabelle \ref{tab:N} zusammengetragen.
 \begin{table}
   \centering
   \caption{Dichten, molare Massen und Momente pro Volumeneinheit der zu untersuchenden Stoffe.}
@@ -102,13 +102,13 @@ Name & $\rho$ / $\si{\kilo\gram\per\meter\cubed}$ & Molare Masse / $\si{\kilo\gr
   \bottomrule
   \end{tabular}
 \end{table}
+Die Temperatur wird als $\SI{298.15}{\kelvin}$ angenommen.
 Aus diesen Werten werden nun mittels Gleichung \eqref{eqn:atomchi} die Suszeptibilitäten der zu untersuchenden Stoffe zu folgenden Werten berechnet:
 \begin{align*}
   \chi_\text{Nd} &= 1,46\cdot10^{-3} \\
   \chi_\text{Gd} &= 6,78\cdot10^{-3}\\
   \chi_\text{Dy} &= 12,43\cdot10^{-3} .
 \end{align*}
-
 \subsection{Bestimmung der Suszeptibilität von Seltener-Erd-Verbindungen}
 
 Die Messwerte der Brückenschaltung sind in Tabelle \ref{tab:Brückenmessung} zusammengetragen.
@@ -153,3 +153,48 @@ Der reale Querschnitt Q$_\text{real}$ wurde nach der Gleichung \eqref{eqn:qreal}
     \bottomrule
   \end{tabular}
 \end{table}
+Der bekannte Widerstand $R_3$ beträgt $\SI{998}{\ohm}$, die Speisespannung $U_\text{Sp}$ beträgt $\SI{1}{\volt}$ und der Querschnitt der Spule
+$\SI{8.66}{\milli\metre\squared}$.
+Mit diesen Werten wurde die Suszeptibilität einmal durch Gleichung \eqref{eqn:chi1} und einmal durch Gleichung \eqref{eqn:chi2} berechnet.
+Die Ergebnisse sind in Tabelle \ref{tab:chi} zusammengefasst.
+\FloatBarrier
+\begin{table}
+  \centering
+  \caption{Die aus den Messdaten bestimmten Suszeptibilitäten.}
+  \label{tab:chi}
+  \setlength\tabcolsep{2pt}
+  \begin{tabular}{c c | c c | c c}
+    \toprule
+    $\chi_\text{Dy}(U_\text{Br})\:/10^{-3}$ & $\chi_\text{Dy}(\Delta R) \:/10^{-3}$& $\chi_\text{Nd}(U_\text{Br})\:/10^{-3}$ & $\chi_\text{Nd}(\Delta R)\:/10^{-3}$ & $\chi_\text{Gd}(U_\text{Br})\:/10^{-3}$ & $\chi_\text{Gd}(\Delta R)\:/10^{-3}$ \\
+    \midrule
+    6,93 & 7,26 & 0,54 & 4,88 & 1,57 & 6,07 \\
+    7,51 & 8,16 & 1,08 & 4,44 & 1,97 & 5,88 \\
+    7,51 & 9,83 & 0,54 & 3,96 & 2,36 & 6,86 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+\FloatBarrier
+Die berechneten Suszeptibilitäten werden nun mit
+\begin{equation}
+  \label{eqn:mittelwert}
+  \overline{x} = \frac{1}{N} \sum_{i=1}^N x_i
+\end{equation}
+gemittelt, und der Fehler mit
+\begin{equation}
+  \label{eqn:mittelwertfehler}
+  \Delta \overline{x} = \frac{1}{\sqrt{N}} \sqrt{\frac{1}{N-1} \sum_{i=1}^N (x_i - \overline{x})^2}
+\end{equation}
+berechnet.
+So ergibt sich folgendes:
+\begin{align*}
+  \chi_\text{Dy}(U_\text{Br}) &= \SI{7.31\pm0.19e-3}{} & \chi_\text{Dy}(\Delta R) &= \SI{8.40\pm0.80e-3}{}\\
+  \chi_\text{Nd}(U_\text{Br}) &= \SI{0.72\pm0.18e-3}{} & \chi_\text{Nd}(\Delta R) &= \SI{4.43\pm0.27e-3}{}\\
+  \chi_\text{Gd}(U_\text{Br}) &= \SI{1.97\pm0.23e-3}{} & \chi_\text{Gd}(\Delta R) &= \SI{6.27\pm0.30e-3}{} .
+\end{align*}
+Nun werden noch die über die Spannung und den Widerstand ermittelten mittleren Suszeptibilitäten gemittelt.
+So ergeben sich folgende Werte:
+\begin{align*}
+  \chi_\text{Dy} &= \SI{7.9\pm0.4e-3}{} \\
+  \chi_\text{Nd} &= \SI{2.6\pm0.2e-3}{} \\
+  \chi_\text{Gd} &= \SI{4.1\pm0.2e-3}{}
+\end{align*}
