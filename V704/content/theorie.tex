@@ -17,4 +17,25 @@ zu sehen, ein kontinuirliches.
   \label{fig:betaspektrum}
 \end{figure}
 Bei der Absoprtion von $\beta$-Strahlung am Festkörper treten eine Vielzahl von Prozessen auf.
-Zum einen erleiden die Elek- und Positronen elastische Stoßprozesse. Dies führt zur Rutherfordstreuung. 
+Zum einen erleiden die Elek- und Positronen elastische Stoßprozesse. Dies führt zur Rutherfordstreuung.
+Dabei werden die $\beta$-Teilchen durch Stöße mit den Atomen im Festkörper beziehungsweise deren Coulomb-Feld gestreut. Dabei kommt es zu keinen großen Energieverlust der Strahlung,
+jedoch nimmt die Intensität der Strahlung durch die große Streuung stark ab.
+Bei der inelastischen Streuung an den Atomkernen werden die geladenen $\beta$-Teilchen im Coulombfeld der Atome abgebremst und erzeugen sogenannte Bremsstrahlung.
+Der Energieverlust durch die Bremsstrahlung ist jedoch für natürliche $\beta$-Strahler relativ gering.
+Wesentlich höher ist der Enrgieverlust durch inelastische Stöße mit den Elektronen des Festkörpers. Dabei treten Ionisations- und Anregungsprozesse an den Atomen auf.
+Bei diesen Prozessen verliert das $\beta$-Teilchen zwar nur eine geringe Energiemenge, jedoch treten, vorallem bei Metallen, viele dieser Prozesse hintereinader auf und
+bremsen die Strahlung stark ab. Da eine einheitliche analytische Beschreibung unter Berücksichtigung all dieser Absorptionsprozesse sehr schwierig ist, wird im Folgenden
+mit empirisch ermittelten Gesetzmäßigkeiten gearbeitet. So zeigt sich grafisch der in Abbildung \ref{fig:betaabsorption} zu sehende Zusammenhang zwischen durchgehender Intensität
+und der Massenbelegung $R=\rho D$.
+\begin{figure}
+  \centering
+  \includegraphics[scale=0.7]{pictures/betaabsorption.png}
+  \caption{Schematische Darstellung der Absorptionskurve eines Beta-Strahlers.\cite{sample}}
+  \label{fig:betaabsorption}
+\end{figure}
+Aus dem aus der Grafik \ref{fig:betaabsorption} ermittelten $R_\text{max}$ lässt sich nun die maximale Energie der $\beta$-Strahlung mit
+\begin{equation}
+  E_\text{max} = 1,92 \sqrt{{R_\text{max}}^2 + 0,22 R_\text{max}} \cdot [\si{\mega\electronvolt}]
+  \label{eqn:betaenergie}
+\end{equation}
+berechnen. $R_\text{max}$ ist dabei in $\si{\gram\per\centi\metre\squared}$ einzusetzen.
