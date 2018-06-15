@@ -17,7 +17,11 @@ build/aluminium.pdf: aluminium.py data/aluminium.csv matplotlibrc header-matplot
 build/blei.pdf: blei.py data/blei.csv matplotlibrc header-matplotlib.tex | build
 	TEXINPUTS="$(call translate,$(pwd):)" python blei.py
 
+build/zink.pdf: zink.py data/zink.csv matplotlibrc header-matplotlib.tex | build
+	TEXINPUTS="$(call translate,$(pwd):)" python zink.py
+
 # hier weitere Abhängigkeiten für build/main.pdf deklarieren:
+build/main.pdf: build/zink.pdf
 build/main.pdf: build/blei.pdf
 build/main.pdf: build/aluminium.pdf
 
