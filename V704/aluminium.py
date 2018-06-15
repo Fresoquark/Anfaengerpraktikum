@@ -1,4 +1,5 @@
 import numpy as np
+import uncertainties.unumpy as unp
 from uncertainties import ufloat
 from scipy.stats import sem
 import matplotlib.pyplot as plt
@@ -11,10 +12,10 @@ d=d*2.6989
 null=568/900
 cts=cts-null
 cts=np.log(cts)
-ctsfit1=np.delete(cts,[0,1,2,3,4,5,6,7,8])
-dfit1=np.delete(d,[0,1,2,3,4,5,6,7,8])
-ctsfit2=np.delete(cts,[8,9,10,11])
-dfit2=np.delete(d,[8,9,10,11])
+ctsfit1=np.delete(cts,[0,1,2,3,4])
+dfit1=np.delete(d,[0,1,2,3,4])
+ctsfit2=np.delete(cts,[5,6,7,8,9,10,11])
+dfit2=np.delete(d,[5,6,7,8,9,10,11])
 
 
 def f(x, a, b):
@@ -27,7 +28,8 @@ print('a=', params[0], '+-', errors[0])
 print('b=', params[1], '+-', errors[1])
 a1=ufloat(params[0],errors[0])
 b1=ufloat(params[1],errors[1])
-plt.plot(dfit1, f(dfit1, *params), 'r-', label='Fit 1')
+schnittfit1=np.linspace(0,0.09)
+plt.plot(schnittfit1, f(schnittfit1, *params), 'r-', label='Fit 1')
 
 params, covariance_matrix = curve_fit(f,dfit2,ctsfit2)
 errors = np.sqrt(np.diag(covariance_matrix))
@@ -36,12 +38,13 @@ print('a=', params[0], '+-', errors[0])
 print('b=', params[1], '+-', errors[1])
 a2=ufloat(params[0],errors[0])
 b2=ufloat(params[1],errors[1])
-#schnittfit=np.linspace(0,500)
-plt.plot(dfit2, f(dfit2, *params), 'b-', label='Fit 2')
+schnittfit2=np.linspace(0,0.14)
+plt.plot(schnittfit2, f(schnittfit2, *params), 'b-', label='Fit 2')
 
 rmax=(b2-b1)/(a1-a2)
 print("Rmax=",rmax)
-
+emax=1.92*unp.sqrt(rmax**2 + 0.22 * rmax)
+print("Emax[MeV]= ",emax)
 
 plt.plot(d, cts, 'k.', label="Daten", ms=2.5)
 plt.legend(loc="best")

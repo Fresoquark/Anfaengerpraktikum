@@ -27,6 +27,6 @@ plt.plot(d, cts, 'k.', label="Datenpunkte", ms=2.5)
 plt.legend(loc="best")
 plt.grid()
 plt.xlabel(r"D / $\si{\metre}$")
-plt.ylabel(r'ln(Counts - Hintergrundstrahlungscounts) / $\si{\per\second}$ ')
+plt.ylabel(r'ln(Counts)') #Achsenbeschriftung zu lang und ln() immer ohne Einheit
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
 plt.savefig('build/zink.pdf')
