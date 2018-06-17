@@ -55,7 +55,7 @@ So wurde folgende maximale Energie berechnet:
   E_\text{max} = \SI{301\pm22}{\kilo\electronvolt}.
 \end{equation*}
 
-\subsection{\texorpdfstring{$\gamma$}{Gamma}-Strahlung}
+\subsection{Bestimmung des Absorptionskoeffizienten der \texorpdfstring{$\gamma$}{Gamma}-Strahlung für Zink und Blei}
 
 Für die Nullmessung wurden folgende Daten ermittelt:
 
@@ -73,14 +73,14 @@ Der Fehler berechnet sich dann folgendermaßen:
 \end{equation}
 
 Die gemessenen Wechselwirkungen und die totalen Aktivitäten weisen somit ebenfalls einen Fehler auf.
-Nach der gaußschen Fehlerfortpflanzung für $A_\text{total} = A - A_0$
+Nach der gaußschen Fehlerfortpflanzung für $A_\text{total} = A - A_0$ wird der Fehler für die totale Aktivität nach
 
 \begin{gather}
     \Delta A_\text{total} = \frac{\partial A_\text{total}}{\partial A} \cdot \Delta A + \frac{\partial A_\text{total}}{\partial A_0} \cdot \Delta A_0 \\
     \Delta A_\text{total} = \Delta A - \Delta A_0
 \end{gather}
 
-wird der Fehler für die totale Aktivität berechnet.
+berechnet.
 Die so berechneten Werte sind für Zink in Tabelle \ref{tab:zink1} und für Blei in Tabelle \ref{tab:blei1} aufgetragen.
 
 \begin{table}
@@ -133,7 +133,43 @@ Die so berechneten Werte sind für Zink in Tabelle \ref{tab:zink1} und für Blei
 
 Zur Bestimmung der Absorptionskoeffizienten werden die Aktivitäten halblogarithmisch gegen die Dicke des Absorbermaterials aufgetragen.
 Dies wird anschließend über lineare Regression gefittet.
+Die Regression erfolgt durch Python.
 Dies ist für Zink in Abbildung \ref{fig:zink1} und für Blei in Abbildung \ref{fig:blei1} dargestellt.
+In der Ausgleichsrechnung ist die Steigung dem Absorptionskoeffizienten und der y-Achsenabschnitt der Anfangsaktivität zugeordnet.
+Es ergeben sich für Zink folgende Werte:
+
+\begin{align*}
+  \text{Absorptionskoeffizient: } \mu &= \SI{45.2 \pm 1.2}{\per\metre} \\
+  \text{Anfangsaktivität: } A_0 &= \SI{147.0 \pm 1.4}{\per\second}
+\end{align*}
+
+Der Theoriewert des Compton-Absorptionskoeffizienten $\mu_\text{com}$ wird berechnet, indem der Compton-Wirkungsquerschnitt \ref{eqn:sigmacom} mit der Teilchenanzhal pro Volumen \ref{eqn:n} multipliziert wird.
+Es ergibt sich daher:
+
+\begin{align*}
+  \mu_\text{com, Zink} = \SI{49.7}{\per\metre}.
+\end{align*}
+
+Die erforderlichen Werte des Molvolumens wurden \cite{zink} entnommen.
+Dieser Wert ist etwas höher als der gemessene Wert, liegt aber noch im Toleranzbereich.
+Es wird somit lediglich der Comptoneffekt eine Rolle spielen.
+
+Für Blei ergeben sich folgende Werte:
+
+\begin{align*}
+  \text{Absorptionskoeffizient: } \mu &= \SI{115.6 \pm 3.8}{\per\metre} \\
+  \text{Anfangsaktivität: } A_0 &= \SI{146.0 \pm 2.1}{\per\second}
+\end{align*}
+
+Der theoretische Compton-Absorptionskoeffizienten $\mu_\text{com}$ berechnet sich nun zu:
+
+\begin{align*}
+  \mu_\text{com, Blei} = \SI{68.1}{\per\metre}
+\end{align*}
+
+Die erforderlichen Werte des Molvolumens wurden \cite{blei} entnommen.
+Dieser Wert liegt wesentlich unter dem gemessenen Wert.
+Es ist daher anzunehmen, dass zusätzlich noch der Photoeffekt beteiligit ist.
 
 \begin{figure}
   \centering
