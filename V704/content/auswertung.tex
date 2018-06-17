@@ -1,2 +1,56 @@
 \section{Auswertung}
 \label{sec:Auswertung}
+\subsection{Bestimmung der maximalen Energie eines \texorpdfstring{$\beta$}{beta}-Strahlers}
+Die Messdaten befinden sich in Tabelle \ref{tab:beta}.
+\begin{table}
+  \centering
+  \caption{Messwerte zur Absorption von Betastrahlung bei Aluminium}
+  \label{tab:beta}
+  \begin{tabular}[t]{c@{} c c}
+   \toprule
+    Messzeit / $\si{\second}\;\;$ & Counts & Dicke / $\si{\micro\metre}$ \\
+     \midrule
+     \csvreader[no head,
+     late after line=\\,
+     late after last line=\\\bottomrule]%
+     {data/aluminium.csv}{}%
+     {$\SI{\csvcoli}{}$ & $\SI{\csvcolii}{}$ & $\SI{\csvcoliii}{}$}%
+   \end{tabular}
+ \end{table}
+ Die Hintergrundstrahlung wurde zu $0,631 \text{Counts}/\si{\second}$ bestimmt. Die gemessenen Counts werden durch die Messzeiten dividiert und dann die Hintergrundstrahlung
+ abgezogen. Dann wird das Ergebnis logarhitmisch gegen die Massenbelegung R, welche das Produkt der Dicke des Absobers und der aus \cite{dichte} entnommenen Dichte von
+ Aluminium ist, aufgetragen. Dies ist in Abbildung \ref{fig:beta} zu sehen. Zur Ermittlung der maximalen Reichweite $R_\text{max}$ der $\beta$-Strahlung werden nun die beiden linearen
+ Anteile der Kurve mittels SciPy mit $y=ax+b$ linear gefittet.
+ \begin{figure}
+   \centering
+   \includegraphics{aluminium.pdf}
+   \caption{Grafische Darstellung der Messdaten mit linearen Fits.}
+   \label{fig:beta}
+ \end{figure}
+ Der Schnittpunkt der beiden Geraden ist die maximale Reichweite und wird folgendermaßen ermittelt:
+ \begin{equation*}
+   R_\text{max}= \frac{b_2 - b_1}{a_1 - a_2} .
+ \end{equation*}
+ Der zugehörige Fehler wird mit
+ \begin{equation*}
+  \Delta R_\text{max} = \sqrt{\frac{\Delta_{a_{1}}^{2} \left(- b_{1} + b_{2}\right)^{2}}{\left(a_{1} - a_{2}\right)^{4}} + \frac{\Delta_{a_{2}}^{2} \left(- b_{1} + b_{2}\right)^{2}}{\left(a_{1} - a_{2}\right)^{4}} + \frac{\Delta_{b_{1}}^{2}}{\left(a_{1} - a_{2}\right)^{2}} + \frac{\Delta_{b_{2}}^{2}}{\left(a_{1} - a_{2}\right)^{2}}}
+ \end{equation*}
+ermittelt.
+So wurden die Parameter und die maximale Reichweite zu folgenden Werten bestimmt:
+\begin{align*}
+  a_1 &= \SI{-110.59\pm5.83}{\centi\metre\squared\per\gram} \\
+  a_2 &= \SI{1.58\pm6.70}{\centi\metre\squared\per\gram} \\
+  b_1 &= \num{6.39\pm0.25} \\
+  b_2 &= \num{-2.76\pm0.72} \\
+  R_\text{max} &= \SI{0.082\pm0.009}{\gram\per\centi\metre\squared} .
+\end{align*}
+Nun wird mit der Gleichung \eqref{eqn:betaenergie} aus $R_\text{max}$ die maximale Energie der $\beta$-Strahlung ermittelt.
+Der zugehörige Fehler wird mit
+\begin{equation*}
+  \Delta E_\text{max}= \sqrt{\frac{\Delta_{R_{\text{max}}}^{2} \cdot {1.92}^{2} \left(R_{\text{max}} + \frac{{0.22}}{2}\right)^{2}}{R_{\text{max}}^{2} + R_{\text{max}} {0.22}}}
+\end{equation*}
+berechnet.
+So wurde folgende maximale Energie berechnet:
+\begin{equation*}
+  E_\text{max} = \SI{301\pm22}{\kilo\electronvolt}.
+\end{equation*}
