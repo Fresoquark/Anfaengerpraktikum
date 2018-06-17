@@ -54,3 +54,97 @@ So wurde folgende maximale Energie berechnet:
 \begin{equation*}
   E_\text{max} = \SI{301\pm22}{\kilo\electronvolt}.
 \end{equation*}
+
+\subsection{\texorpdfstring{$\gamma$}{Gamma}-Strahlung}
+
+Für die Nullmessung wurden folgende Daten ermittelt:
+
+\begin{align*}
+  \text{Messzeiteit: } t &= \SI{900}{\second} \\
+  \text{Anzahl der Wechselwirkungen: } N &= (950 \pm 31) \\
+  \text{Aktivität: } A_0 &= \SI{1.06 \pm 0.03}{\per\second}
+\end{align*}
+
+Die Fehler der Anzahl der Wechselwirkungen ergibt sich dadurch, dass diese statistisch nach der Poissonverteilung verteilt sind.
+Der Fehler berechnet sich dann folgendermaßen:
+
+\begin{equation}
+  \Delta N = \sqrt{N}
+\end{equation}
+
+Die gemessenen Wechselwirkungen und die totalen Aktivitäten weisen somit ebenfalls einen Fehler auf.
+Nach der gaußschen Fehlerfortpflanzung für $A_\text{total} = A - A_0$
+
+\begin{gather}
+    \Delta A_\text{total} = \frac{\partial A_\text{total}}{\partial A} \cdot \Delta A + \frac{\partial A_\text{total}}{\partial A_0} \cdot \Delta A_0 \\
+    \Delta A_\text{total} = \Delta A - \Delta A_0
+\end{gather}
+
+wird der Fehler für die totale Aktivität berechnet.
+Die so berechneten Werte sind für Zink in Tabelle \ref{tab:zink1} und für Blei in Tabelle \ref{tab:blei1} aufgetragen.
+
+\begin{table}
+  \centering
+  \caption{Messwerte zur Bestimmung des Absorptionskoeffizienten von Zink}
+  \label{tab:zink1}
+  \begin{tabular}{c c c c}
+    \toprule
+    {Dicke d / $\si{\milli\metre}$} & {Zeit t / $\si{\second}$} & {Zählrate N} & {Aktivität (A - A$_0$) / $\si{\per\second}$} \\
+    \midrule
+    20 & 180 & 11022 \pm 105 & 60.2  \pm 0.4 \\
+    18 & 160 & 10602 \pm 103 & 65.2  \pm 0.5 \\
+    16 & 150 & 10898 \pm 104 & 71.6  \pm 0.5 \\
+    14 & 140 & 11194 \pm 106 & 78.9  \pm 0.5 \\
+    12 & 140 & 11933 \pm 109 & 84.2  \pm 0.6 \\
+    10 & 120 & 11561 \pm 108 & 95.3  \pm 0.6 \\
+    8  & 100 & 9970  \pm 100 & 98.6  \pm 0.7 \\
+    6  & 90  & 10478 \pm 102 & 115.4 \pm 0.8 \\
+    4  & 80  & 9716  \pm 99  & 120.4 \pm 0.8 \\
+    2  & 80  & 10718 \pm 104 & 132.9 \pm 0.9 \\
+    0  & 100 & 15013 \pm 123 & 149.1 \pm 0.9 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{table}
+  \centering
+  \caption{Messwerte zur Bestimmung des Absorptionskoeffizienten von Blei}
+  \label{tab:blei1}
+  \begin{tabular}{c c c c}
+    \toprule
+    {Dicke d / $\si{\milli\metre}$} & {Zeit t / $\si{\second}$} & {Zählrate N} & {Aktivität (A - A$_0$) / $\si{\per\second}$} \\
+    \midrule
+    50 & 700 & 1245  \pm 35  & 0.7   \pm 0.0 \\
+    40 & 500 & 1334  \pm 37  & 1.6   \pm 0.0 \\
+    30 & 350 & 2500  \pm 50  & 6.1   \pm 0.1 \\
+    20 & 220 & 3839  \pm 62  & 16.4  \pm 0.1 \\
+    15 & 170 & 5189  \pm 72  & 29.5  \pm 0.2 \\
+    12 & 150 & 5784  \pm 76  & 37.5  \pm 0.3 \\
+    10 & 130 & 6233  \pm 79  & 46.9  \pm 0.4 \\
+    5  & 100 & 8110  \pm 90  & 80.0  \pm 0.6 \\
+    4  & 90  & 7703  \pm 88  & 84.5  \pm 0.6 \\
+    3  & 70  & 7324  \pm 86  & 103.6 \pm 0.8 \\
+    2  & 60  & 7144  \pm 85  & 118.0 \pm 0.9 \\
+    1  & 60  & 7787  \pm 88  & 128.7 \pm 1.0 \\
+    0  & 100 & 15067 \pm 123 & 149.6 \pm 0.9 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+Zur Bestimmung der Absorptionskoeffizienten werden die Aktivitäten halblogarithmisch gegen die Dicke des Absorbermaterials aufgetragen.
+Dies wird anschließend über lineare Regression gefittet.
+Dies ist für Zink in Abbildung \ref{fig:zink1} und für Blei in Abbildung \ref{fig:blei1} dargestellt.
+
+\begin{figure}
+  \centering
+  \includegraphics{build/zink.pdf}
+  \caption{Die lineare Regression zur Bestimmung des Absorptionskoeffizienten von Zink.}
+  \label{fig:zink1}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics{build/blei.pdf}
+  \caption{Die lineare Regression zur Bestimmung des Absorptionskoeffizienten von Blei.}
+  \label{fig:blei1}
+\end{figure}
