@@ -27,7 +27,7 @@ plt.ylabel(r'Rate / $\si{\per\second}$')
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
 plt.savefig('build/emission.pdf')
 
-E  = [0.404,0.421]
+E  = [0.513,0.374]
 Em = np.mean(E)
 Ef =np.std(E, ddof=1) / np.sqrt(len(E))
 

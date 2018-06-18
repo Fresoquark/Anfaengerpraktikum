@@ -112,51 +112,46 @@ Es ergibt sich somit ein Fehler von $\SI{0.89}{\percent}$.
 \FloatBarrier
 Um nun die Halbwertsbreite der K$_\alpha$ und K$_\beta$ bestimmen zu können, muss aus den Messwerten die Werte abgelesen werden, die der Hälfte der Höhe des jeweiligen Maximums entsprechen.
 Die genommenen Messwerte erlauben es nicht die genaue Mitte der Höhe des Maximums als Messwert zu nutzen.
-Es werden daher die Messwerte genutzt, die sich am nächsten an diesem Wert befinden.
-Für K$_\Beta$ liegt das Maximum der Messwerte bei $1722.0\ \text{counts} \, / \, s$.
+Für K$_\beta$ liegt das Maximum der Messwerte bei $1722.0\ \text{counts} \, / \, s$.
 Die Hälfte dieses Maximums berechnet sich dann zu  $861.0\ \text{counts} \, / \, s$.
-Da es zu diesem Wert keine Messwerte gibt, werden die nächstgelegenen Werte genutzt.
-Diese sind:
 
-\begin{align*}
-  1141.0\ \text{counts} \, / \, s, \text{mit}\ \theta_1 &= \SI{19.75}{\degree} \\
-  1115.0\ \text{counts} \, / \, s, \text{mit}\ \theta_2 &= \SI{20.75}{\degree}
-\end{align*}
+Um nun die zu diesen Counts passenden Winkel zu berechnen, wird linear interpoliert.
+Die Interpolationsformel für den gesuchten Winkel ergibt sich dabei zu:
 
-Für diese kann erneut mittels Gleichung \eqref{eqn:Energie} die Energien ausgerechnet werden.
+\begin{equation}
+  \theta = \theta_{1} + \frac{\theta_{2} - \theta_{1}}{y_{2} - y_{1}} \cdot \left(y - y_{1} \right)
+\end{equation}
 
-\begin{align*}
-  \text{E}_{1, \theta_1} &= \SI{9.109}{\kilo\electronvolt} \\
-  \text{E}_{1, \theta_2} &= \SI{8.688}{\kilo\electronvolt}
-\end{align*}
-
-Die Differenz ist nun die gesuchte Energieauflösung:
-
-\begin{align*}
-  \Delta \text{E}_1 &= \text{E}_{1, \theta_1} - \text{E}_{1, \theta_2} = \SI{0.421}{\kilo\electronvolt}
-\end{align*}
-
+Dabei bezeichnet $\theta_{1}$ den Winkel mit den niedrigsten Counts in der Nähe des Maximums, $\theta_{2}$ den Winkel für den die Counts maximal werden, $\theta$ ist der gesuchte Winkel, y$_{1}$ sind die dem Winkel $\theta_{1}$ zugeordneten Counts, y$_{2}$ sind die dem Winkel $\theta_{2}$ zugeordneten Counts und y sind die zuvor bestimmten Counts des halben Maximums.
 Dies wird für K$_\alpha$ analog durchgeführt.
 Es ergibt sich für das Maximum ein Wert von $5031.0\ \text{counts} \, / \, s$.
-Dies ergibt eine Hälft von $2515.2\ \text{counts} \, / \, s$.
-Es werden erneut die nächstgelegenen Messwerte genutzt.
+Dies ergibt eine Hälfte von $2515.2\ \text{counts} \, / \, s$.
+Die entsprechenden Werte sind in Tabelle \ref{tab:Energie} für K$_\alpha$ und K$_\beta$ aufgetragen.
+Die Energien berechnen sich dabei nach Gleichung \eqref{eqn:Energie}.
+
+\begin{table}
+  \centering
+  \caption{Tabelle für die Berechnung der Energien für die K$_\alpha$- und K$_\beta$-Linien.}
+  \label{tab:Energie}
+  \begin{tabular}{c c c c c c c c}
+    \toprule
+    {  } & {$\theta_1  \, / \,  \si{\degree}$} & {$y_1  \, / \,  \si{\per\second}$} & {$\theta_2  \, / \,  \si{\degree}$} & {$y_2  \, / \,  \si{\per\second}$} & {$y  \, / \,  \si{\per\second}$} & {$\theta  \, / \,  \si{\degree}$} & {$E_{\theta}  \, / \,  \si{\kilo\electronvolt}$} \\
+    \midrule
+    {$ K_{\alpha}: $} \\
+     & 19.2 & 337.0 & 20.0 & 1722.0 & 862 & 19.5 & 9.221 \\
+     & 21.0 & 441.0 & 20.0 & 1722.0 & 862 & 20.7 & 8.708 \\
+    {$ K_{\beta}: $} \\
+     & 21.4 & 433.0 & 22.4 & 5031.0 & 2515.2 & 21.9 & 8.252 \\
+     & 23.6 & 316.0 & 22.4 & 5031.0 & 2515.2 & 23.0 & 7.878 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+Die Differenz Der Energien ist nun die gesuchte Energieauflösung:
 
 \begin{align*}
-  2679.0\ \text{counts} \, / \, s, \text{mit}\ \theta_1 &= \SI{22.0}{\degree} \\
-  984.0\ \text{counts} \, / \, s, \text{mit}\ \theta_2 &= \SI{23.2}{\degree}
-\end{align*}
-
-Für diese kann erneut mittels Gleichung \eqref{eqn:Energie} die Energien ausgerechnet werden.
-
-\begin{align*}
-  \text{E}_{2, \theta_1} &= \SI{8.217}{\kilo\electronvolt} \\
-  \text{E}_{2, \theta_2} &= \SI{7.813}{\kilo\electronvolt}
-\end{align*}
-
-Die Differenz ist nun die gesuchte Energieauflösung:
-
-\begin{align*}
-  \Delta \text{E}_2 &= \text{E}_{2, \theta_1} - \text{E}_{2, \theta_2} = \SI{0.404}{\kilo\electronvolt}
+  \Delta \text{E}_1 &= \text{E}_{1, \theta_1} - \text{E}_{1, \theta_2} = \SI{0.513}{\kilo\electronvolt} \\
+  \Delta \text{E}_2 &= \text{E}_{2, \theta_1} - \text{E}_{2, \theta_2} = \SI{0.374}{\kilo\electronvolt}
 \end{align*}
 
 Der Mittelwert wird nun nach folgender Gleichung gebildet:
@@ -176,7 +171,7 @@ Der entsprechende Fehler nach dieser:
 Es ergibt sich somit für $\Delta\text{E}$ folgender Wert:
 
 \begin{align*}
-  \Delta\text{E} = \SI{0.4125\pm0.0085}{\kilo\electronvolt}
+  \Delta\text{E} = \SI{0.4435\pm0.0695}{\kilo\electronvolt}
 \end{align*}
 
 
@@ -196,12 +191,26 @@ Es ergeben sich folgende Werte:
   \text{E}_{\beta} &= \SI{9.000}{\kilo\electronvolt}
 \end{align*}
 
+Vergleicht man diese mit den Werten aus der Literatur:
+
+\begin{align*}
+  \text{E}_{\alpha, \text{lit}} &= \SI{8.047}{\kilo\electronvolt} \\
+  \text{E}_{\beta,  \text{lit}} &= \SI{8.900}{\kilo\electronvolt}
+\end{align*}
+
+ergibt sich ein relativer Fehler von $\SI{0.37}{\percent}$ für $\text{E}_{\alpha}$ und ein relativer Fehler von $\SI{1.12}{\percent}$ für $\text{E}_{\beta}$.
+
 Daraus können die Abschirmungszahlen bestimmt werden:
 
 \begin{align*}
-  \sigma_1 &= z_\text{Cu} - \sqrt{\frac{\text{E}_{\beta}}{\text{R}_{\infty}}} = 3.05\\
-  \sigma_2 &= z_\text{Cu} - 2\sqrt{\frac{\text{R}_{\infty} \left(z_\text{Cu} - \sigma_1 \right)^2 - \text{E}_{\alpha}}{\text{R}_{\infty}}} = 12.41
+  \sigma_1 &= z_\text{Cu} - \sqrt{\frac{\text{E}_{\beta}}{\text{R}_{\infty}}} = 3.28\\
+  \sigma_2 &= z_\text{Cu} - 2\sqrt{\frac{\text{R}_{\infty} \left(z_\text{Cu} - \sigma_1 \right)^2 - \text{E}_{\alpha}}{\text{R}_{\infty}}} = 12.52 \\
+  \sigma_{1, \text{lit}} &= 3.4 \\
+  \sigma_{2, \text{lit}} &= 13.01
 \end{align*}
+
+Für diese lässt sich erneut der relative Fehler berechnen.
+Es ergibt sich für $\sigma_1$ ein Fehler von $\SI{3.53}{\percent}$ und für $\sigma_2$ ein Fehler von $\SI{3.77}{\percent}$.
 
 \newpage
 \subsection{Absorptionsspektren verschiedener Stoffe}
@@ -293,10 +302,10 @@ dargestellt.
     \toprule
     Element & {$\theta \, / \, \si{\degree}$} & {$E_\text{K,gemessen} \,/\, \si{\kilo\electronvolt}$} & {$E_\text{K,Literatur} \,/\, \si{\kilo\electronvolt}$} & {$\text{rel. Abweichung}\,/\,\si{\percent}$} \\
     \midrule
-    Brom & 13,60 & 13,09 & 13,47 & 2,90 \\
-    Strontium & 11,40 & 15,57 & 16,11 & 3,47 \\
-    Zink & 18,75 & 9,57 & 9,65 & 8,36 \\
-    Zirkonium & 10,30 & 17,21 & 18,00 & 4,59 \\
+    Brom & 13,60 & 13,09 & 13,47 & 3,00 \\
+    Strontium & 11,40 & 15,57 & 16,11 & 3,35 \\
+    Zink & 18,75 & 9,57 & 9,65 & 0,83 \\
+    Zirkonium & 10,30 & 17,21 & 18,00 & 4,39 \\
     \bottomrule
   \end{tabular}
 \end{table}
