@@ -32,6 +32,6 @@ plt.plot(dfit, f(dfit, *params), 'r-', label='Linearer Fit')
 plt.legend(loc="best")
 plt.grid()
 plt.xlabel(r"D / $\si{\metre}$")
-plt.ylabel(r'Aktivität (A - $A_0$)') #Achsenbeschriftung zu lang und ln() immer ohne Einheit
+plt.ylabel(r'$A_\text{total}$') #Achsenbeschriftung zu lang und ln() immer ohne Einheit
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
 plt.savefig('build/blei.pdf')
