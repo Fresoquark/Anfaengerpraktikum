@@ -1,9 +1,11 @@
 \section{Theorie}
 \label{sec:Theorie}
-Röntgenstrahlung besteht im wesentlichen aus Bremsstrahlung und charakteristischer Strahlung. Zur Erzeugung dieser werden durch Erhitzen
+Röntgenstrahlung besteht aus Bremsstrahlung und charakteristischer Strahlung. Zur Erzeugung dieser werden durch Erhitzen
 einer Glühkathode freie Elektronen erzeugt, welche durch Hochspannung stark beschleunigt werden und dann auf die Anode treffen. Durch das Abbremsen der Elektronen,
-welches durch das Coulombfeld des Atomkerns geschieht, wird Energie in Form von Strahlung frei. Da die Elektronen bei verschiedenen Energien unterschiedlich stark
-abgebremst werden ergibt sich ein kontinuirliches Bremsspektrum, wie in Abbildung \ref{fig:kontinuirlich} dargestellt.
+welches durch das Coulombfeld des Atomkerns geschieht, wird Energie in Form von Strahlung frei.
+Das Elektron kann hierbei seine gesamte oder nur einen Teil seiner kinetischen Energie abgeben.
+Dies resultiert in einem kontinuierlichen Bremsspektrum, wie in Abbildung \ref{fig:kontinuirlich} dargestellt.
+
 \begin{figure}
   \centering
   \includegraphics{images/kontinuirlich.png}
@@ -15,18 +17,23 @@ Die minimale Wellenlänge ${\lambda}_\text{min}$, und damit die maximal möglich
   {\lambda}_\text{min} = \frac{h \cdot c}{e_0 U} .
   \label{eqn:lambdamin}
 \end{equation}
+
 Dabei ist $h$ das Plancksche Wirkungsquantum, $c$ die Lichtgeschwindigkeit, $e_0$ die Elementarladung und $U$ die angelegte Spannung.
-Zusätzlich zum Bremsspektrum wird aber auch ein materialspezifisches charakteristisches Spektrum des Anodenmaterials beobachtet. Dies entsteht durch das herauslösen eines
-Elektrons aus einer inneren Atomschale durch das beschleunigte Elektron. Da das Atom den energetisch niedrigsten Zustand annehmen will, besetzt ein Elektron aus einer höheren
-Schale den frei gewordenen Platz. Da dieses Elektron dabei von einem Zustand höherer Energie in einen Zustand niedriger Energie wechselt, wird wieder Energie in Form von
-Strahlung frei. Da die Energieniveaus der einzelnenen Atomschalen, und somit auch die Energiedifferenzen dieser feste Energiewerte besitzen, entsteht ein Linienspektrum. Die
-Linien werden nach der Schale auf welchem das Elektron herausgelöst wurde und einem grieschichen Buchstaben, welcher die Herkunft des auffüllenden Elektrons beschreibt, bennant.
+Zusätzlich zum Bremsspektrum wird aber auch ein materialspezifisches charakteristisches Spektrum des Anodenmaterials beobachtet.
+Dies entsteht durch das herauslösen eines Elektrons aus einer inneren Atomschale durch das beschleunigte Elektron.
+Da das Atom den energetisch niedrigsten Zustand annehmen will, besetzt ein Elektron aus einer höheren Schale den frei gewordenen Platz.
+Da dieses Elektron dabei von einem Zustand höherer Energie in einen Zustand niedriger Energie wechselt, wird wieder Energie in Form von Strahlung frei.
+Da die Energieniveaus der einzelnenen Atomschalen, und somit auch die Energiedifferenzen dieser feste Energiewerte besitzen, entsteht ein Linienspektrum.
+Die Benennung der Linien erfolgt nach einem einfachen Prinzip.
+Der Buchstabe K, L, M, ... gibt die Schale an, auf welcher die Übergange enden und die Indizes $\alpha$, $\beta$, ... präzisieren die Linien innerhalb der Schalen.
 Ein Beispiel wäre $K_{\alpha}$. Gerade in größeren Atomen muss jedoch bei der Energie der Schalen die Abschirmung durch die inneren Elektronenhüllen berücksichtigt werden, indem
 eine effektive Kernladung $z_\text{eff}= z - \sigma$, mit der Abschirmkonstante $\sigma$ eingeführt wird. Die Bindungsenergie eines Elektrons kann dann mit
+
 \begin{equation}
   E_n = - R_{\infty} {z_\text{eff}}^2 \cdot \frac{1}{n^2}
   \label{eqn:En}
 \end{equation}
+
 berechnet werden. $R_{\infty} = \SI{13.6}{\electronvolt}$ ist hierbei die Rydbergenergie. Aus den Differenzen der jeweiligen Energieniveaus der beteiligten Schalen kann dann die
 Energie der Röntgenstrahlung berechnet werden.
 Für die Abschirmkonstante ergibt sich durch Umstellen folgender Ausdruck:
