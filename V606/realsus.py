@@ -3,7 +3,7 @@ import uncertainties.unumpy as unp
 from uncertainties import ufloat
 import scipy.constants as const
 from scipy.stats import sem
-
+#Faktoren!!!
 dUDy = np.array([1.2e-3,1.3e-3,1.3e-3])
 dUNd = np.array([0.05e-3,0.1e-3,0.05e-3])
 dUGd = np.array([0.2e-3,0.25e-3,0.3e-3])
@@ -28,7 +28,7 @@ dRDy = np.array([1255e-3,1410e-3,1700e-3])
 dRNd = np.array([450e-3,410e-3,365e-3])
 dRGd = np.array([770e-3,745e-3,870e-3])
 
-chirdy = F/qreal[0]*dRDy/R3
+chirdy = 2*F/qreal[0]*dRDy/R3
 chirdym = ufloat(np.mean(chirdy),sem(chirdy))
 print("Chi(Dy), durch R berechnet:",chirdy, chirdym)
 
