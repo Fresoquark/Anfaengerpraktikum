@@ -8,8 +8,7 @@ from scipy.optimize import curve_fit
 N=np.genfromtxt("data/indium.csv",delimiter=",",unpack=True)
 t=np.arange(1,16,1)
 t=t*240
-#Muss den Nulleffekt noch abziehen, habe aber gerade die Daten nicht da
-null=256/600*240 #Dieser Wert ist frei erfunden werde den Richtigen noch ergänzen
+null=223/900*240
 nullerr=np.sqrt(null)
 N0=N
 Nerr=np.sqrt(N)
