@@ -17,6 +17,46 @@
    \end{tabular}
  \end{table}
 
+\subsection{Halbwertszeit der Silberisotope}
+\label{sec:Silberhalbwertszeit}
+
+Aus den Messdaten wird jetzt die Halbwertszeit der zwei Silberisotope berechnet.
+Die Probe besteht aus den zwei Isotopen $\ce{^{108}Ag}$ und $\ce{^{110}Ag}$.
+$\ce{^{110}Ag}$ zerfällt wesentlich schneller als $\ce{^{108}Ag}$.
+Dies stellt ein Problem dar, da beide Zerfallsprozesse simultan ablaufen, wie in der Theorie \ref{sec:Theorie} bereits erwähnt.
+Aus den gewonnenen Messdaten müssen somit die beiden Zerfallsprozesse separiert werden.
+
+Die Messwerte befinden sich in Tabelle \ref{tab:silber}.
+$N_0$ stellt die ursprünglich gemessene Aktivität im Zeitintervall $\Delta t = \SI{10}{\second}$ dar.
+Die Fehler berechnen sich nach dem fehler einer Poisson-Verteilung:
+
+\begin{equation}
+  \Delta N = \sqrt{N}
+  \label{eqn:Poisson}
+\end{equation}
+
+Für die echte Aktivität wird der Nulleffekt mitsamt Fehler subtrahiert.
+Der Nulleffekt wird mit $N_\text{Nulleffekt} = 223$ Counts innerhalb von $\SI{900}{\second}$ gemessen.
+Es wird also bei einem Zeitintervall von $\SI{10}{\second}$ konstant eine Aktivität von $2.5\pm1.6$ von $N_0$ subtrahiert.
+Dies ergibt $N$.
+Der Fehler ergibt sich nach der selben Gleichung \eqref{eqn:Poisson}.
+Es handelt sich um eine halblogarithmische Ausgleichsrechnung, somit werden die Werte für $N$ noch logarithmiert.
+Die entsprechenden logarithmischen Fehler von $N$ ergeben sich nach
+
+\begin{equation}
+  \ln{N + \Delta N} - \ln{N}
+  \label{eqn:oben}
+\end{equation}
+
+für den oberen, und nach
+
+\begin{equation}
+  \ln{N} - \ln{N - \Delta N}
+\end{equation}
+
+für den unteren Fehler.
+Die Messdaten sind in Abbildung \ref{fig:silberuno} mit entsprechenden Fehlern dargestellt.
+
  \begin{table}
    \centering
    \caption{Messwerte zur Zerfallskurve des Silber-Isotopengemisches}
@@ -32,3 +72,16 @@
       {$\num{\csvcoli}$ & $\num{\csvcolii \pm \csvcoliii}$ & $\num{\csvcoliv \pm \csvcolv}$ & $\num{\csvcolvi}$ & $\num{\csvcolvii}$&$\num{\csvcolviii}$ }%
     \end{tabular}
   \end{table}
+
+\begin{figure}
+  \centering
+  \includegraphics{build/silber.pdf}
+  \caption{Messwerte für das Silber-Isotopengemisch}
+  \label{fig:silberuno}
+\end{figure}
+
+Es ergibt sich eine ähnliche Kurve wie in Abbildung \ref{fig:2Isotope}.
+Es werden nun die Kurven für den langlebigen und den kurzlebigen Zerfall berechnet.
+Es wird mit dem langlebigen Zerfall begonnen, da dieser bei den Berechnungen des kurzlebigen Zerfalles subtrahiert werden muss.
+Das $t^{\*}$ wird auf $\SI{200}{\second}$ gelegt.
+Ab diesem soll lediglich der langlebige Zerfall eine Rolle spielen.
