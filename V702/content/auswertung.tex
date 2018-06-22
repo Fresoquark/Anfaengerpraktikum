@@ -16,3 +16,19 @@
      {$\num{\csvcoli}$ & $\num{\csvcolii \pm \csvcoliii}$ & $\num{\csvcoliv \pm \csvcolv}$ & $\num{\csvcolvi}$ & $\num{\csvcolvii}$&$\num{\csvcolviii}$ }%
    \end{tabular}
  \end{table}
+
+ \begin{table}
+   \centering
+   \caption{Messwerte zur Zerfallskurve des Silber-Isotopengemisches}
+   \label{tab:silber}
+   \begin{tabular}[t]{c c c c c c}
+    \toprule
+     $t$ / $\si{\second}$ & $N_0$ & $N$ & $\ln(N)$ & $\Delta^{+} \ln(N)$ & $\Delta^{-} \ln(N)$ \\
+      \midrule
+      \csvreader[no head,
+      late after line=\\,
+      late after last line=\\\bottomrule]%
+      {data/silbtab.csv}{}%
+      {$\num{\csvcoli}$ & $\num{\csvcolii \pm \csvcoliii}$ & $\num{\csvcoliv \pm \csvcolv}$ & $\num{\csvcolvi}$ & $\num{\csvcolvii}$&$\num{\csvcolviii}$ }%
+    \end{tabular}
+  \end{table}

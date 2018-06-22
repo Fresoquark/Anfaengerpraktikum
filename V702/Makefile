@@ -14,8 +14,12 @@ all: build/main.pdf
 build/indium.pdf: indium.py data/indium.csv matplotlibrc header-matplotlib.tex | build
 	TEXINPUTS="$(call translate,$(pwd):)" python indium.py
 
+build/silber.pdf: silber.py data/silber.csv matplotlibrc header-matplotlib.tex | build
+	TEXINPUTS="$(call translate,$(pwd):)" python silber.py
+
 # hier weitere Abhängigkeiten für build/main.pdf deklarieren:
 build/main.pdf: build/indium.pdf
+build/main.pdf: build/silber.pdf
 
 build/main.pdf: FORCE | build
 	  TEXINPUTS="$(call translate,build:)" \
