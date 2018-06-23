@@ -38,8 +38,22 @@ Die Fehler berechnen sich nach dem fehler einer Poisson-Verteilung:
 Für die echte Aktivität wird der Nulleffekt mitsamt Fehler subtrahiert.
 Der Nulleffekt wird mit $N_\text{Nulleffekt} = 223$ Counts innerhalb von $\SI{900}{\second}$ gemessen.
 Es wird also bei einem Zeitintervall von $\SI{10}{\second}$ konstant eine Aktivität von $2.5\pm1.6$ von $N_0$ subtrahiert.
+Der Fehler von $N_0$ ergibt sich nach der selben Gleichung \eqref{eqn:Poisson}.
+
+\begin{equation}
+  N = N_0 - N_{\text{Nulleffekt}}
+\end{equation}
+
+Die Fehler können einfach subtrahiert werden:
+
+\begin{gather}
+    \Delta N = \frac{\partial N}{\partial N_0} \cdot \Delta N_0 + \frac{\partial N}{\partial N_{\text{Nulleffekt}}} \cdot \Delta N_{\text{Nulleffekt}} \\
+    \Delta N = \Delta N_0 - \Delta N_{\text{Nulleffekt}}
+    \label{eqn:nfehler}
+\end{gather}
+
+
 Dies ergibt $N$.
-Der Fehler ergibt sich nach der selben Gleichung \eqref{eqn:Poisson}.
 Es handelt sich um eine halblogarithmische Ausgleichsrechnung, somit werden die Werte für $N$ noch logarithmiert.
 Die entsprechenden logarithmischen Fehler von $N$ ergeben sich nach
 
@@ -55,7 +69,7 @@ für den oberen, und nach
 \end{equation}
 
 für den unteren Fehler.
-Die Messdaten sind in Abbildung \ref{fig:silberuno} mit entsprechenden Fehlern dargestellt.
+Die Messdaten sind in Tabelle \ref{tab:silber} mit entsprechenden Fehlern dargestellt.
 
  \begin{table}
    \centering
@@ -73,15 +87,88 @@ Die Messdaten sind in Abbildung \ref{fig:silberuno} mit entsprechenden Fehlern d
     \end{tabular}
   \end{table}
 
-\begin{figure}
-  \centering
-  \includegraphics{build/silber.pdf}
-  \caption{Messwerte für das Silber-Isotopengemisch}
-  \label{fig:silberuno}
-\end{figure}
-
 Es ergibt sich eine ähnliche Kurve wie in Abbildung \ref{fig:2Isotope}.
 Es werden nun die Kurven für den langlebigen und den kurzlebigen Zerfall berechnet.
-Es wird mit dem langlebigen Zerfall begonnen, da dieser bei den Berechnungen des kurzlebigen Zerfalles subtrahiert werden muss.
-Das $t^{\*}$ wird auf $\SI{200}{\second}$ gelegt.
+Es wird mit dem langlebigen Zerfall begonnen, da dieser bei den Berechnungen des kurzlebigen Zerfalles berücksichtigt werden muss.
+Das $t^*$ wird auf $\SI{110}{\second}$ gelegt.
 Ab diesem soll lediglich der langlebige Zerfall eine Rolle spielen.
+Es wird somit für die $N$-Werte mit $t \geq t^*$ die Werte für $N_{\Delta t \text{, lang}}$ gefittet.
+Dies ist in Abbildung \ref{fig:silberduo} dargestellt.
+
+\begin{figure}
+  \centering
+  \includegraphics{build/silber2.pdf}
+  \caption{Linearer Fit für die Messwerte des langlebigen Zerfalls.}
+  \label{fig:silberduo}
+\end{figure}
+
+Die lineare Ausgleichsrechnung wird mittels SciPy und uncertainties nach Gleichung \eqref{eqn:Zerfallskonstante} durchgeführt.
+Es ergeben sich diese Werte für die Parameter der Funktion:
+
+\begin{align*}
+  \lambda_l &= \SI{0.005 \pm 0.001}{\per\second} \\
+  N_{0, l} \left(1-\symup{e}^{-\lambda_l \Delta t} \right) &= 3.40 \pm 0.24
+\end{align*}
+
+Dies wird zu Anfang analog für den kurzlebigen Zerfall durchgeführt.
+Es werden nun lediglich die Zeitwerte für $t \leq t^*$ untersucht.
+Würde lediglich eine Ausgleichsrechnung durch die vorliegenden $N$ durchgeführt werden, wäre allerdings noch nicht der Anteil des langsamen Zerfalls berücksichtigt worden.
+Es werden somit von den vorliegenden $N$ die Werte $N_{\Delta t, l}$ des langlebigen Zerfalls abgezogen.
+Dafür werden die $t \leq t^*$ in die Gleichung \eqref{eqn:Zerfallskonstante} für den langlebigen Zerfall eingesetzt.
+Die entsprechenden Parameter wurden oben gefittet.
+Der entsprechende Plot ist in Abbildung \ref{fig:silbertres} dargestellt.
+Die berechneten Werte für die Ausgleichsrechnung können in Tabelle \ref{tab:silber3} gefunden werden.
+Es ergibt sich dann für die Parameter der Ausgleichsfunktion:
+
+\begin{align*}
+  \lambda_k &= \SI{0.026 \pm 0.002}{\per\second} \\
+  N_{0, k} \left(1-\symup{e}^{-\lambda_k \Delta t} \right) &= 5.43 \pm 0.11
+\end{align*}
+
+\begin{table}
+  \centering
+  \caption{Messwerte Bestimmung der Zerfallskonstante des kurzlebigen Zerfalls.}
+  \label{tab:silber3}
+  \begin{tabular}[t]{c c c c c c c}
+   \toprule
+    $t$ / $\si{\second}$ & $N$ & $N_{\Delta t, l} $ & $N - N_{\Delta t, l} = K$ & $\ln(K)$ & $\Delta^{+} \ln(K)$ & $\Delta^{-} \ln(K)$ \\
+     \midrule
+     \csvreader[no head,
+     late after line=\\,
+     late after last line=\\\bottomrule]%
+     {data/Kurztab.csv}{}%
+     {$\num{\csvcoli}$ & $\num{\csvcolii \pm \csvcoliii}$ & $\num{\csvcoliv \pm \csvcolv}$ & $\num{\csvcolvi \pm \csvcolvii}$ & $\num{\csvcolviii}$ & $\num{\csvcolix}$ & $\num{\csvcolx}$ }%
+   \end{tabular}
+ \end{table}
+
+ \begin{figure}
+   \centering
+   \includegraphics{build/silber3.pdf}
+   \caption{Linearer Fit für die Messwerte des kurzlebigen Zerfalls.}
+   \label{fig:silbertres}
+ \end{figure}
+
+ \begin{figure}
+   \centering
+   \includegraphics{build/silberf.pdf}
+   \caption{Summenkurve der beiden Zerfallsprozesse.}
+   \label{fig:silberf}
+ \end{figure}
+
+Die entsprechende Summenkurve der beiden ist in Abbildung \ref{fig:silberf} dargestellt.
+Die Halbwertszeiten werden nach Gleichung \eqref{eqn:Halbwertszeit} berechnet.
+Die Fehler berechnen sich nach der klassischen Fehlerfortpflanzung.
+Es ergibt sich daher:
+
+\begin{align*}
+  T(\lambda) &= \frac{c}{\lambda} \Rightarrow \Delta T = c \cdot \Delta \lambda \\
+  \Delta T_l &= \pm 0.0007 \\
+  \Delta T_K &= \pm 0.0014
+\end{align*}
+
+und für die Halbwertszeit:
+
+\begin{align*}
+  T_l = \SI{138.63 \pm 0.0007}{\second} \\
+  T_k = \SI{26.66 \pm 0.0014}{\second}
+\end{align*}

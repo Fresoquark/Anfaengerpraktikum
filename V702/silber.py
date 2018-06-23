@@ -62,8 +62,8 @@ print('a=', params[0], '+-', errors[0])
 print('b=', params[1], '+-', errors[1])
 
 plt.grid()
-plt.errorbar(t, lnN, yerr=lnNerr, fmt='.k', label='Messdaten')
-plt.plot(t2, f(t2, *params), color='tab:blue', label='Linearer Fit')
+plt.errorbar(t, lnN, yerr=lnNerr, fmt='.k', label='Messdaten für $t \geq t^*$')
+plt.plot(t2, f(t2, *params), color='tab:blue', label='Langlebiger Fit')
 #plt.plot(d, cts, 'k.', label="Messdaten", ms=2.5)
 plt.legend(loc="best")
 plt.xlabel(r"t / $\si{\second}$")
@@ -75,22 +75,41 @@ plt.savefig('build/silber2.pdf')
 plt.gcf().clear()
 
 kurz = np.arange(10,43,1)
-lnN3=np.delete(lnN,[kurz])
-#lnN3=lnN3-3.40
-lnN3erroben =np.delete(lnNerroben,[kurz]) #ist unnötig
-lnN3errunten=np.delete(lnNerroben,[kurz]) #ist unnötig
-lnN3err=np.stack((lnN3erroben,lnN3errunten)) #ist unnötig
+N3=np.delete(N,[kurz])
+lnN3 = np.log(N3)
 t3 = np.delete(t, [kurz])
+Nl = f(t3, *params)
+#Nl = params[1]*np.exp(params[0]*t3)
+KDiff = N3 - Nl
+lnKDiff = np.log(KDiff)
+#Fehler:
+N3err = np.sqrt(N3)
+Nlerr = np.sqrt(Nl)
+KDifferr = N3err - Nlerr
 
-params2, covariance_matrix2 = curve_fit(f,t3,lnN3)
+lnKDifferroben=np.log(KDiff+KDifferr)-np.log(KDiff)
+lnKDifferrunten=np.log(KDiff)-np.log(KDiff-KDifferr)
+lnKDifferr=np.stack((lnKDifferroben,lnKDifferrunten))
+
+lnN3erroben=np.delete(lnNerroben, [kurz])
+lnN3errunten=np.delete(lnNerrunten, [kurz])
+lnN3err=np.stack((lnN3erroben,lnN3errunten))
+
+np.savetxt("data/Kurztab.csv",np.column_stack([t3,N3,N3err,Nl,Nlerr, KDiff, KDifferr, lnKDiff,lnKDifferroben,lnKDifferrunten]),delimiter=",",fmt=["%4.0f","%4.0f","%4.1f","%4.1f","%3.1f","%3.1f","%3.1f","%4.3f","%4.3f","%4.3f"])
+
+
+params2, covariance_matrix2 = curve_fit(f,t3,lnKDiff)
 errors2 = np.sqrt(np.diag(covariance_matrix2))
 
 print('a2=', params2[0], '+-', errors2[0])
 print('b2=', params2[1], '+-', errors2[1])
 
+
+
 plt.grid()
-plt.errorbar(t, lnN, yerr=lnNerr, fmt='.k', label='Messdaten')
-plt.plot(t3, f(t3, *params2), color='tab:orange', label='Linearer Fit')
+plt.errorbar(t3, lnN3, yerr=lnN3err, color='grey', marker='.', linestyle='none', label='ursprüngliche Messdaten')
+plt.errorbar(t3, lnKDiff, yerr=lnKDifferr, fmt='.k', label='Subtrahierte Werte')
+plt.plot(t3, f(t3, *params2), color='tab:orange', label='Kurzlebiger Fit')
 #plt.plot(d, cts, 'k.', label="Messdaten", ms=2.5)
 plt.legend(loc="best")
 plt.xlabel(r"t / $\si{\second}$")
