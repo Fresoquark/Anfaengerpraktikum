@@ -1,22 +1,6 @@
 \section{Auswertung}
 \label{sec:Auswertung}
 
-\begin{table}
-  \centering
-  \caption{Messwerte zur Zerfallskurve von Indium}
-  \label{tab:indium}
-  \begin{tabular}[t]{c c c c c c}
-   \toprule
-    $t$ / $\si{\second}$ & $N_0$ & $N$ & $\ln(N)$ & $\Delta^{+} \ln(N)$ & $\Delta^{-} \ln(N)$ \\
-     \midrule
-     \csvreader[no head,
-     late after line=\\,
-     late after last line=\\\bottomrule]%
-     {data/indtab.csv}{}%
-     {$\num{\csvcoli}$ & $\num{\csvcolii \pm \csvcoliii}$ & $\num{\csvcoliv \pm \csvcolv}$ & $\num{\csvcolvi}$ & $\num{\csvcolvii}$&$\num{\csvcolviii}$ }%
-   \end{tabular}
- \end{table}
-
 \subsection{Halbwertszeit der Silberisotope}
 \label{sec:Silberhalbwertszeit}
 
@@ -42,6 +26,7 @@ Der Fehler von $N_0$ ergibt sich nach der selben Gleichung \eqref{eqn:Poisson}.
 
 \begin{equation}
   N = N_0 - N_{\text{Nulleffekt}}
+  \label{eqn:nulleffekt}
 \end{equation}
 
 Die Fehler können einfach subtrahiert werden:
@@ -66,6 +51,7 @@ für den oberen, und nach
 
 \begin{equation}
   \ln{N} - \ln{N - \Delta N}
+  \label{eqn:unten}
 \end{equation}
 
 für den unteren Fehler.
@@ -172,3 +158,44 @@ und für die Halbwertszeit:
   T_l = \SI{138.63 \pm 0.0007}{\second} \\
   T_k = \SI{26.66 \pm 0.0014}{\second}
 \end{align*}
+\subsection{Halbwertszeit von Indium-116}
+Die Messdaten sowie die nach \eqref{eqn:Poisson},\eqref{eqn:nulleffekt}, \eqref{eqn:nfehler}, \eqref{eqn:oben} und \eqref{eqn:unten} berechneten Werte und Fehler befinden sich in
+Tabelle \ref{tab:indium}.
+\begin{table}
+  \centering
+  \caption{Messwerte zur Zerfallskurve von Indium}
+  \label{tab:indium}
+  \begin{tabular}[t]{c c c c c c}
+   \toprule
+    $t$ / $\si{\second}$ & $N_0$ & $N$ & $\ln(N)$ & $\Delta^{+} \ln(N)$ & $\Delta^{-} \ln(N)$ \\
+     \midrule
+     \csvreader[no head,
+     late after line=\\,
+     late after last line=\\\bottomrule]%
+     {data/indtab.csv}{}%
+     {$\num{\csvcoli}$ & $\num{\csvcolii \pm \csvcoliii}$ & $\num{\csvcoliv \pm \csvcolv}$ & $\num{\csvcolvi}$ & $\num{\csvcolvii}$&$\num{\csvcolviii}$ }%
+   \end{tabular}
+ \end{table}
+ Nun wird $\ln(N)$ gegen $t$ aufgetragen und mit der Fitfunktion $y=ax+b$ mittels SciPy linear gefittet. Dies ist in Abbildung \ref{fig:indium} dargestellt.
+ \begin{figure}
+   \centering
+   \includegraphics{build/indium.pdf}
+   \caption{Zerfallskurve von Indium.}
+   \label{fig:indium}
+ \end{figure}
+ Die Parameter ergeben sich so zu
+ \begin{align*}
+   a &= \SI{-2.16\pm0.09e-4}{\per\second} \\
+   b &= \num{7.71\pm0.02} .
+ \end{align*}
+ Nun wird der natürliche Logarithmus auf \eqref{eqn:Zerfallsgesetz} angewandt, wodurch sich folgende Gleichung ergibt:
+ \begin{equation}
+   \ln(N(t)) = \ln(N_0) - \lambda t .
+   \label{eqn:lnZerfallsgesetz}
+ \end{equation}
+ Durch Vergleich der Fitparameter mit \eqref{eqn:lnZerfallsgesetz} wird die Zerfallskonstante und damit mittels \eqref{eqn:Halbwertszeit} die Halbwertszeit zu
+  \begin{align*}
+   \lambda &= \SI{2.16\pm0.09e-4}{\per\second} \\
+   T &= \SI{3.21\pm0.14e+3}{\second}
+ \end{align*}
+ bestimmt.

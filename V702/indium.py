@@ -31,6 +31,9 @@ errors = np.sqrt(np.diag(covariance_matrix))
 
 print('a=', params[0], '+-', errors[0])
 print('b=', params[1], '+-', errors[1])
+lamda=ufloat(params[0],errors[0])
+T=np.log(2)/lamda
+print(T)
 
 plt.grid()
 plt.errorbar(t, lnN, yerr=lnNerr, fmt='.k', label='Messdaten')
