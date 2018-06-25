@@ -56,7 +56,7 @@ für den oberen, und nach
 
 für den unteren Fehler.
 Die Messdaten sind in Tabelle \ref{tab:silber} mit entsprechenden Fehlern dargestellt.
-
+\FloatBarrier
  \begin{table}
    \centering
    \caption{Messwerte zur Zerfallskurve des Silber-Isotopengemisches}
@@ -72,7 +72,7 @@ Die Messdaten sind in Tabelle \ref{tab:silber} mit entsprechenden Fehlern darges
       {$\num{\csvcoli}$ & $\num{\csvcolii \pm \csvcoliii}$ & $\num{\csvcoliv \pm \csvcolv}$ & $\num{\csvcolvi}$ & $\num{\csvcolvii}$&$\num{\csvcolviii}$ }%
     \end{tabular}
   \end{table}
-
+\FloatBarrier
 Es ergibt sich eine ähnliche Kurve wie in Abbildung \ref{fig:2Isotope}.
 Es werden nun die Kurven für den langlebigen und den kurzlebigen Zerfall berechnet.
 Es wird mit dem langlebigen Zerfall begonnen, da dieser bei den Berechnungen des kurzlebigen Zerfalles berücksichtigt werden muss.
@@ -80,14 +80,14 @@ Das $t^*$ wird auf $\SI{110}{\second}$ gelegt.
 Ab diesem soll lediglich der langlebige Zerfall eine Rolle spielen.
 Es wird somit für die $N$-Werte mit $t \geq t^*$ die Werte für $N_{\Delta t \text{, lang}}$ gefittet.
 Dies ist in Abbildung \ref{fig:silberduo} dargestellt.
-
+\FloatBarrier
 \begin{figure}
   \centering
   \includegraphics{build/silber2.pdf}
   \caption{Linearer Fit für die Messwerte des langlebigen Zerfalls.}
   \label{fig:silberduo}
 \end{figure}
-
+\FloatBarrier
 Die lineare Ausgleichsrechnung wird mittels SciPy und uncertainties nach Gleichung \eqref{eqn:Zerfallskonstante} durchgeführt.
 Es ergeben sich diese Werte für die Parameter der Funktion:
 
@@ -101,6 +101,7 @@ Es werden nun lediglich die Zeitwerte für $t \leq t^*$ untersucht.
 Würde lediglich eine Ausgleichsrechnung durch die vorliegenden $N$ durchgeführt werden, wäre allerdings noch nicht der Anteil des langsamen Zerfalls berücksichtigt worden.
 Es werden somit von den vorliegenden $N$ die Werte $N_{\Delta t, l}$ des langlebigen Zerfalls abgezogen.
 Dafür werden die $t \leq t^*$ in die Gleichung \eqref{eqn:Zerfallskonstante} für den langlebigen Zerfall eingesetzt.
+\newpage
 Die entsprechenden Parameter wurden oben gefittet.
 Der entsprechende Plot ist in Abbildung \ref{fig:silbertres} dargestellt.
 Die berechneten Werte für die Ausgleichsrechnung können in Tabelle \ref{tab:silber3} gefunden werden.
@@ -110,7 +111,7 @@ Es ergibt sich dann für die Parameter der Ausgleichsfunktion:
   \lambda_k &= \SI{0.026 \pm 0.002}{\per\second} \\
   N_{0, k} \left(1-\symup{e}^{-\lambda_k \Delta t} \right) &= 5.43 \pm 0.11
 \end{align*}
-
+\FloatBarrier
 \begin{table}
   \centering
   \caption{Messwerte Bestimmung der Zerfallskonstante des kurzlebigen Zerfalls.}
@@ -140,17 +141,17 @@ Es ergibt sich dann für die Parameter der Ausgleichsfunktion:
    \caption{Summenkurve der beiden Zerfallsprozesse.}
    \label{fig:silberf}
  \end{figure}
-
+\FloatBarrier
 Die entsprechende Summenkurve der beiden ist in Abbildung \ref{fig:silberf} dargestellt.
 Die Halbwertszeiten werden nach Gleichung \eqref{eqn:Halbwertszeit} berechnet.
 Die Fehler berechnen sich nach der klassischen Fehlerfortpflanzung.
 Es ergibt sich daher:
 
-\begin{align*}
-  T(\lambda) &= \frac{c}{\lambda} \Rightarrow \Delta T = c \cdot \Delta \lambda \\
-  \Delta T_l &= \pm 0.0007 \\
-  \Delta T_K &= \pm 0.0014
-\end{align*}
+\begin{align}
+  T(\lambda) &= \frac{\ln(2)}{\lambda} \Rightarrow \Delta T = \ln(2) \cdot \Delta \lambda \label{eqn:deltaT}\\
+  \Delta T_l &= \pm 0.0007 \notag\\
+  \Delta T_K &= \pm 0.0014 \notag
+\end{align}
 
 und für die Halbwertszeit:
 
@@ -161,6 +162,7 @@ und für die Halbwertszeit:
 \subsection{Halbwertszeit von Indium-116}
 Die Messdaten sowie die nach \eqref{eqn:Poisson},\eqref{eqn:nulleffekt}, \eqref{eqn:nfehler}, \eqref{eqn:oben} und \eqref{eqn:unten} berechneten Werte und Fehler befinden sich in
 Tabelle \ref{tab:indium}.
+\FloatBarrier
 \begin{table}
   \centering
   \caption{Messwerte zur Zerfallskurve von Indium}
@@ -176,13 +178,16 @@ Tabelle \ref{tab:indium}.
      {$\num{\csvcoli}$ & $\num{\csvcolii \pm \csvcoliii}$ & $\num{\csvcoliv \pm \csvcolv}$ & $\num{\csvcolvi}$ & $\num{\csvcolvii}$&$\num{\csvcolviii}$ }%
    \end{tabular}
  \end{table}
+ \FloatBarrier
  Nun wird $\ln(N)$ gegen $t$ aufgetragen und mit der Fitfunktion $y=ax+b$ mittels SciPy linear gefittet. Dies ist in Abbildung \ref{fig:indium} dargestellt.
+ \FloatBarrier
  \begin{figure}
    \centering
    \includegraphics{build/indium.pdf}
    \caption{Zerfallskurve von Indium.}
    \label{fig:indium}
  \end{figure}
+ \FloatBarrier
  Die Parameter ergeben sich so zu
  \begin{align*}
    a &= \SI{-2.16\pm0.09e-4}{\per\second} \\
@@ -193,7 +198,7 @@ Tabelle \ref{tab:indium}.
    \ln(N(t)) = \ln(N_0) - \lambda t .
    \label{eqn:lnZerfallsgesetz}
  \end{equation}
- Durch Vergleich der Fitparameter mit \eqref{eqn:lnZerfallsgesetz} wird die Zerfallskonstante und damit mittels \eqref{eqn:Halbwertszeit} die Halbwertszeit zu
+ Durch Vergleich der Fitparameter mit \eqref{eqn:lnZerfallsgesetz} wird die Zerfallskonstante und damit mittels \eqref{eqn:Halbwertszeit} und \eqref{eqn:deltaT} die Halbwertszeit zu
   \begin{align*}
    \lambda &= \SI{2.16\pm0.09e-4}{\per\second} \\
    T &= \SI{3.21\pm0.14e+3}{\second}
