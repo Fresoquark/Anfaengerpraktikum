@@ -57,14 +57,18 @@ Unter Berücksichtigung dieses Faktors erhält man das richtige Verhältnis  von
 
 Aus den Daten wird ersichtlich, dass $\nu_0$ bei einer Frequenz von $\SI{35.1}{\kilo\hertz}$ liegt.
 Das Spannungsverhältnis beträgt dort $0.91$.
-Für $\nu_-$ und $\nu_+$ ergibt sich somit ein theoretisches Verhältnis von 0.6435.
-Da es keine Messwerte mit diesem Verhältnis gibt, werden die Messwerte genutzt, die diesem Verhältnis am nächsten kommen.
-Die sind für $\nu_- = 0.68$ bei einer Frequenz von $\SI{34.9}{\kilo\hertz}$ und für $\nu_+ = 0.72$ bei einer Frequenz von $\SI{35.2}{\kilo\hertz}$.
-Die Angaben für die Frequenzen von $\nu_-$ und $\nu_+$ sind hinreichend genau, da bei Betrachtung des Kurvenverlaufs die tatsächlichen Frequenzen für das Verhältnis von 0.6435 lediglich um wenige $\SI{10}{\hertz}$ abweichen würden.
+Für $\nu_-$ und $\nu_+$ ergibt sich somit ein theoretisches Verhältnis von $\num{0.6435}$.
+Da für diese Verhältnisse keine Daten vorliegen, wird die Funktion zwischen den zwei nächsten Datenpunkten linear mit $y=ax+b$ angenähert.
+Nun wird diese Formel nach $x$ umgestellt und die bestimmten Parameter $a$ und $b$ sowie das theoretische Verhältnis $\num{0.6435}$ für $y$ eingesetzt.
+So werden folgende Werte bestimmt:
+\begin{align*}
+  \nu_- &= \SI{35.01}{\kilo\hertz} \\
+  \nu_+ &= \SI{35.34}{\kilo\hertz} .
+\end{align*}
 Die Güte lässt sich damit nach Gleichung \eqref{eqn:Güte} folgendermaßen bestimmen:
 
 \begin{equation*}
-  Q = \frac{\SI{35.1}{\kilo\hertz}}{\SI{35.2}{\kilo\hertz} - \SI{34.9}{\kilo\hertz}} = 117
+  Q = \frac{\SI{35.1}{\kilo\hertz}}{\SI{35.34}{\kilo\hertz} - \SI{35.01}{\kilo\hertz}} = 106,36
 \end{equation*}
 
 Dieser Wert ist allerdings nicht die tatsächliche Güte, da hierfür die Auflösung der Frequenzen zu gering war.
