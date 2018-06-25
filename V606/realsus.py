@@ -11,15 +11,15 @@ F=8.66e-5
 #dy nd gd
 qreal= np.array([0.15e-4,0.08e-4,0.11e-4])
 
-chiudy = F/qreal[0]*dUDy
+chiudy = 4*F/qreal[0]*dUDy
 chiudym = ufloat(np.mean(chiudy), sem(chiudy))
 print("Chi(Dy), durch U berechnet:", chiudy, chiudym)
 
-chiund = F/qreal[1]*dUNd
+chiund = 4*F/qreal[1]*dUNd
 chiundm = ufloat(np.mean(chiund), sem(chiund))
 print("Chi(Nd), durch U berechnet:", chiund, chiundm)
 
-chiugd = F/qreal[2]*dUGd
+chiugd = 4*F/qreal[2]*dUGd
 chiugdm = ufloat(np.mean(chiugd), sem(chiugd))
 print("Chi(Gd), durch U berechnet:", chiugd, chiugdm)
 
@@ -32,11 +32,11 @@ chirdy = 2*F/qreal[0]*dRDy/R3
 chirdym = ufloat(np.mean(chirdy),sem(chirdy))
 print("Chi(Dy), durch R berechnet:",chirdy, chirdym)
 
-chirnd = F/qreal[1]*dRNd/R3
+chirnd = 2*F/qreal[1]*dRNd/R3
 chirndm = ufloat(np.mean(chirnd),sem(chirnd))
 print("Chi(Nd), durch R berechnet:",chirnd, chirndm)
 
-chirgd = F/qreal[2]*dRGd/R3
+chirgd = 2*F/qreal[2]*dRGd/R3
 chirgdm = ufloat(np.mean(chirgd),sem(chirgd))
 print("Chi(Gd), durch R berechnet:",chirgd, chirgdm)
 

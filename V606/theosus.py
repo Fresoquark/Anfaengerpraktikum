@@ -11,11 +11,11 @@ mub = 0.5* const.hbar * const.e/const.m_e
 T= 298.15
 
 rho =rho*1000
-M = M*0.001
+M =M*0.001
 print("Dichte =",rho)
 print("Molare Masse =",M)
 
-N=rho/M*const.N_A
+N=2*rho/M*const.N_A
 print("N= ",N)
 chi = (const.mu_0 * mub**2 * gj**2 * N * J * (J+1) ) / (3 * const.k * T)
 
