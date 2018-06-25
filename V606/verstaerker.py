@@ -8,47 +8,47 @@ omega,U = np.genfromtxt("data/verstaerker.csv",delimiter=",",unpack=True)
 U = U/10
 #12,13
 #16,17
-xlunten=omega[12]
-ylunten=U[12]
-xloben=omega[13]
-yloben=U[13]
-xroben=omega[16]
-yroben=U[16]
-xrunten=omega[17]
-yrunten=U[17]
+xlunten=omega[13]
+ylunten=U[13]
+xloben=omega[14]
+yloben=U[14]
+xroben=omega[17]
+yroben=U[17]
+xrunten=omega[18]
+yrunten=U[18]
 
 xfitl=np.array([xlunten,xloben])
 yfitl=np.array([ylunten,yloben])
 xfitr=np.array([xroben,xrunten])
 yfitr=np.array([yroben,yrunten])
+plt.axhline(0.6435,ls="--",lw=0.8,c="k")
 
 def f(x,a,b):
     return a*x+b
 
 params, covariance_matrix = curve_fit(f, xfitl, yfitl)
 errors = np.sqrt(np.diag(covariance_matrix))
-
 a=params[0]
 b=params[1]
+plt.plot(xfitl, f(xfitl, *params), 'b-',lw=0.8)
 minus=(0.6435-b)/a
 print("minus=",minus)
-#minus=35.01
 params, covariance_matrix = curve_fit(f, xfitr, yfitr)
 errors = np.sqrt(np.diag(covariance_matrix))
 
 a=params[0]
 b=params[1]
+plt.plot(xfitr, f(xfitr, *params), 'r-',lw=0.8)
 plus=(0.6435-b)/a
 print("plus=",plus)
-#plus=35.34
 max=(1/0.91)*0.6435
 
 
 
 plt.grid()
 plt.plot(omega, U,"k.",ms=2, label='Daten')
-plt.axvline(35.01,ymin=0,ymax=max,c="b",ls="--")
-plt.axvline(35.34,ymin=0,ymax=max,c="r",ls="--")
+plt.plot(minus,0.6435,"kx",ms=3)
+plt.plot(plus,0.6435,"kx",ms=3)
 plt.xlabel(r'$\omega \:/\:\si{\kilo\hertz}$')
 plt.ylabel(r'$\frac{U_A}{U_E} \:/\:\si{\volt}$')
 plt.legend(loc='best')

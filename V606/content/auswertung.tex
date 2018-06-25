@@ -57,18 +57,19 @@ Unter Berücksichtigung dieses Faktors erhält man das richtige Verhältnis  von
 
 Aus den Daten wird ersichtlich, dass $\nu_0$ bei einer Frequenz von $\SI{35.1}{\kilo\hertz}$ liegt.
 Das Spannungsverhältnis beträgt dort $0.91$.
-Für $\nu_-$ und $\nu_+$ ergibt sich somit ein theoretisches Verhältnis von $\num{0.6435}$.
-Da für diese Verhältnisse keine Daten vorliegen, wird die Funktion zwischen den zwei nächsten Datenpunkten linear mit $y=ax+b$ angenähert.
+Für $\nu_-$ und $\nu_+$ ergibt sich somit nach Gleichung \eqref{eqn:Güte} ein theoretisches Verhältnis von $\num{0.6435}$.
+Da für diese Verhältnisse keine Daten vorliegen, wird die Funktion zwischen den zwei nächsten Datenpunkten linear mit $y=ax+b$ interpoliert.
 Nun wird diese Formel nach $x$ umgestellt und die bestimmten Parameter $a$ und $b$ sowie das theoretische Verhältnis $\num{0.6435}$ für $y$ eingesetzt.
 So werden folgende Werte bestimmt:
 \begin{align*}
-  \nu_- &= \SI{35.01}{\kilo\hertz} \\
+  \nu_- &= \SI{34.98}{\kilo\hertz} \\
   \nu_+ &= \SI{35.34}{\kilo\hertz} .
 \end{align*}
+Das Verhältnis, die Interpolationen, sowie $\nu_-$ und $\nu_+$ sind ebenfalls in Abbildung \ref{fig:Filterkurve} dargestellt. 
 Die Güte lässt sich damit nach Gleichung \eqref{eqn:Güte} folgendermaßen bestimmen:
 
 \begin{equation*}
-  Q = \frac{\SI{35.1}{\kilo\hertz}}{\SI{35.34}{\kilo\hertz} - \SI{35.01}{\kilo\hertz}} = 106,36
+  Q = \frac{\SI{35.1}{\kilo\hertz}}{\SI{35.34}{\kilo\hertz} - \SI{34.98}{\kilo\hertz}} = 97,5
 \end{equation*}
 
 Dieser Wert ist allerdings nicht die tatsächliche Güte, da hierfür die Auflösung der Frequenzen zu gering war.
@@ -90,7 +91,7 @@ Name & S & L & J & $g_J$ \\
   \bottomrule
   \end{tabular}
 \end{table}
-Die Momente pro Volumeneinheit $N=2 N_A \cdot \frac{\rho}{M}$ werden aus den aus \cite{sample} entnommenen Dichten, den aus \cite{dy}, \cite{gd} und \cite{nd} entnommenen molaren Massen und der
+Die Momente pro Volumeneinheit $N=2 \, N_A \cdot \frac{\rho}{M}$ werden aus den aus \cite{sample} entnommenen Dichten, den aus \cite{dy}, \cite{gd} und \cite{nd} entnommenen molaren Massen und der
 aus \cite{scipy} entnommenen Avogadro-Konstante berechnet. Die Werte wurden in Tabelle \ref{tab:N} zusammengetragen.
 \begin{table}
   \centering
