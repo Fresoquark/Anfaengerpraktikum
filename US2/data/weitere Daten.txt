@@ -1,0 +1,22 @@
+Bei den .csv Files ist die erste Spalte immer der Wert von oben, und die zweite der von unten, die Löcher sind dabei die Reihen und wie in der Anleitung sortiert.
+Bei den Abmessungen ist die Einheit Millimeter bei den Scans Mikrosekunde.
+Abmessungen Block (B/H/T) / mm: 150.25 / 80.45 / 40
+A-Scan (1MHz):
+Kompletter Block: 60.55
+Wasserschicht: 0.43
+
+Auflösung (A-Scan, 2MHz):
+Oben:  L1: 15.12   L2: 13.74
+Unten: L1: 44.34   L2: 45.60
+
+B-Scan (2MHz):
+Unterkante: 2.58    Oberkante: 2.58 (Wer hätte das gedacht? :D)
+Loch 10 konnte von unten nicht aufgelöst werden.
+
+TM-Scan (2MHz):
+Grenzschicht: 0.53
+A-Scan: In Ruhe: 66.96    maximal aufgepumpt: 29.11
+
+Oberkante: 4.4    Grundniveau: 62.52
+Durchmesser des Herzens: 57.65mm
+Herzfrequenz: 84/min
