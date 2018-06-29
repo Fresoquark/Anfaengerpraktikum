@@ -1,4 +1,38 @@
 \section{Theorie}
 \label{sec:Theorie}
-
+Schall ist eine longitudinale Welle welche sich durch periodische Druckänderungen in einem Medium fortbewegt. Dabei lassen sich einer Schallwelle klassische Wellencharakteristika
+zuordnen. Besonders wichtig sind dabei in der Praxis die Intensität $I$, welche die Lautstärke darstellt, die Frequenz $\omega$, welche die Tonhöhe angibt und die Ausbreitungs- oder
+Schallgeschwindigkeit $c$, welche je nach Medium verschieden ist. Quantitativ lässt sich eine Schallwelle durch
+\begin{equation}
+  p(x,t) = p_0 + v_0 Z \cos(\omega t - k x),
+\end{equation}
+mit der akustischen Impedanz $Z=c\cdot\rho$, ausdrücken. Die Äbhangigkeit der Schallgeschwindigkeit vom jeweiligen Material wird für Flüssigkeiten durch folgende Gleichung beschrieben:
+\begin{equation}
+  c_\text{Fl} = \sqrt{\frac{1}{\kappa \rho}}.
+\end{equation}
+Sie ist somit von der Kompressibilität $\kappa$ und der Dichte $\rho$ abhängig.
+Bei Festkörpern gilt folgender Zusammenhang:
+\begin{equation}
+  c_\text{Fe} = \sqrt{\frac{E}{\rho}}.
+\end{equation}
+Dabei ist jedoch zu beachten, dass in Festkörpern nicht nur longitudinale, sondern auch transversale Wellen auftreten, welche verschiedene Schallgeschwindigkeiten besitzen.
+Die Intensität des Schalls nimmt bei der Ausbreitung in einem Medium exponentiell ab:
+\begin{equation}
+  I(x)= I_0 \cdot e^{\alpha}
+\end{equation}
+Der ebenfalls materialabhängige Absoprtionskoeffizient $\alpha$ gibt dabei an wie stark die Intensität abnimmt.
+Aufgrund der vielen Materialabhängigkeiten kommt es an Grenzflächen zwischen verschiedenen Materialien zu Reflexion und Transmission.
+Der Reflexionskoeffizient $R$ ist dabei von den verschiedenen Impedanzen der Materialien abhängig und gibt das Verhältnis der Intensitäten der einfallenden und reflektierten Welle an.
+Bei Frequenzen überhalb des menschlichen Hörvermögens, welches Frequenzen von $\SI{16}{\hertz}$ bis
+$\SI{20}{\kilo\hertz}$ umfasst, handelt es sich um Ultraschall. Dieser wird genutzt um Informationen über ein Objekt zu erhalten ohne es zu zerstören.
+Dabei werden die Reflexion sowie die diversen Materialabhängigkeiten des Schalls genutzt. Durch den Zeitunterschied zwischen einer ausgesandten Welle und dem Eintreffen ihrer Reflexion
+lässt sich, bei bekannter Schallgeschwindigkeit in dem zu untersuchenden Medium, die Position des Reflexionskante mit dem Weg-Zeit Gesetz
+\begin{equation}
+  s=\frac{1}{2}ct
+  \label{eqn:wegzeit}
+\end{equation}
+bestimmen. Dies wird als Puls-Echo Verfahren bezeichnet und kann mit verschiedenen Scanverfahren genutzt werden. Beim Amplituden-Scan, welcher ein eindimensionales Verfahren ist, wird die
+Intensität des Echos in abhängigkeit der Laufzeit gemessen. Beim Brightness-Scan wird durch Bewegen der Ultraschallsonde bei gleichzeitigem eine zweidimensionale Darstellung erzeugt.
+Dabei wird die Intensität des Echos als Helligkeit dargestellt wodurch ein Schnittbild des zu untersuchenden Objektes entsteht. Beim Time-Motion-Scan wird durch eine schnelle Abtastung
+eine Bildfolge aufgenommen, welche Bewegungen im beziehungsweise des zu untersuchenden Objektes sichtbar macht.
 \cite{sample}
