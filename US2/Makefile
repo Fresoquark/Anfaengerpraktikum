@@ -13,9 +13,18 @@ all: build/main.pdf
 # hier Python-Skripte:
 build/plot.pdf: plot.py matplotlibrc header-matplotlib.tex | build
 	TEXINPUTS="$(call translate,$(pwd):)" python plot.py
+data/abmessungentab.csv: rechner.py matplotlibrc header-matplotlib.tex | build
+	TEXINPUTS="$(call translate,$(pwd):)" python rechner.py
+data/ascantab.csv: rechner.py matplotlibrc header-matplotlib.tex | build
+	TEXINPUTS="$(call translate,$(pwd):)" python rechner.py
+data//auflosungtab.csv: rechner.py matplotlibrc header-matplotlib.tex | build
+	TEXINPUTS="$(call translate,$(pwd):)" python rechner.py
 
 # hier weitere Abhängigkeiten für build/main.pdf deklarieren:
 build/main.pdf: build/plot.pdf
+build/main.pdf: data/abmessungentab.csv
+build/main.pdf: data/ascantab.csv
+build/main.pdf: data/auflosungtab.csv
 
 build/main.pdf: FORCE | build
 	  TEXINPUTS="$(call translate,build:)" \
