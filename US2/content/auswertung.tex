@@ -121,9 +121,76 @@ Die Höhe des Blockes wurde für beide Scans zu $\SI{56.23}{\micro\second}$, bzw
    \end{tabular}
  \end{table}
 
+\subsection{Untersuchung eines Herzmodells mit dem A- und TM-Scan}
+Mit dem A-Scan wurden folgende Echolaufzeiten für die Schutzschicht, und die Entfernung der Membran in Ruhe und bei maximaler Auslenkung gemessen:
+\begin{align*}
+  t_\text{Schutzschicht} &= \SI{0.53}{\micro\second} \\
+  t_\text{Ruhe} &= \SI{66.96}{\micro\second} \\
+  t_\text{Maximal} &= \SI{29.11}{\micro\second} .
+\end{align*}
+Nun wird die Schutzschicht der Sonde von den Laufzeiten der Membran subtrahiert. Zur Bestimmung des Laufzeitunterschiedes des Mittelpunktes der Membran wird
+nun $t_\text{Maximal}$ von $t_\text{Ruhe}$ abgezogen. Dann wird mittels Gleichung \eqref{eqn:wegzeit} und der aus \cite{wasser} entnommenen Schallgeschwindigkeit
+für destilliertes Wasser $c=\SI{1485}{\metre\per\second}$ der maximale Höhenunterschied zu $h=\SI{28.1}{\milli\metre}$ bestimmt.
+Das Schlagvolumen des Herzmodells ist nun durch das Volumen des, durch Aufpumpen der unteren Kammer entstandenen, Kugelsegments gegeben.
+Das Volumen eines Kugelsegments lässt sich aus der Höhe $h$ und dem Radius $a$ des Segments mit
+\begin{equation}
+  V = \frac{h \pi}{6} (3a^2+h^2)
+  \label{eqn:herzvol}
+\end{equation}
+berechnen. Mit der zuvor bestimmten Höhe und dem gemessenen Radius $a=\SI{28.825}{\milli\metre}$ wird das maximale Schlagvolumen des Herzmodells zu
+\begin{equation*}
+  V_\text{max}= \SI{48.30}{\milli\litre}
+\end{equation*}
+bestimmt.
+\\
+Die Messdaten und -ergebnisse zur Bestimmung des Herzzeitvolumens mit dem TM-Scan befinden sich in Tabelle \ref{tab:hzv}. Die grafische Darstellung der Messung ist in Abbildung
+\ref{fig:hzv} zu sehen.
 \begin{figure}
   \centering
-  \includegraphics{plot.pdf}
-  \caption{Plot.}
-  \label{fig:plot}
+  \includegraphics[scale=0.4]{images/herzreal.jpg}
+  \caption{TM-Scan des Herzmodells.}
+  \label{fig:hzv}
 \end{figure}
+Bei $t_\text{ausgelenkt}$ ist die Schutzschicht der Sonde, welche zu $\SI{4.4}{\micro\second}$ bestimmt wurde, schon abgezogen worden.
+Zur Berechnung von $t_\text{Höhe}$ wurde $t_\text{ausgelenkt}$ vom Grundniveau abzüglich der Schutzschicht $t_\text{Grund}= \SI{58.12}{\micro\second}$ subtrahiert.
+Aus $t_\text{Höhe}$ wird nun mittels \eqref{eqn:wegzeit} und $c=\SI{1485}{\metre\per\second}$ die Höhe $h$ berechnet.
+Nun wird für jeden gemessenen Schlag das Schlagvolumen $V_\text{Schlag}$ mit \eqref{eqn:herzvol} bestimmt.
+\begin{table}
+  \centering
+  \caption{Die Messergebnisse zur Bestimmung des Herzzeitvolumens des Herzmodells.}
+  \label{tab:hzv}
+  \begin{tabular}[t]{c c c c}
+   \toprule
+    $t_\text{ausgelenkt}$ / $\si{\micro\second}$ & $t_\text{Höhe}$ / $\si{\micro\second}$ & $h$ / $\si{\milli\metre}$ & $V_\text{Schlag}$ / $\si{\milli\litre}$ \\
+     \midrule
+     \csvreader[no head,
+     late after line=\\,
+     late after last line=\\\bottomrule]%
+     {data/herztab.csv}{}%
+     {$\num{\csvcoli}$ & $\num{\csvcolii}$ & $\num{\csvcoliii}$ & $\num{\csvcoliv}$}%
+   \end{tabular}
+ \end{table}
+Die gemessenen Schlagvolumina werden nun mit
+\begin{equation}
+  \label{eqn:mittelwert}
+  \overline{x} = \frac{1}{N} \sum_{i=1}^N x_i
+\end{equation}
+gemittelt und der entsprechende Fehler mit
+\begin{equation}
+  \label{eqn:mittelwertfehler}
+  \Delta \overline{x} = \frac{1}{\sqrt{N}} \sqrt{\frac{1}{N-1} \sum_{i=1}^N (x_i - \overline{x})^2}
+\end{equation}
+berechnet.
+So ergibt sich ein mittleres Schlagvolumen von
+\begin{equation*}
+  \overline{V_\text{Schlag}}= \SI{19.66\pm0.31}{\milli\litre} .
+\end{equation*}
+Das Herzzeitvolumen wird nun mit der aus \ref{fig:hzv} bestimmten Herzfrequenz $f_\text{Herz}=\SI{84}{\per\minute}$ durch
+\begin{equation}
+  HZV = \overline{V_\text{Schlag}} \cdot f_\text{Herz}
+\end{equation}
+zu
+\begin{equation*}
+  HZV=\SI{1.651\pm0.026}{\litre\per\minute}
+\end{equation*}
+bestimmt.

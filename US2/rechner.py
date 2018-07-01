@@ -31,8 +31,8 @@ np.savetxt("data/ascantab.csv",np.column_stack([nummer,oben,obenm,unten,untenm,d
 
 oben = np.array([15.12-0.43, 13.74-0.43])
 unten = np.array([44.34-0.43, 45.60-0.43])
-obenm = 1/2*c*oben
-untenm = 1/2*c*unten
+obenm = (1/2)*c*oben
+untenm = (1/2)*c*unten
 dicke = komplettm-(obenm+untenm)
 nummer2 = np.delete(nummer,[2,3,4,5,6,7,8,9,10,11])
 #frequenz = np.array([1,2])
@@ -45,9 +45,41 @@ oben = np.delete(oben,[9])
 unten = np.delete(unten,[9])
 oben = oben-2.58
 unten = unten-2.58
-obenm = 1/2*c*oben
-untenm = 1/2*c*unten
+obenm = (1/2)*c*oben
+untenm = (1/2)*c*unten
 komplettm = 76.75
 dicke = komplettm-(obenm+untenm)
 nummer3 = np.delete(nummer,[9])
 np.savetxt("data/bscantab.csv",np.column_stack([nummer3,oben,obenm,unten,untenm,dicke]),delimiter=",",fmt=["%3.0f","%3.2f","%3.2f","%3.2f","%3.2f","%3.2f"])
+
+#Herz A-Scan
+ruhe=66.96-0.53
+maxpump=29.11-0.53
+ht=ruhe-maxpump
+c=1485*0.001 #mm/µs #dest. Wasser
+a=57.65/2
+h=(1/2)*c*ht
+Vmax=(h*np.pi*(3*a**2+h**2))/6
+Vmax=Vmax*10**(-3)
+print("Höhe in mm",h)
+print("maximales Schlagvolumen (A-Scan) in ml",Vmax)
+
+
+#HZV
+peaks=np.genfromtxt("data/herzscan.csv",delimiter=",",unpack=True)
+oberkante=4.4
+grundniveau=62.52
+peaks=peaks-oberkante
+grundniveau=grundniveau-oberkante
+ht=grundniveau-peaks
+
+h=(1/2)*c*ht
+
+Vherz=(h*np.pi*(3*a**2+h**2))/6
+Vherz=Vherz*10**(-3)
+Vherzm=ufloat(np.mean(Vherz),sem(Vherz))
+print("mittleres Herzvolumen in ml=",Vherzm)
+HZV=Vherzm*84
+HZV=HZV*10**(-3)
+np.savetxt("data/herztab.csv",np.column_stack([peaks,ht,h,Vherz]),delimiter=",",fmt=["%3.2f","%3.2f","%3.2f","%3.2f"])
+print("HZV in l/min=",HZV)
