@@ -58,11 +58,12 @@ Damit lässt sich die Höhe des Blockes auf $\SI{82.06}{\milli\metre}$ berechnen
    \end{tabular}
  \end{table}
 
-Das Auflösungsvermögen der Sonden wird in Tabelle \ref{tab:auflösung} dargestellt.
+Das Auflösungsvermögen der $\SI{2}{\mega\hertz}$-Sonde wird in Tabelle \ref{tab:auflösung} dargestellt.
+Die entsprechenden Daten für die Löcher 1 und 2 der $\SI{1}{\mega\hertz}$-Sonde befinden sich in Tabelle \ref{tab:ascan}.
 
 \begin{table}
   \centering
-  \caption{Vergleich des Auflösungsvermögen der Ultraschallsonden.}
+  \caption{Daten zum Auflösungsvermögen der $\SI{2}{\mega\hertz}$-Sonde.}
   \label{tab:auflösung}
   \begin{tabular}[t]{c c c c c c}
    \toprule
@@ -72,6 +73,50 @@ Das Auflösungsvermögen der Sonden wird in Tabelle \ref{tab:auflösung} dargest
      late after line=\\,
      late after last line=\\\bottomrule]%
      {data/auflosungtab.csv}{}%
+     {$\num{\csvcoli}$ & $\num{\csvcolii}$ & $\num{\csvcoliii}$ & $\num{\csvcoliv}$ & $\num{\csvcolv}$ & $\num{\csvcolvi}$ }%
+   \end{tabular}
+ \end{table}
+
+\subsection{Untersuchung eines Acrylblockes mit dem B-Scan}
+
+Für den B-Scan wird eine $\SI{2}{\mega\hertz}$-Sonde verwendet.
+Die aufgezeichneten Bilder sind in Abbildung \ref{fig:Boben} und \ref{fig:Bunten} dargestellt.
+Aus diesen Bildern werden erneut die Abmessungen der Störstellen berechnet.
+Die abgelesenen und berechneten Daten sind in Tabelle \ref{tab:bscan} zu finden.
+Die Berechnung der Länge in Millimetern und der Dicke erfolgt analog zum A-Scan.
+Die Daten von Loch 10 konnten für die Messung der Unterseite nicht hinreichend aufgeklöst werden.
+Dieser Wert entfällt daher.
+Auch hier muss erneut die Koppelschicht berücksichtigt werden.
+Der Ultraschall benötigt  $\SI{2.58}{\micro\second}$ zum Durchqueren.
+Dies wird aus den Werten herausgerechnet.
+Die Höhe des Blockes wurde für beide Scans zu $\SI{56.23}{\micro\second}$, bzw. $\SI{76.75}{\milli\metre}$ berechnet.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.7\textwidth]{images/bscanoben.png}
+  \caption{Aufzeichnung des B-Scans für die Oberseite des Acrylblockes.}
+  \label{fig:Boben}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.7\textwidth]{images/bscanunten.png}
+  \caption{Aufzeichnung des B-Scans für die Unterseite des Acrylblockes.}
+  \label{fig:Bunten}
+\end{figure}
+
+\begin{table}
+  \centering
+  \caption{Die Messergebnisse für die Vermessung des Acrylblockes mithilfe des B-Scans.}
+  \label{tab:bscan}
+  \begin{tabular}[t]{c c c c c c}
+   \toprule
+    {Nummer} & {$t_\text{oben}$ / $\si{\micro\second}$} & {$l_\text{oben}$ / $\si{\milli\metre}$} & {$t_\text{unten}$ / $\si{\micro\second}$} & {$l_\text{unten}$ / $\si{\milli\metre}$} &  {Dicke / $\si{\milli\metre}$} \\
+     \midrule
+     \csvreader[no head,
+     late after line=\\,
+     late after last line=\\\bottomrule]%
+     {data/bscantab.csv}{}%
      {$\num{\csvcoli}$ & $\num{\csvcolii}$ & $\num{\csvcoliii}$ & $\num{\csvcoliv}$ & $\num{\csvcolv}$ & $\num{\csvcolvi}$ }%
    \end{tabular}
  \end{table}

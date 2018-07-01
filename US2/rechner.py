@@ -37,3 +37,17 @@ dicke = komplettm-(obenm+untenm)
 nummer2 = np.delete(nummer,[2,3,4,5,6,7,8,9,10,11])
 #frequenz = np.array([1,2])
 np.savetxt("data/auflosungtab.csv",np.column_stack([nummer2,oben,obenm,unten,untenm,dicke]),delimiter=",",fmt=["%3.0f","%3.2f","%3.2f","%3.2f","%3.2f","%3.2f"])
+
+#B-Scan
+
+oben, unten = np.genfromtxt("data/bscan.csv",delimiter=",",unpack=True)
+oben = np.delete(oben,[9])
+unten = np.delete(unten,[9])
+oben = oben-2.58
+unten = unten-2.58
+obenm = 1/2*c*oben
+untenm = 1/2*c*unten
+komplettm = 76.75
+dicke = komplettm-(obenm+untenm)
+nummer3 = np.delete(nummer,[9])
+np.savetxt("data/bscantab.csv",np.column_stack([nummer3,oben,obenm,unten,untenm,dicke]),delimiter=",",fmt=["%3.0f","%3.2f","%3.2f","%3.2f","%3.2f","%3.2f"])
