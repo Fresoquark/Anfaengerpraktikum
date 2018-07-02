@@ -192,3 +192,43 @@ zu
   HZV=\SI{1.651\pm0.026}{\litre\per\minute}
 \end{equation*}
 bestimmt.
+\FloatBarrier
+\subsection{Vergleich der bestimmten Dicken}
+\label{sec:vergleich}
+Zur Untersuchung der Genauigkeit der Scanverfahren werden die jeweils durch A- und B-Scan ermittelten Dicken mit den, durch die Schieblehre gemessenen, Referenzdicken verglichen.
+Dies ist in den Tabellen \ref{tab:ascanvgl} und \ref{tab:bscanvgl} dargestellt. Die relative Abweichung berechnet sich dabei wie folgt:
+\begin{equation*}
+  \text{relative Abweichung} \: \widehat{=} \: \Biggl(\frac{D_\text{Scan}}{D_\text{Referenz}}-1 \Biggr)\cdot \SI{100}{\percent}.
+\end{equation*}
+
+\begin{table}
+  \centering
+  \caption{Vergleich der Messwerte des A-Scans mit den Referenzwerten.}
+  \label{tab:ascanvgl}
+  \begin{tabular}[t]{c c c c}
+   \toprule
+    Nummer & $D_\text{Referenz}$ / $\si{\milli\metre}$ & $D_\text{A-Scan}$ / $\si{\milli\metre}$ & relative Abweichung / $\si{\percent}$\\
+     \midrule
+     \csvreader[no head,
+     late after line=\\,
+     late after last line=\\\bottomrule]%
+     {data/ascanvgl.csv}{}%
+     {$\num{\csvcoli}$ & $\num{\csvcolii}$ & $\num{\csvcoliii}$ & $\num{\csvcoliv}$}%
+   \end{tabular}
+ \end{table}
+
+ \begin{table}
+   \centering
+   \caption{Vergleich der Messwerte des B-Scans mit den Referenzwerten.}
+   \label{tab:bscanvgl}
+   \begin{tabular}[t]{c c c c}
+    \toprule
+    Nummer &  $D_\text{Referenz}$ / $\si{\milli\metre}$ & $D_\text{B-Scan}$ / $\si{\milli\metre}$ & relative Abweichung / $\si{\percent}$\\
+      \midrule
+      \csvreader[no head,
+      late after line=\\,
+      late after last line=\\\bottomrule]%
+      {data/bscanvgl.csv}{}%
+      {$\num{\csvcoli}$ & $\num{\csvcolii}$ & $\num{\csvcoliii}$ & $\num{\csvcoliv}$}%
+    \end{tabular}
+  \end{table}

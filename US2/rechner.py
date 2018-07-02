@@ -9,6 +9,7 @@ from scipy.optimize import curve_fit
 
 oben, unten =np.genfromtxt("data/abmessungen.csv",delimiter=",",unpack=True)
 dicke = 80.45-(oben+unten)
+dreal=dicke
 nummer = np.arange(1,12)
 np.savetxt("data/abmessungentab.csv",np.column_stack([nummer,oben,unten,dicke]),delimiter=",",fmt=["%3.0f","%3.2f","%3.2f","%3.2f"])
 
@@ -30,6 +31,7 @@ obenm=obenm-schutzschicht
 untenm= untenm-schutzschicht
 print('komplettm= ', komplettm)
 dicke = komplettm-(obenm+untenm)
+dascan=dicke
 np.savetxt("data/ascantab.csv",np.column_stack([nummer,oben,obenm,unten,untenm,dicke]),delimiter=",",fmt=["%3.0f","%3.2f","%3.2f","%3.2f","%3.2f","%3.2f"])
 
 #Auflösung
@@ -55,8 +57,19 @@ unten = np.delete(unten,[9])
 obenm = (1/2)*c*oben
 untenm = (1/2)*c*unten
 dicke = komplettm-(obenm+untenm)
+dbscan=dicke
 nummer3 = np.delete(nummer,[9])
 np.savetxt("data/bscantab.csv",np.column_stack([nummer3,oben,obenm,unten,untenm,dicke]),delimiter=",",fmt=["%3.0f","%3.2f","%3.2f","%3.2f","%3.2f","%3.2f"])
+
+#Abweichungen und vergleiche
+deltaascan=((dascan/dreal)-1)*100
+deltaascan=np.absolute(deltaascan)
+np.savetxt("data/ascanvgl.csv",np.column_stack([nummer,dreal,dascan,deltaascan]),delimiter=",",fmt=["%3.0f","%3.2f","%3.2f","%3.2f"])
+dreal=np.delete(dreal,[9])
+deltabscan=((dbscan/dreal)-1)*100
+deltabscan=np.absolute(deltabscan)
+np.savetxt("data/bscanvgl.csv",np.column_stack([nummer3,dreal,dbscan,deltabscan]),delimiter=",",fmt=["%3.0f","%3.2f","%3.2f","%3.2f"])
+
 
 #Herz A-Scan
 ruhe=66.96-0.53
