@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 from scipy.optimize import curve_fit
 import scipy.constants as const
 
-rpm,a,b,c=np.genfromtxt("data/mittel.csv",delimiter=",",unpack=True)    # a=15 b=30 c=60
+rpm,a,b,c=np.genfromtxt("data/duenn.csv",delimiter=",",unpack=True)    # a=15 b=30 c=60
 vfluss=(100/9200)*rpm   #Fließgeschwindigkeit in Prozent
 alpha=np.array([80.06,70.53,54.74])
 alpha=np.deg2rad(alpha)
@@ -21,7 +21,7 @@ vmerr=np.array([sem([v15[0],v30[0],v60[0]]),sem([v15[1],v30[1],v60[1]]),sem([v15
 
 
 
-np.savetxt("data/mitteltab.csv",np.column_stack([vfluss,a,v15,b,v30,c,v60,vm,vmerr]),delimiter=",",fmt=["%2.0f","%4.0f","%4.2f","%4.0f","%4.2f","%4.0f","%4.2f","%4.2f","%4.2f"])
+np.savetxt("data/duenntab.csv",np.column_stack([vfluss,a,v15,b,v30,c,v60,vm,vmerr]),delimiter=",",fmt=["%2.0f","%4.0f","%4.2f","%4.0f","%4.2f","%4.0f","%4.2f","%4.2f","%4.2f"])
 
 
 
@@ -37,7 +37,7 @@ plt.legend(loc='best')
 plt.grid()
 # in matplotlibrc leider (noch) nicht möglich
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
-plt.savefig('build/mittel30.pdf')
+plt.savefig('build/duenn30.pdf')
 plt.clf()
 
 yplot=a/np.cos(alpha[0])
@@ -50,7 +50,7 @@ plt.legend(loc='best')
 plt.grid()
 # in matplotlibrc leider (noch) nicht möglich
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
-plt.savefig('build/mittel15.pdf')
+plt.savefig('build/duenn15.pdf')
 plt.clf()
 
 yplot=c/np.cos(alpha[0])
@@ -63,4 +63,4 @@ plt.legend(loc='best')
 plt.grid()
 # in matplotlibrc leider (noch) nicht möglich
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
-plt.savefig('build/mittel60.pdf')
+plt.savefig('build/duenn60.pdf')
