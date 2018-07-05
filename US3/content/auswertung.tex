@@ -1,0 +1,29 @@
+\section{Auswertung}
+\label{sec:Auswertung}
+
+\begin{table}
+  \centering
+  \caption{Messdaten und -ergebnisse für das $\SI{10}{\milli\metre}$-Rohr.}
+  \label{tab:mittel}
+  \sisetup{table-number-alignment=center}
+  \noindent\makebox[\textwidth]{ %Nur zur Zentrierung der sonst zu großen Tabelle
+  \begin{tabular}[t]{c@{} S S S S S S S S}
+   \toprule
+    &{$v_\text{Fluss}$ / $\si{\percent}$}&{${\Delta\nu}_{15}$ / $\si{\hertz}$}&{$v_{15}$ / $\si{\metre\per\second}$}&{${\Delta\nu}_{30}$ / $\si{\hertz}$}&{$v_{30}$ / $\si{\metre\per\second}$}&{${\Delta\nu}_{60}$ / $\si{\hertz}$}&{$v_{60}$ / $\si{\metre\per\second}$}&{$\overline{v}$ / $\si{\metre\per\second}$}\\
+     \midrule
+     \csvreader[no head,
+     late after line=\\,
+     late after last line=\\\bottomrule]%
+     {data/mitteltab.csv}{}%
+     {&$\num{\csvcoli}$ & $\num{\csvcolii}$ & $\num{\csvcoliii}$ & $\num{\csvcoliv}$& $\num{\csvcolv}$& $\num{\csvcolvi}$& $\num{\csvcolvii}$& $\num{\csvcolviii\pm\csvcolix}$}%
+   \end{tabular}
+   }
+ \end{table}
+
+
+\begin{figure}
+  \centering
+  \includegraphics{mittel30.pdf}
+  \caption{Plot.}
+  \label{fig:plot}
+\end{figure}
