@@ -113,12 +113,17 @@ Dies ist in den Abbildungen \ref{fig:duenn30}, \ref{fig:mittel30} und \ref{fig:d
 
 \FloatBarrier
 \subsection{Bestimmung des Geschwindigkeitsprofils in einer Röhre}
+
+Die Messwerte zur Bestimmung des Geschwindigkeitsprofils sind in Tabelle \ref{tab:vprofil} dargestellt.
+Die entsprechenden Plots des Geschwindigkeitsprofils mit entsprechenden Struintensitäten ist für eine Pumpleistung von $\SI{70}{\percent}$ in Abbildung \ref{fig:v1} und für eine Pumpleistung von $\SI{45}{\percent}$ in Abbildung \ref{fig:v2} dargstellt.
+
 \begin{table}
   \centering
   \caption{Messdaten und -ergebnisse für das Geschwindigkeitsprofil des $\SI{10}{\milli\metre}$-Rohr.}
   \label{tab:vprofil}
   \noindent\makebox[\textwidth]{ %Nur zur Zentrierung der sonst zu großen Tabelle
-  \begin{tabular}[t]{c@{} S S S S S S S S}
+  %\begin{tabular}[t]{c@{} S S S S S S S S}
+  \begin{tabular}[t]{c c c c c c c c c}
    \toprule
     &{$t$ / $\si{\micro\second}$}&{$z$ / $\si{\milli\metre}$}&{$\Delta f_{70}$ / $\si{\hertz}$}&{$v_{70}$ / $\si{\metre\per\second}$}&{$I_\text{Streu,70}$ / $\si{\percent}$}&{$\Delta f_{45}$ / $\si{\hertz}$}&{$v_{45}$ / $\si{\metre\per\second}$}&{$I_\text{Streu,45}$ / $\si{\percent}$}\\
      \midrule
@@ -130,3 +135,17 @@ Dies ist in den Abbildungen \ref{fig:duenn30}, \ref{fig:mittel30} und \ref{fig:d
    \end{tabular}
    }
  \end{table}
+
+ \begin{figure}
+   \centering
+   \includegraphics{v1.pdf}
+   \caption{Grafische Darstellung der Daten des Geschwindigkeitsprofils bei einer Pumpleistung von $\SI{70}{\percent}$.}
+   \label{fig:v1}
+ \end{figure}
+
+ \begin{figure}
+   \centering
+   \includegraphics{v2.pdf}
+   \caption{Grafische Darstellung der Daten des Geschwindigkeitsprofils bei einer Pumpleistung von $\SI{45}{\percent}$.}
+   \label{fig:v2}
+ \end{figure}
