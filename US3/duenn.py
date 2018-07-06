@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 from scipy.optimize import curve_fit
 import scipy.constants as const
 
-rpm,a,b,c=np.genfromtxt("data/duenn.csv",delimiter=",",unpack=True)    # a=15 b=30 c=60
+rpm,a,b,c=np.genfromtxt("data/duenn.csv",delimiter=",",unpack=True)    # Winkel a=15 b=30 c=60
 vfluss=(100/9200)*rpm   #Fließgeschwindigkeit in Prozent
 alpha=np.array([80.06,70.53,54.74])
 alpha=np.deg2rad(alpha)
@@ -16,12 +16,30 @@ v15=(a*cl)/(2*nu0*np.cos(alpha[0]))
 v30=(b*cl)/(2*nu0*np.cos(alpha[1]))
 v60=(c*cl)/(2*nu0*np.cos(alpha[2]))
 
+#Test:
+#vm0 = np.mean([v15[0],v30[0],v60[0]])
+#vm1 = np.mean([v15[1],v30[1],v60[1]])
+#vm2 = np.mean([v15[2],v30[2],v60[2]])
+#vm3 = np.mean([v15[3],v30[3],v60[3]])
+#vm4 = np.mean([v15[4],v30[4],v60[4]])
+#
+#vmerr0 = sem([v15[0],v30[0],v60[0]])
+#vmerr1 = sem([v15[1],v30[1],v60[1]])
+#vmerr2 = sem([v15[2],v30[2],v60[2]])
+#vmerr3 = sem([v15[3],v30[3],v60[3]])
+#vmerr4 = sem([v15[4],v30[4],v60[4]])
+#
+#vm=np.array([vm0, vm1, vm2, vm3, vm4])
+#vmerr=np.array([vmerr0, vmerr1, vmerr2, vmerr3, vmerr4])
+#liegt nicht am array!
+
 vm=np.array([np.mean([v15[0],v30[0],v60[0]]),np.mean([v15[1],v30[1],v60[1]]),np.mean([v15[2],v30[2],v60[2]]),np.mean([v15[3],v30[3],v60[3]]),np.mean([v15[4],v30[4],v60[4]])])
 vmerr=np.array([sem([v15[0],v30[0],v60[0]]),sem([v15[1],v30[1],v60[1]]),sem([v15[2],v30[2],v60[2]]),sem([v15[3],v30[3],v60[3]]),sem([v15[4],v30[4],v60[4]])])
 
+print('vm', vm)
+print('vmerr', vmerr)
 
-
-np.savetxt("data/duenntab.csv",np.column_stack([vfluss,a,v15,b,v30,c,v60,vm,vmerr]),delimiter=",",fmt=["%2.0f","%4.0f","%4.2f","%4.0f","%4.2f","%4.0f","%4.2f","%4.2f","%4.2f"])
+np.savetxt("data/duenntab.csv",np.column_stack([vfluss,a,v15,b,v30,c,v60,vm,vmerr]),delimiter=",",fmt=["%2.0f","%4.0f","%4.2f","%4.0f","%4.2f","%4.0f","%4.2f","%4.2f","%1.2f"])
 
 
 

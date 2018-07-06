@@ -19,7 +19,8 @@ v60=(c*cl)/(2*nu0*np.cos(alpha[2]))
 vm=np.array([np.mean([v15[0],v30[0],v60[0]]),np.mean([v15[1],v30[1],v60[1]]),np.mean([v15[2],v30[2],v60[2]]),np.mean([v15[3],v30[3],v60[3]]),np.mean([v15[4],v30[4],v60[4]])])
 vmerr=np.array([sem([v15[0],v30[0],v60[0]]),sem([v15[1],v30[1],v60[1]]),sem([v15[2],v30[2],v60[2]]),sem([v15[3],v30[3],v60[3]]),sem([v15[4],v30[4],v60[4]])])
 
-
+print('vm', vm)
+print('vmerr', vmerr)
 
 np.savetxt("data/mitteltab.csv",np.column_stack([vfluss,a,v15,b,v30,c,v60,vm,vmerr]),delimiter=",",fmt=["%2.0f","%4.0f","%4.2f","%4.0f","%4.2f","%4.0f","%4.2f","%4.2f","%4.2f"])
 
