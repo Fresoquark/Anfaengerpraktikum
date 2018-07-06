@@ -141,3 +141,22 @@ Dies ist in den Abbildungen \ref{fig:mittel15}, \ref{fig:mittel30}, \ref{fig:mit
   \caption{Grafische Darstellung der Daten für das $\SI{16}{\milli\metre}$-Rohr bei einem Winkel von 60°.}
   \label{fig:dick60}
 \end{figure}
+\FloatBarrier
+\subsection{Bestimmung des Geschwindigkeitsprofils in einer Röhre}
+\begin{table}
+  \centering
+  \caption{Messdaten und -ergebnisse für das Geschwindigkeitsprofil des $\SI{10}{\milli\metre}$-Rohr.}
+  \label{tab:vprofil}
+  \noindent\makebox[\textwidth]{ %Nur zur Zentrierung der sonst zu großen Tabelle
+  \begin{tabular}[t]{c@{} S S S S S S S S}
+   \toprule
+    &{$t$ / $\si{\micro\second}$}&{$z$ / $\si{\milli\metre}$}&{$\Delta f_{70}$ / $\si{\hertz}$}&{$v_{70}$ / $\si{\metre\per\second}$}&{$I_\text{Streu,70}$ / $\si{\percent}$}&{$\Delta f_{45}$ / $\si{\hertz}$}&{$v_{45}$ / $\si{\metre\per\second}$}&{$I_\text{Streu,45}$ / $\si{\percent}$}\\
+     \midrule
+     \csvreader[no head,
+     late after line=\\,
+     late after last line=\\\bottomrule]%
+     {data/vprofiltab.csv}{}%
+     {&$\num{\csvcoli}$ & $\num{\csvcolii}$ & $\num{\csvcoliii}$ & $\num{\csvcoliv}$& $\num{\csvcolv}$& $\num{\csvcolvi}$& $\num{\csvcolvii}$& $\num{\csvcolviii}$}%
+   \end{tabular}
+   }
+ \end{table}

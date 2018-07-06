@@ -17,10 +17,13 @@ build/duenn30.pdf: duenn.py data/duenn.csv matplotlibrc header-matplotlib.tex | 
 	TEXINPUTS="$(call translate,$(pwd):)" python duenn.py
 build/dick30.pdf: dick.py data/dick.csv matplotlibrc header-matplotlib.tex | build
 	TEXINPUTS="$(call translate,$(pwd):)" python dick.py
+build/v1.pdf: vprofil.py data/vprofil.csv matplotlibrc header-matplotlib.tex | build
+	TEXINPUTS="$(call translate,$(pwd):)" python vprofil.py
 # hier weitere Abhängigkeiten für build/main.pdf deklarieren:
 build/main.pdf: build/mittel30.pdf
 build/main.pdf: build/duenn30.pdf
 build/main.pdf: build/dick30.pdf
+build/main.pdf: build/v1.pdf
 
 build/main.pdf: FORCE | build
 	  TEXINPUTS="$(call translate,build:)" \
