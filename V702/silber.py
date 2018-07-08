@@ -149,3 +149,18 @@ plt.xlabel(r"t / $\si{\second}$")
 plt.ylabel(r'ln(N)') #Achsenbeschriftung zu lang und ln() immer ohne Einheit
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
 plt.savefig('build/silberf.pdf')
+
+#Silbertestexpo
+plt.gcf().clear()
+plt.grid()
+
+summe2 = expol+expok
+
+plt.errorbar(t, N, yerr=Nerr, fmt='.k', label='Messdaten')
+plt.plot(tfit, summe2, color='tab:red', label='Summenkurve')
+
+plt.legend(loc="best")
+plt.xlabel(r"t / $\si{\second}$")
+plt.ylabel(r'N') #Achsenbeschriftung zu lang und ln() immer ohne Einheit
+plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
+plt.savefig('build/silberftest.pdf')
