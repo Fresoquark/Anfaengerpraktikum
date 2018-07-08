@@ -129,9 +129,12 @@ t3fit=np.delete(t,[kurz2])
 tfit=np.arange(10,430,1)
 
 #Summenkurve
-expol = 3.40*np.exp(0.005*tfit)
-expok = 5.43*np.exp(0.026*tfit)
+expol = 3.40*np.exp(-0.005*tfit)
+expok = 5.43*np.exp(-0.026*tfit)
+#expol = params[1]*np.exp(params[0]*tfit)
+#expok = params2[1]*np.exp(params2[0]*tfit)
 summe = np.log(expol + expok)
+#summe = np.log(np.exp(-0.005*tfit)+np.exp(-0.026*tfit)) + np.log(3.40+5.43)
 
 
 

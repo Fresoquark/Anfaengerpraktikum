@@ -9,12 +9,13 @@ N=np.genfromtxt("data/indium.csv",delimiter=",",unpack=True)
 t=np.arange(1,16,1)
 t=t*240
 null=223/900*240
-nullerr=np.sqrt(null)
+#nullerr=np.sqrt(null)
 N0=N
 Nerr=np.sqrt(N)
 N0err=Nerr
 N=N-null
-Nerr=Nerr-nullerr
+#Nerr=Nerr-nullerr
+Nerr = np.sqrt(N)
 lnN=np.log(N)
 lnNerroben=np.log(N+Nerr)-np.log(N)
 lnNerrunten=np.log(N)-np.log(N-Nerr)
