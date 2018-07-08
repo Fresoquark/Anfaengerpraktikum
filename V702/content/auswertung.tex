@@ -4,7 +4,7 @@
 \subsection{Halbwertszeiten von Silber-108 und Silber-110}
 \label{sec:Silberhalbwertszeit}
 
-Aus den Messdaten wird jetzt die Halbwertszeit der zwei Silberisotope berechnet.
+Aus den Messdaten wird die Halbwertszeit der zwei Silberisotope berechnet.
 Die Probe besteht aus den zwei Isotopen $\ce{^{108}Ag}$ und $\ce{^{110}Ag}$.
 $\ce{^{110}Ag}$ zerfällt wesentlich schneller als $\ce{^{108}Ag}$.
 Dies stellt ein Problem dar, da beide Zerfallsprozesse simultan ablaufen, wie in der Theorie \ref{sec:Theorie} beschrieben.
@@ -12,33 +12,22 @@ Aus den gewonnenen Messdaten müssen somit die beiden Zerfallsprozesse separiert
 
 Die Messwerte befinden sich in Tabelle \ref{tab:silber}.
 $N_0$ stellt die ursprünglich gemessene Aktivität im Zeitintervall $\Delta t = \SI{10}{\second}$ dar.
-Die Fehler berechnen sich nach dem Fehler einer Poisson-Verteilung:
-
-\begin{equation}
-  \Delta N = \sqrt{N}
-  \label{eqn:Poisson}
-\end{equation}
-
-Für die echte Aktivität wird der Nulleffekt mitsamt Fehler subtrahiert.
-Der Nulleffekt wird mit $N_\text{Nulleffekt} = 223$ Counts innerhalb von $\SI{900}{\second}$ gemessen.
-Es wird also bei einem Zeitintervall von $\SI{10}{\second}$ konstant eine Aktivität von $2.5\pm1.6$ von $N_0$ subtrahiert.
-Der Fehler von $N_0$ ergibt sich nach der selben Gleichung \eqref{eqn:Poisson}.
+Für die echte Aktivität wird der Nulleffekt subtrahiert.
 
 \begin{equation}
   N = N_0 - N_{\text{Nulleffekt}}
   \label{eqn:nulleffekt}
 \end{equation}
 
-Die Fehler können einfach subtrahiert werden:
+Der Nulleffekt wird mit $N_\text{Nulleffekt} = 223$ Counts innerhalb von $\SI{900}{\second}$ gemessen.
+Es wird also bei einem Zeitintervall von $\SI{10}{\second}$ konstant eine Aktivität von $2.5$ von $N_0$ subtrahiert.
+Die Fehler berechnen sich nach dem Fehler einer Poisson-Verteilung:
 
-\begin{gather}
-    \Delta N = \frac{\partial N}{\partial N_0} \cdot \Delta N_0 + \frac{\partial N}{\partial N_{\text{Nulleffekt}}} \cdot \Delta N_{\text{Nulleffekt}} \\
-    \Delta N = \Delta N_0 - \Delta N_{\text{Nulleffekt}}
-    \label{eqn:nfehler}
-\end{gather}
+\begin{equation}
+  \Delta N = \sqrt{N}.
+  \label{eqn:Poisson}
+\end{equation}
 
-
-Dies ergibt $N$.
 Es handelt sich um eine halblogarithmische Ausgleichsrechnung, somit werden die Werte für $N$ noch logarithmiert.
 Die entsprechenden logarithmischen Fehler von $N$ ergeben sich nach
 
@@ -102,7 +91,7 @@ Würde lediglich eine Ausgleichsrechnung durch die vorliegenden $N$ durchgeführ
 Es werden somit von den vorliegenden $N$ die Werte $N_{\Delta t, l}$ des langlebigen Zerfalls abgezogen.
 Dafür werden die $t \leq t^*$ in die Gleichung \eqref{eqn:Zerfallskonstante} für den langlebigen Zerfall eingesetzt.
 \newpage
-Die entsprechenden Parameter wurden oben gefittet.
+Die entsprechenden Parameter werden analog zu der vorherigen Ausgleichsrechnung gefittet.
 Der entsprechende Plot ist in Abbildung \ref{fig:silbertres} dargestellt.
 Die berechneten Werte für die Ausgleichsrechnung können in Tabelle \ref{tab:silber3} gefunden werden.
 Es ergibt sich dann für die Parameter der Ausgleichsfunktion:
@@ -148,16 +137,16 @@ Die Fehler berechnen sich nach der klassischen Fehlerfortpflanzung.
 Es ergibt sich daher:
 
 \begin{align}
-  T(\lambda) &= \frac{\ln(2)}{\lambda} \Rightarrow \Delta T = \ln(2) \cdot \Delta \lambda \label{eqn:deltaT}\\
-  \Delta T_l &= \pm 0.0007 \notag\\
-  \Delta T_K &= \pm 0.0014 \notag
+  T(\lambda) &= \frac{\ln(2)}{\lambda} \Rightarrow \Delta T = \frac{\ln(2)}{\lambda^2} \cdot \Delta \lambda \label{eqn:deltaT}\\
+  \Delta T_l &= \pm 27.73 \notag\\
+  \Delta T_K &= \pm 2.05 \notag
 \end{align}
 
 und für die Halbwertszeit:
 
 \begin{align*}
-  T_l = \SI{138.63 \pm 0.0007}{\second} \\
-  T_k = \SI{26.66 \pm 0.0014}{\second}
+  T_l = \SI{138.63 \pm 27.73}{\second} \\
+  T_k = \SI{26.66 \pm 2.05}{\second}
 \end{align*}
 \subsection{Halbwertszeit von Indium-116}
 Die Messdaten sowie die nach \eqref{eqn:Poisson},\eqref{eqn:nulleffekt}, \eqref{eqn:nfehler}, \eqref{eqn:oben} und \eqref{eqn:unten} berechneten Werte und Fehler befinden sich in

@@ -9,12 +9,14 @@ N=np.genfromtxt("data/silber.csv",delimiter=",",unpack=True)
 t=np.arange(1,43,1)
 t=t*10
 null=223/900*10
-nullerr=np.sqrt(null)
+#nullerr=np.sqrt(null)
+#nullerr=np.sqrt(223)/900*10
 N0=N
 Nerr=np.sqrt(N)
 N0err=Nerr
 N=N-null
-Nerr=Nerr-nullerr
+#Nerr=Nerr-nullerr
+Nerr = np.sqrt(N)
 lnN=np.log(N)
 lnNerroben=np.log(N+Nerr)-np.log(N)
 lnNerrunten=np.log(N)-np.log(N-Nerr)
@@ -124,9 +126,18 @@ lang2 = np.arange(0,7,1)
 t2fit=np.delete(t,[lang2])
 kurz2 = np.arange(13,43,1)
 t3fit=np.delete(t,[kurz2])
+tfit=np.arange(10,430,1)
+
+#Summenkurve
+expol = 3.40*np.exp(0.005*tfit)
+expok = 5.43*np.exp(0.026*tfit)
+summe = np.log(expol + expok)
+
+
 
 plt.grid()
 plt.errorbar(t, lnN, yerr=lnNerr, fmt='.k', label='Messdaten')
+plt.plot(tfit, summe, color='tab:red', label='Summenkurve')
 plt.plot(t3fit, f(t3fit, *params2), color='tab:orange', label='Kurzlebiger Fit')
 plt.plot(t2fit, f(t2fit, *params), color='tab:blue', label='Langlebiger Fit')
 #plt.plot(d, cts, 'k.', label="Messdaten", ms=2.5)
