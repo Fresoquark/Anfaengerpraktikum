@@ -87,7 +87,7 @@ berechnet. Die Ergebnisse sind in den Tabellen  \ref{tab:duenn}, \ref{tab:mittel
      }
    \end{table}
 
-Nun wird für jeden Dopplerwinkel bei jedem Rohr $\Delta\nu/\cos(\alpha)$ gegen $v$ aufgetragen.
+Nun wird für einen Primsenwinkel von $\SI{30}{\degree}$ bei jedem Rohr $\Delta\nu/\cos(\alpha)$ gegen $v$ aufgetragen.
 Dies ist in den Abbildungen \ref{fig:duenn30}, \ref{fig:mittel30} und \ref{fig:dick30} dargestellt.
 
 \begin{figure}
@@ -115,6 +115,11 @@ Dies ist in den Abbildungen \ref{fig:duenn30}, \ref{fig:mittel30} und \ref{fig:d
 \subsection{Bestimmung des Geschwindigkeitsprofils in einer Röhre}
 
 Die Messwerte zur Bestimmung des Geschwindigkeitsprofils sind in Tabelle \ref{tab:vprofil} dargestellt.
+Die Geschwindigkeiten wurden mit Gleichung \eqref{eqn:geschwindigkeit} berechnet.
+Die Tiefe im Rohr $z$ wird mit den aus \cite{sample} entnommenen Umrechnungen zwischen $\si{\micro\second}$ und $\si{\milli\metre}$, sowie der Vorlaufstrecke im Prisma von $\SI{30.7}{\milli\metre}$ durch folgende Formel bestimmt:
+\begin{equation}
+  z= \frac{3}{2} \cdot \bigl(t-30,7\cdot\frac{2}{5}\bigr) .
+\end{equation}
 Die entsprechenden Plots des Geschwindigkeitsprofils mit entsprechenden Streuintensitäten ist für eine Pumpleistung von $\SI{70}{\percent}$ in Abbildung \ref{fig:v1} und für eine Pumpleistung von $\SI{45}{\percent}$ in Abbildung \ref{fig:v2} dargstellt.
 
 \begin{table}
@@ -131,7 +136,7 @@ Die entsprechenden Plots des Geschwindigkeitsprofils mit entsprechenden Streuint
      late after line=\\,
      late after last line=\\\bottomrule]%
      {data/vprofiltab.csv}{}%
-     {&$\num{\csvcoli}$ & $\num{\csvcolii}$ & $\num{\csvcoliii}$ & $\num{\csvcoliv}$& $\num{\csvcolv}$& $\num{\csvcolvi}$& $\num{\csvcolvii}$& $\num{\csvcolviii}$}%
+     {&$\num{\csvcoli}$ & $\tablenum{\csvcolii}$ & $\num{\csvcoliii}$ & $\num{\csvcoliv}$& $\tablenum{\csvcolv}$& $\num{\csvcolvi}$& $\num{\csvcolvii}$& $\tablenum{\csvcolviii}$}%
    \end{tabular}
    }
  \end{table}

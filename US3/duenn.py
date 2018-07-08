@@ -45,7 +45,7 @@ np.savetxt("data/duenntab.csv",np.column_stack([vfluss,a,v15,b,v30,c,v60,vm,vmer
 
 
 
-yplot=b/np.cos(alpha[0])
+yplot=b/np.cos(alpha[1])
 
 plt.plot(v30, yplot, 'k.', label="Daten", ms=2.5)
 
@@ -71,7 +71,7 @@ plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
 plt.savefig('build/duenn15.pdf')
 plt.clf()
 
-yplot=c/np.cos(alpha[0])
+yplot=c/np.cos(alpha[2])
 
 plt.plot(v60, yplot, 'k.', label="Daten", ms=2.5)
 
