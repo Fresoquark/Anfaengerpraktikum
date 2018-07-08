@@ -20,7 +20,7 @@ Nerr = np.sqrt(N)
 lnN=np.log(N)
 lnNerroben=np.log(N+Nerr)-np.log(N)
 lnNerrunten=np.log(N)-np.log(N-Nerr)
-lnNerr=np.stack((lnNerroben,lnNerrunten))
+lnNerr=np.stack((lnNerrunten,lnNerroben))
 
 #np.savetxt("data/silbertab.csv",np.column_stack([t,N0,N0err,N,Nerr,lnN,lnNerroben,lnNerrunten]),delimiter=",",fmt=["%3.0f","%3.0f","%2.1f","%3.0f","%2.1f","%1.3f","%1.3f","%1.3f"])
 np.savetxt("data/silbtab.csv",np.column_stack([t,N0,N0err,N,Nerr,lnN,lnNerroben,lnNerrunten]),delimiter=",",fmt=["%4.0f","%4.0f","%4.1f","%4.1f","%2.1f","%4.3f","%4.3f","%4.3f"])
@@ -51,7 +51,7 @@ lang = np.arange(0,10,1)
 lnN2=np.delete(lnN,[lang])
 lnN2erroben=np.delete(lnNerroben,[lang]) #ist unnötig
 lnN2errunten=np.delete(lnNerroben,[lang]) #ist unnötig
-lnN2err=np.stack((lnN2erroben,lnN2errunten)) #ist unnötig
+lnN2err=np.stack((lnN2errunten,lnN2erroben)) #ist unnötig
 t2 = np.delete(t, [lang])
 
 def f(x, a, b):
@@ -95,7 +95,7 @@ lnKDifferr=np.stack((lnKDifferroben,lnKDifferrunten))
 
 lnN3erroben=np.delete(lnNerroben, [kurz])
 lnN3errunten=np.delete(lnNerrunten, [kurz])
-lnN3err=np.stack((lnN3erroben,lnN3errunten))
+lnN3err=np.stack((lnN3errunten,lnN3erroben))
 
 np.savetxt("data/Kurztab.csv",np.column_stack([t3,N3,N3err,Nl,Nlerr, KDiff, KDifferr, lnKDiff,lnKDifferroben,lnKDifferrunten]),delimiter=",",fmt=["%4.0f","%4.0f","%4.1f","%4.1f","%3.1f","%3.1f","%3.1f","%4.3f","%4.3f","%4.3f"])
 

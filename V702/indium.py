@@ -19,7 +19,7 @@ Nerr = np.sqrt(N)
 lnN=np.log(N)
 lnNerroben=np.log(N+Nerr)-np.log(N)
 lnNerrunten=np.log(N)-np.log(N-Nerr)
-lnNerr=np.stack((lnNerroben,lnNerrunten))
+lnNerr=np.stack((lnNerrunten,lnNerroben))
 
 
 np.savetxt("data/indtab.csv",np.column_stack([t,N0,N0err,N,Nerr,lnN,lnNerroben,lnNerrunten]),delimiter=",",fmt=["%4.0f","%4.0f","%4.0f","%4.0f","%2.0f","%4.3f","%4.3f","%4.3f"])
